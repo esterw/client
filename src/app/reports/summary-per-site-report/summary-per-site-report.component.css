@@ -1,0 +1,158 @@
+table.data-table thead tr {
+  background-color: #b7b7b7 !important;
+  color: #6e6c6c;
+  width: 1170px;
+  height: 44px;
+  font-family: Roboto;
+  color: #363636;
+  font-size: 14px;
+  font-weight: 900;
+  line-height: 24px;
+  border-top: 1px solid white !important;
+  border-right: 1px solid white !important;
+  border-left: 1px solid white !important;
+  border-bottom: 0.5px solid white !important;
+}
+
+table.data-table tbody tr {
+  font-family: Roboto;
+  color: #363636;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 24px;
+  border-top: 1px solid white !important;
+  border-right: 1px solid white !important;
+  border-left: 1px solid white !important;
+  border-bottom: 0.5px solid white !important;
+  width: 1170px !important;
+  height: 40px !important;
+}
+
+table.data-table tbody tr:nth-of-type(even) {
+  background-color: #e8e8e8 !important;
+}
+
+table.data-table tbody tr:nth-of-type(odd) {
+  background-color: white !important;
+}
+
+/* select, .select-date {
+    border-radius: 2px;
+    border-width: 1px;
+    border-color:  #363636;
+    border-style: solid;
+    background-color:  #ffffff;
+    width: 154px;
+    height: 30px;
+    margin-left: 15px;
+    -webkit-appearance: none;
+    background: url('../../../assets/modals/arrow-down.png')no-repeat white; 
+    background-position: 131px 12px;
+    padding: 0px 20px 0 10px;
+    box-shadow:none;
+} */
+
+select.product-select {
+  background-position: 126px 12px !important;
+}
+
+select {
+  border-radius: 2px;
+  border-width: 1px;
+  border-color: #363636;
+  border-style: solid;
+  background-color: #ffffff;
+  width: 50%;
+  max-width: 180px;
+  height: 30px;
+  /* -webkit-appearance: none; 
+  background: url('../../../assets/modals/arrow-down.png')no-repeat white;*/
+  background-position: 131px 12px;
+  padding: 0px 20px 0 10px;
+}
+
+.profi {
+  background-color: #e8e8e8;
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 40px;
+  display: grid;
+  grid-template-columns: 40% 60%;
+}
+
+.btn-find,
+.btn-reset {
+  margin-right: 5px
+}
+
+.btn-find {
+  border-radius: 2px;
+  background-color: #f6c31f;
+  width: calc(25% - 5px);
+  height: 30px;
+  font-family: Roboto;
+  color: #363636;
+  font-size: 14px;
+  line-height: 24px;
+  float: right;
+}
+
+.btn-find:hover {
+  background-color: #f6a01f;
+}
+
+.btn-reset {
+  border-radius: 2px;
+  background-color: #363636;
+  width: calc(25% - 5px);
+  height: 30px;
+  font-family: Roboto;
+  color: #ffffff;
+  font-size: 14px;
+  line-height: 24px;
+  float: right;
+}
+
+.btn-reset:hover {
+  background-color: #5f5f5f;
+}
+
+.custom-day {
+  text-align: center;
+  padding: 0.185rem 0.25rem;
+  display: inline-block;
+  height: 2rem;
+  width: 2rem;
+}
+
+.custom-day.focused {
+  background-color: #e6e6e6;
+}
+
+.custom-day.range,
+.custom-day:hover {
+  background-color: rgb(2, 117, 216);
+  color: white;
+}
+
+.custom-day.faded {
+  background-color: rgba(2, 117, 216, 0.5);
+}
+
+.profitText {
+  font-family: Roboto;
+  color: #363636;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 24px;
+}
+
+@media screen and (min-width: 100px) and (max-width: 699px) {
+  .profi {
+    display: grid;
+    grid-template-columns: 100%;
+  }
+  .profitText {
+    margin-bottom: 10px;
+  }
+}

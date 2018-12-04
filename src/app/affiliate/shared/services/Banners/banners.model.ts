@@ -1,0 +1,20 @@
+export class Banner{
+    public Id: number;
+    public FromDate: Date;
+    public TillDate: Date;
+    public Name: string;
+    public Group: string;
+    public Platform: string;
+    public Visibility: string;
+    public HTML: string;
+    public Tags: string;
+    public Subtitle1: string;
+    public Subtitle2: string;
+    public Subtitle3: string;
+    public Subtitle4: string;
+    public Subtitle5: string;
+    public Title: string;
+    public TextOnButton: string;
+    public ImgSrc: string;
+    public Active: boolean;
+}

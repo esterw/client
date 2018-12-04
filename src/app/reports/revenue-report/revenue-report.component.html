@@ -1,0 +1,54 @@
+<div class="profi">
+  <span class="prof-title profitText">Profit at {{selectedDate| date:'MMMM yyyy'}}</span>
+
+  <div>
+    <!--<select class="prof-dropd" #selectDate="ngModel" [(ngModel)]="selectedDate" name="date" class="float-right">
+      <option *ngFor="let date of dates" [value]="date">{{date | date:'MMMM yyyy'}}</option>
+
+    </select>-->
+    <input type="text" [bsConfig]="bsConfig"
+    placeholder="Select a Date Range"
+    [(bsValue)]="daterangepickerModel" 
+    class="ng-date-picker"
+    bsDaterangepicker
+    #dp="bsDaterangepicker"
+    >
+    <button class="btn btn-sm" (click)="dp.show() "><i class="far fa-calendar-alt"></i></button>    
+    <button class="btn btn-find" (click)="find()">
+      <i class="fa fa-search" aria-hidden="true"></i> Find</button>
+    <button class="btn btn-reset  float-right" (click)="reset()">
+      <i class="fa fa-eraser" aria-hidden="true"></i> Reset</button>
+  </div>
+
+
+
+
+
+</div>
+<div class="tabl">
+  <table class="table data-table" *ngIf="RevenueReport">
+    <thead>
+      <tr>
+        <td>Date</td>
+        <td>Visits</td>
+        <td>Registrations</td>
+        <td>Deposits</td>
+        <td>Amount of Deposit, EUR</td>
+        <td>Turnover, EUR</td>
+        <td>Profit, EUR</td>
+      </tr>
+    </thead>
+    <tbody>
+      <!--| TextFilterPipe:selectDate:selectedDate-->
+      <tr *ngFor="let RevenueReport of filteredData ">
+        <td>{{RevenueReport.AffiliateDate | date:'dd/MM/yyyy'}}</td>
+        <td>{{RevenueReport.Visits}}</td>
+        <td>{{RevenueReport.Registrations}}</td>
+        <td>{{RevenueReport.Deposits }}</td>
+        <td>0.00</td>
+        <td>{{RevenueReport.TurnOver}}</td>
+        <td>{{RevenueReport.Profit}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

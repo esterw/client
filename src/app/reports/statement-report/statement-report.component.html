@@ -1,0 +1,64 @@
+<div class="profi">
+  <span class="prof-title profitText">Account at {{selectedDate| date:'MMMM yyyy'}}</span>
+  <div class="">
+
+    <!--<select class="prof-dropd" #selectDate="ngModel" [(ngModel)]="selectedDate" name="date" class="float-right">
+      <option *ngFor="let date of dates" [value]="date">{{date | date:'MMMM yyyy'}}</option>
+    </select>-->
+
+ <input type="text" [bsConfig]="bsConfig"
+    placeholder="Select a Date Range"
+    [(bsValue)]="daterangepickerModel" 
+    class="ng-date-picker" #dp="bsDaterangepicker"
+    bsDaterangepicker
+    >
+    <button class="btn btn-sm" (click)="dp.show() "><i class="far fa-calendar-alt"></i></button>
+    <button class="btn btn-find" (click)="find()">
+      <i class="fa fa-search" aria-hidden="true"></i> Find</button>
+    <button class="btn btn-reset  float-right" (click)="reset()">
+      <i class="fa fa-eraser" aria-hidden="true"></i> Reset</button>
+  </div>
+</div>
+
+
+<div class="div  d-flex justify-content-end">
+  <div class="start-end-balance">
+    <span> Start Balance </span>
+    <span class="float-right">EUR ?</span>
+  </div>
+</div>
+
+<div class="tabl">
+  <table class="table data-table">
+    <thead>
+      <tr>
+        <td>#</td>
+        <td>Date</td>
+        <td>User ID</td>
+        <td>Transaction</td>
+        <td>Amount</td>
+        <td>Commissions</td>
+        <td>Plan</td>
+        <td>Balance</td>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let AffiliateAccount of filteredData">
+        <td>{{AffiliateAccount.Id}}</td>
+        <td>{{AffiliateAccount.AccountDate | date:'dd/MM/yy'}}</td>
+        <td>User ID</td>
+        <td>{{AffiliateAccount.Transaction}}</td>
+        <td>{{AffiliateAccount.Amount }}</td>
+        <td>Commissions</td>
+        <td>Plan</td>
+        <td>{{AffiliateAccount.Balance}}</td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="div  d-flex justify-content-end">
+    <div class="start-end-balance">
+      <span>End Balance</span>
+      <span class="float-right">EUR ?</span>
+    </div>
+  </div>
+</div>

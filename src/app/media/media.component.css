@@ -1,0 +1,59 @@
+.linkP {
+  background-color: #e8e8e8;
+  height: 48px;
+}
+
+.PTitle {
+  font-family: Roboto;
+  color: #000000;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 48px;
+  text-align: left;
+  padding-left: 20px;
+}
+
+.btn-group {
+  display: grid;
+  grid-template-columns: 50% 50%;
+}
+
+.btn-group-filter {
+  font-family: 'Roboto';
+  color: #363636 !important;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 49px;
+  text-align: center;
+  background-color: #e8e8e8 !important;
+  outline: 1px solid #b5b5b5;
+  height: 52px;
+  padding: 0;
+  border-radius: 0;
+  margin-left: 0 !important;
+}
+
+.btn:hover {
+  background-color: #b3b3b3 !important;
+}
+
+.btn-group-filter > hr {
+  width: 0;
+  border: 1px solid #f6c31f;
+  border-radius: 2px;
+  text-align: center;
+  padding: 0;
+  margin: 0 auto;
+  opacity: 0;
+}
+
+.btn-group-filter.active {
+  background-color: #363636 !important;
+  color: #ffffff !important;
+  text-decoration: none !important;
+}
+
+.btn-group-filter.active > hr {
+  width: 96%;
+  opacity: 1;
+}

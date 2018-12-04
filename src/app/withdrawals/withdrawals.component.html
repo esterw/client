@@ -1,0 +1,32 @@
+<div class="linkP">
+  <span class="PTitle">WITHDRAWALS</span>
+    <app-affiliate-link></app-affiliate-link>
+</div>
+<button id="new" class="btn" (click)="openModal()">New withdraw</button>
+
+<br>
+
+<div class="tabl">
+  <table class="table data-table">
+    <thead>
+      <tr>
+        <td>Created</td>
+        <td>Amount, EUR</td>
+        <!-- <td>Amount in payout currency, EUR</td>-->
+        <td>Balance after payout, EUR</td>
+        <td>Status</td>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let WithdrawlHistory of WithdrawlHistories">
+        <td>{{WithdrawlHistory.RequestDate | date:'dd/MM/yy'}}</td>
+        <td>{{WithdrawlHistory.Amount}}</td>
+        <!--  <td>{{WithdrawlHistory.AmountPayout }}</td>-->
+        <td>{{WithdrawlHistory.BalanceAfterPayout}}</td>
+        <td>{{WithdrawlHistory.Status}}</td>
+      </tr>
+    </tbody>
+  </table>
+
+
+</div>

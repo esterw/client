@@ -1,0 +1,147 @@
+<div class="footer">
+
+  <div class="aboutDiv">
+    <div class="contentPage justify-content-center" style="padding-bottom: 40px">
+      <div class="justify-content-center">
+        <div class="backgrnd" *ngIf="content">
+          <p class="aboutTitle">{{content.Title}}</p>
+          <p class="aboutContent" [innerHtml]="content.ContentHtml">
+
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="companiesDiv">
+      <div class="contentPage">
+        <div class="row justify-content-center ">
+          <div class="backgrnd d-flex align-content-center flex-wrap justify-content-center">
+            <div>
+              <img class="companyImg " src="../../../../assets/Img/netent.png" id="netent" />
+              <img class="companyImg" src="../assets/Img/endorphina.png" id="endorphina" />
+              <img class="companyImg" src="../assets/Img/gameart.png" id="gameart" />
+              <img class="companyImg" src="../assets/Img/betsoft.png" id="betsoft" />
+              <img class="companyImg" src="../assets/Img/pariplay.png" id="pariplay" />
+              <img class="companyImg smCmpImg" src="../assets/Img/betgames.png" id="betgames" />
+            </div>
+
+            <div>
+              <a>
+                <img class="companyImg" src="../assets/Img/Visa.png" id="Visa" />
+              </a>
+              <a>
+                <img class="companyImg" src="../assets/Img/mastercard.png" id="mastercard" />
+              </a>
+              <a>
+                <img class="companyImg" src="../assets/Img/neteller.png" id="neteller" />
+              </a>
+              <a>
+                <img class="companyImg" src="../assets/Img/Skrill.png" id="Skrill" />
+              </a>
+              <a>
+                <img class="companyImg smCmpImg" src="../assets/Img/qiwi.png" id="qiwi" />
+              </a>
+              <a>
+                <img class="companyImg smCmpImg" src="../assets/Img/Paysafecard.png" id="Paysafecard" />
+              </a>
+              <a>
+                <img class="companyImg smCmpImg" src="../assets/Img/ecovoucher.png" id="ecovoucher" />
+              </a>
+            </div>
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="contactDiv">
+      <div class="contentPage">
+        <div class="row justify-content-center footerLinks">
+          <a  class="links" (click)="openAboutUsPopup()">About Us</a>
+          <a class="links" href="http://play24bet.com/#/casino/promotions" target="_blank">Promotions</a>
+          <a href="http://blog.play24bet.com" target="_blank" class="links">Blog</a>
+          <a class="links" href="http://play24bet.com/#/affiliate" target="_blank">Affiliates</a>
+          <a class="links" (click)="openCookiePolicyPopup()">Cookie Policy</a>
+          <a class="links" (click)="openPrivacyPolicyPopup()">Privacy Policy</a>
+          <a class="links" (click)="openTermsConditionsPopup()">Terms & Conditions</a>
+          <a class="links" (click)="openResponsibleGamingPopup()">Responsible Gaming</a>
+          <a href="http://play24bet.com/#/support" target="_blank" class="links">Contact Us</a>
+
+        </div>
+        <div class="col-sm-12 text-center col-11 toHide1190 toShow768  justify-content-center">
+          <div class="row text-center justify-content-center">
+            <div class="cantact" style="margin-bottom: 1vw !important">
+              <p> Tel:+61388205676 (AUI), +643288032 (NZ)</p>
+              <p>
+                Email:support@play24bet.com
+              </p>
+              <P>
+                Skype: support@play24bet.com
+              </P>
+            </div>
+          </div>
+        </div>
+
+        <div class="justify-content-center">
+          <div class="row text-center">
+            <div class="col-1">
+              <img class="cetiImg" src="../assets/Img/logoCertificy.png" alt="">
+            </div>
+            <div *ngIf="PrivacyContent" class="col-lg-9 col-sm-10 col-md-6">
+              <p class="certificyContent" style="margin-bottom: 1vw !important" [innerHtml]="PrivacyContent.ContentHtml">
+
+              </p>
+              <p class="certificyContent">{{PrivacyContent.Descp}}</p>
+            </div>
+            <div class="col-sm-3 col-xs-3 toHide768 col-lg-2">
+              <div class="aboutContent" style="margin-bottom: 1vw !important">
+                <p> Tel:+61388205676 (AUI), +643288032 (NZ)</p>
+                <p>
+                  Email:support@play24bet.com
+                </p>
+                <P>
+                  Skype: support@play24bet.com
+                </P>
+              </div>
+              <p class="aboutContent">
+                <a href="https://www.facebook.com/johnathan.kon.7">
+                  <i class="fab fa-facebook faFooter"></i>
+                </a>
+                <a href="https://twitter.com/MoneyFly24">
+                  <i class="fab fa-twitter faFooter" aria-hidden="true"></i>
+                </a>
+                <a href="">
+                  <i class="fab fa-instagram faFooter" aria-hidden="true"></i>
+                </a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+<div class="modal fade" id="cookiesModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <app-cookie-policy-popup></app-cookie-policy-popup>
+</div>
+
+<div class="modal fade" id="aboutUsModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <app-about-us-popup></app-about-us-popup>
+</div>
+
+<div class="modal fade" id="PrivacyModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <app-privacy-policy-popup></app-privacy-policy-popup>
+</div>
+<div class="modal fade" id="responsibleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <app-responsible-gaming-popup></app-responsible-gaming-popup>
+</div>
+
+<div class="modal fade" id="termsModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <app-terms-and-conditions-popup></app-terms-and-conditions-popup>
+</div>

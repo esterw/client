@@ -1,0 +1,94 @@
+.cardsDiv {
+  /* padding: 56px; */
+  padding: 50px 0;
+  max-width: 1100px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.card {
+  /* margin-right: 20px; */
+}
+
+.card-box {
+  border-radius: 2px;
+  background-color: #191919;
+  min-height: 414px;
+  border: none !important;
+  display: inline-block;
+  max-width: 260px;
+  margin: 0 auto;
+  margin-right: 10px;
+  text-align: left;
+  vertical-align: middle;
+}
+
+.btn-join {
+  border-radius: 2px;
+  background-color: #f6c31f;
+  width: 100%;
+  max-width: calc(100% - 40px);
+  height: 39px;
+  border: none;
+  font-family: Roboto;
+  color: #000000;
+  font-size: 14px;
+  /* Approximation due to font substitution */
+  font-weight: 700;
+  line-height: 28px;
+  position: absolute;
+  bottom: 15px;
+}
+
+.card-title {
+  margin-bottom: .75rem;
+  font-family: Roboto;
+  color: #f6c31f;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 24px;
+}
+
+.card-text {
+  font-family: Roboto;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 24px;
+}
+
+.modal {
+  text-align: center;
+  padding: 0 !important;
+}
+
+.modal:before {
+  content: '';
+  display: inline-block;
+  height: 100%;
+  vertical-align: middle;
+  margin-right: -4px;
+}
+
+@media screen and (min-width: 700px) and (max-width: 1200px) {
+  .cardsDiv {
+    max-width: 800px;
+  }
+  .card-box {
+    width: 100%;
+    margin: 20px;
+    max-width: 300px;
+  }
+  .d-flex {}
+}
+
+@media screen and (min-width: 100px) and (max-width: 699px) {
+  .cardsDiv {
+    max-width: 400px;
+  }
+  .card-box {
+    width: 80%;
+    margin: 10px;
+    max-width: 380px;
+  }
+}

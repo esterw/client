@@ -1,0 +1,128 @@
+<nav id="sidebar-wrapper">
+  <ul class="sidebar-nav">
+    <li>
+
+      <!-- <div class="row" style="color: white">
+    <div class="col-4" style="margin-top: 25px">
+      <i class="fas userCircle fa-user-circle"></i>
+    </div>
+    <div class="col-6" style="margin-left: 30px">
+      <div class="row" style="text-indent: 4px;">Hello,
+        <span style="color: #f6c31f"> {{affiliate.FirstName}} {{affiliate.Family}}</span>
+      </div>
+      <div class="row">
+        <button class="btn edit-btn" data-toggle="modal" data-target="#editProfilePopup">Edit Profile</button>
+        <button class="btn logout-btn" (click)="logout()">Logout</button>
+      </div>
+    </div>
+  </div> -->
+
+
+      <div class="grid-account" style="color: white">
+
+        <div class="acc-img">
+          <i class="fas userCircle fa-user-circle" style="width: 100%"></i>
+        </div>
+
+        <div class="acc-text">
+
+          <div class="acc-text-hello" style="text-indent: 4px;">
+            Hello,
+            <span style="color: #f6c31f"> {{affiliate.FirstName}} {{affiliate.Family}}</span>
+          </div>
+
+          <div class="acc-text-btn">
+            <button class="btn edit-btn" (click)="openEditProfilePopup()">Edit Profile</button>
+            <button class="btn logout-btn" (click)="logout()">Logout</button>
+          </div>
+
+        </div>
+
+      </div>
+
+
+
+
+
+    </li>
+    <li>
+      <p class="yellow-letters">BALANCE
+        <span class="white-letters">
+          <i *ngIf="affiliate.FirstName!=null" class="fas fa-euro-sign"></i> {{affiliate.Balance}}
+          <img class="loading" *ngIf="affiliate.FirstName==null" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA=="
+          />
+        </span>
+      </p>
+      <br>
+    </li>
+    <li>
+      <a [routerLink]="['Dashboard']" routerLinkActive="active">
+        <i class="fas fa-tachometer-alt" style="width: 23px;"></i>
+        <span class="PageTitle"> DASHBOARD</span>
+      </a>
+    </li>
+    <li>
+      <a [routerLink]="['Reports']" routerLinkActive="active">
+        <i class="fas fa-chart-line" style="width: 23px;"></i>
+        <span class="PageTitle"> REPORTS</span>
+      </a>
+    </li>
+    <li>
+      <a [routerLink]="['Commissions']" routerLinkActive="active">
+        <i class="fas fa-percent" style="width: 23px;"></i>
+        <span class="PageTitle"> COMMISSIONS</span>
+      </a>
+    </li>
+    <li>
+      <a [routerLink]="['Withdrawals']" routerLinkActive="active">
+        <i class="far fa-money-bill-alt" style="width: 23px;"></i>
+        <span class="PageTitle"> WITHDRAWALS</span>
+      </a>
+    </li>
+    <li>
+      <a [routerLink]="['Media']" routerLinkActive="active">
+        <i class="far fa-file" style="width: 23px;"></i>
+        <span class="PageTitle"> MEDIA</span>
+      </a>
+    </li>
+    <li>
+      <a [routerLink]="['Messages']" routerLinkActive="active">
+        <i class="far fa-envelope" style="width: 23px;"></i>
+        <span class="PageTitle"> MESSAGES
+          <div *ngIf="unReadMessages>=1" class="msgCircle">
+            <span style="color: white; margin-left: -34px;
+            margin-top: -12px;
+            position: absolute;
+            font-size: 14px;" *ngIf="unReadMessages!=0">
+              {{unReadMessages}}
+            </span>
+          </div>
+        </span>
+        <!--<span class="messages-count">2</span>-->
+      </a>
+    </li>
+    <!--<li>
+      <a [routerLink]="['Settings']" routerLinkActive="active">
+        <i class="fas fa-cogs"></i>
+        <span class="PageTitle">SETTINGS</span>
+      </a>
+    </li>-->
+
+
+    <!-- *********** FAQ ******** -->
+    <!-- <li>
+      <a [routerLink]="['Faq']" routerLinkActive="active">
+        <i class="far fa-question-circle"></i>
+        <span class="PageTitle"> FAQ</span>
+      </a>
+    </li> -->
+
+
+
+  </ul>
+
+</nav>
+
+<div class="modal fade" id="editProfilePopup" tabindex="-1" role="dialog" aria-labelledby="editProfilePopup" aria-hidden="true">
+  <app-edit-profile-popup></app-edit-profile-popup>
+</div>

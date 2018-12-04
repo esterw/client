@@ -1,0 +1,29 @@
+
+        <div class="modal-content justify-content-center">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">OPEN NEW TICKET</h5>
+        <button type="button" class="close" (click)="bsModalRef.hide()">
+          <span aria-hidden="true">
+            <img src="../../../../../assets/modals/close.png">
+          </span>
+        </button>
+      </div>
+      
+      <div class="modal-body">
+        
+        <textarea placeholder="Ticket Subject" [(ngModel)]="TicketSubject" name="Subject" #Subject ></textarea>
+        <textarea style="height: 157px;" placeholder="Ticket Content..." [(ngModel)]="TicketContent" name="Content" #Subject ></textarea>
+        <textarea placeholder="Email"></textarea>
+        <p>Please verify your current e-mail address in order to get notification</p>
+      </div>
+      <div class="modal-footer justify-content-center">
+        <div>
+          <button type="button" class="btn" (click)="newTicket()" id="btnSend">SEND
+            <img id="loading" *ngIf="loading" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA=="
+            />
+          </button>
+          
+        </div>
+      </div>
+    </div>
+

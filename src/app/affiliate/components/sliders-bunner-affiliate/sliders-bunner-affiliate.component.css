@@ -1,0 +1,103 @@
+.bannerStyle h1 {
+    background-color: #ccc;
+    min-height: 300px;
+    text-align: center;
+    line-height: 300px;
+}
+
+.leftRs {
+    position: absolute;
+    margin: auto;
+    top: 0;
+    bottom: 0;
+    width: 50px;
+    height: 50px;
+    background-color: unset;
+    left: 0;
+}
+
+.inline-span {
+    display: inline;
+    font-family: Roboto;
+    color: #ffffff;
+    font-size: 18px;
+    font-weight: 700;
+    text-align: right;
+    text-shadow: 0px 2px 1.96px rgba(0, 0, 0, 0.35);
+    margin-left: 8px;
+}
+
+.rightRs {
+    position: absolute;
+    margin: auto;
+    top: 0;
+    bottom: 0;
+    width: 50px;
+    height: 50px;
+    right: 0;
+    background-color: unset;
+    box-shadow: none !important;
+}
+
+img {
+    position: relative;
+}
+
+#words {
+    font-family: Roboto;
+    color: #ffffff;
+    font-weight: 700;
+    top: 120px;
+    position: absolute;
+    text-shadow: 0px 8px 17.64px rgba(0, 0, 0, 0.35);
+    left: 18.5vw;
+    right: 25vw;
+    /*line-height: 60px;*/
+}
+
+#title {
+    font-size: 40px;
+}
+
+#afterTitle {
+    font-size: 40px;
+    line-height: 18px;
+}
+
+button {
+    border-radius: 2px;
+    background-color: #f6c31f;
+    width: 371px;
+    height: 62px;
+    border: none;
+    font-family: Roboto;
+    color: #000000;
+    font-size: 24px;
+    /* Approximation due to font substitution */
+    font-weight: 700;
+    margin-top: 20px;
+}
+
+.bannerStyle h1 {
+    background-color: #ccc;
+    min-height: 300px;
+    text-align: center;
+    line-height: 300px;
+}
+
+ngx-carousel, ngx-item, .img {
+    position: relative;
+}
+
+.modal {
+    text-align: center;
+    padding: 0 !important;
+}
+
+.modal:before {
+    content: '';
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+    margin-right: -4px;
+}

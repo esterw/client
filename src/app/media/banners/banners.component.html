@@ -1,0 +1,84 @@
+<div id="grayers" class="d-flex justify-content-between">
+  <div class="grayer">Preview / Copy code to your site</div>
+</div>
+<br>
+
+<!--<img id="expImg" height="200px" width="235px" [src]="banners[0].BannerPath" class="banner-img" alt="">{{banners[0].BannerPath}}-->
+<div class="loop" *ngFor="let banner of banners; let i =index">
+
+  <div class="details-div">
+    <div class="banner-image">
+      <p class="banner-name">{{banner.BannerName}} / ID: {{banner.Id}}</p>
+
+      <div class="banner-img-div">
+        <a href="" data-toggle="modal" class="banner-size" [attr.data-target]="'#'+i">
+          <img (mouseout)="time=false" (mouseover)="time=true" id="exportImg" [src]="banner.BannerPath" class="banner-size"
+            alt="">
+        </a>
+      </div>
+
+      <!--<img id="exportImg" [height]="banner.Height" #i [width]="banner.Width" [src]="banner.BannerPath" *ngIf="time==true" alt="">-->
+      <div class="modal fade" id="{{i}}" tabindex="-1" role="dialog" aria-labelledby="bannerFoolSize" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">{{banner.BannerName}} / {{banner.Width}}*{{banner.Height}}</h5>
+              <button type="button" class="popup-close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">
+                  <img src="../../../../../assets/modals/close.png">
+                </span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <img id="exportImg" [height]="banner.Height" [width]="banner.Width" [src]="banner.BannerPath" alt="">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="download-div">
+      <div class="to-bottom-div">
+        <b>Banner size:</b> {{banner.Width}}*{{banner.Height}}
+        <br>
+        <button (click)="downloadBanner(banner.BannerName,banner.Id)" class="btn btn-download">DOWNLOAD</button>
+      </div>
+    </div>
+
+    <div class="details-code">
+      Java script
+      <br>
+      <div class="">
+        <textarea readonly class="txtToCopy" [(ngModel)]="banner.Javascript"></textarea>
+        <button class="btn btn-copy" ngxClipboard [cbContent]="banner.Javascript" (cbOnSuccess)="isCopied=true" (click)="b.close(); c.close()"
+          triggers="click:blur" #t="ngbTooltip" placement="top" ngbTooltip="Copied!">{{btnCopyJS}}</button>
+        <!-- showOnClick="true" tooltip content="Copied!"-->
+      </div>
+      Direct Link
+      <br>
+      <div class="">
+        <input #dl readonly class="txtToCopy linkToCopy" value="http://play24bet.net/click.ashx?Banner={{banner.Id}}&Aff={{affiliateID}}">
+        <button class="btn btn-copy btnCopyLink" ngxClipboard [cbContent]=dl.value (cbOnSuccess)="isCopied=true" triggers="click:blur"
+          #b="ngbTooltip" placement="top" ngbTooltip="Copied!" (click)="t.close(); c.close()">{{btnCopyLink}}</button>
+      </div>
+      HTML code
+      <br>
+      <div class="">
+        <textarea readonly class="txtToCopy" #htmlT>
+          <a href="http://play24bet.net/click.ashx?Banner={{banner.Id}}&Aff={{affiliateID}}">
+            <img src="http://play24bet.net/bannerh.ashx?Banner={{banner.Id}}&Aff={{affiliateID}}" />
+          </a>
+        </textarea>
+        <button class="btn btn-copy" ngxClipboard [cbContent]=htmlT.value (cbOnSuccess)="isCopied=true" (click)="t.close(); b.close()"
+          triggers="click:blur" #c="ngbTooltip" placement="top" ngbTooltip="Copied!">{{btnCopyHTML}}</button>
+      </div>
+    </div>
+  </div>
+  <br>
+</div>
+
+<!--<img src="http://affiliatesserver.azurewebsites.net/bannerh.ashx?Banner=39&Aff=1" alt="">
+<a href="http://affiliatesserver.azurewebsites.net/click.ashx?Banner=34&Aff=1">Test Click</a>
+
+<a href = "http://affiliatesserver.azurewebsites.net/click.ashx?Banner=34&Aff=1" > <img src = "http://affiliatesserver.azurewebsites.net/bannerh.ashx?Banner=34&Aff=1" /></a >
+-->

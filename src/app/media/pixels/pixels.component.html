@@ -1,0 +1,17 @@
+
+ <div class="col-xs-12 col-12 col-md-4 form-group">
+    <input type="text" [bsConfig]="bsConfig"
+           placeholder="Daterangepicker"
+           class="form-control"
+           bsDaterangepicker
+           [(ngModel)]="daterangepickerModel">
+  </div>
+
+
+  
+  <div class="row">
+    <div class="col-xs-12 col-md-12">
+      <pre class="code-preview">{{daterangepickerModel}}</pre>
+    </div>
+  </div>
+  <button (click)="log()">test</button>

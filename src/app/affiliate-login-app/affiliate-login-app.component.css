@@ -1,0 +1,243 @@
+
+#side-mobile-btn{
+  width: 40px;
+  height: 35px;
+  position: relative;
+  -webkit-transform: rotate(0deg);
+  -moz-transform: rotate(0deg);
+  -o-transform: rotate(0deg);
+  transform: rotate(0deg);
+  cursor: pointer;
+
+
+  position: fixed;
+  left: 0;
+  top: 91px;
+  display: none;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  font-size: 20px;
+  border: 0;
+  outline:none;
+
+
+  padding: 10px;
+  z-index: 101;
+}
+
+#side-mobile-btn span{
+  display: block;
+  position: absolute;
+  height: 3px;
+  width: 25px;
+  background: #f6c31f;
+  border-radius: 9px;
+  opacity: 1;
+  left: 0;
+  -webkit-transform: rotate(0deg);
+  -moz-transform: rotate(0deg);
+  -o-transform: rotate(0deg);
+  transform: rotate(0deg);
+
+  margin-top: 7px;
+  margin-left: 7px;
+}
+
+#side-mobile-btn span:nth-child(1) {
+  top: 0px;
+}
+
+#side-mobile-btn span:nth-child(2) {
+  top: 8px;
+}
+
+#side-mobile-btn span:nth-child(3) {
+  top: 16px;
+}
+
+#side-mobile-btn.open span:nth-child(1) {
+  top: 9px;
+  -webkit-transform: rotate(135deg);
+  -moz-transform: rotate(135deg);
+  -o-transform: rotate(135deg);
+  transform: rotate(135deg);
+}
+
+#side-mobile-btn.open span:nth-child(2) {
+  opacity: 0;
+  left: -60px;
+}
+
+#side-mobile-btn.open span:nth-child(3) {
+  top: 9px;
+  -webkit-transform: rotate(-135deg);
+  -moz-transform: rotate(-135deg);
+  -o-transform: rotate(-135deg);
+  transform: rotate(-135deg);
+}
+
+
+
+
+/* #side-mobile-btn:active,#side-mobile-btn:focus {
+  border: 0;
+} */
+
+.app-sidebar {
+  width: 260px;
+  display: table-cell;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.95);
+  min-width: 260px !important;
+  position: inherit;
+  top: 0;
+  left: 0;
+  opacity: 1;
+  z-index: 100;
+}
+
+.router-outlet {
+  width: 64%;
+  display: table-cell;
+  background-color: #ffffff;
+  padding-top: 0px !important;
+  margin-top: 0px !important;
+  height: 961px;
+}
+
+.app-row {
+  display: table;
+  width: 100%;
+  table-layout: fixed;
+  height: 961px;
+}
+
+.empty {
+  width: 18%;
+  opacity: 1;
+  visibility: visible;
+  background-color: #aeaeae;
+  display: table-cell;
+  height: 961px;
+  transition: all 1s ease;
+}
+
+.container {
+  padding-right: 25px !important;
+  padding-left: 25px !important;
+  padding-top: 0px !important;
+  margin-top: 0px !important;
+}
+
+.empty>button {
+  position: absolute;
+}
+
+@media screen and (min-width: 1201px) {}
+
+@media screen and (min-width: 981px) and (max-width: 1200px) {}
+
+@media screen and (min-width: 700px) and (max-width: 980px) {
+  .empty {
+    width: 0;
+    opacity: 0;
+  }
+  .empty>button {
+    position: fixed;
+  }
+  .router-outlet {
+    width: 100%;
+  }
+  .app-sidebar {
+    max-width: 260px;
+    height: 700px;
+    position: fixed;
+    top: 0;
+    left: -260px;
+    opacity: 0;
+  }
+  #side-mobile-btn {
+    display: block;
+  }
+}
+
+@media screen and (min-width: 100px) and (max-width: 699px) {
+  .empty {
+    width: 0;
+    opacity: 0;
+  }
+  .empty>button {
+    position: fixed;
+  }
+  .router-outlet {
+    width: 100%;
+  }
+  .app-sidebar {
+    max-width: 260px;
+    height: 700px;
+    position: fixed;
+    top: 0;
+    left: -260px;
+    opacity: 0;
+  }
+  #side-mobile-btn {
+    display: block;
+  }
+}
+/*
+loader
+*/
+.app-loading .logo {
+    width:290px;
+    height: 159px;
+    background: url(../../assets/images-navbar-upper/logo.png) center center no-repeat; 
+  }
+
+.app-loading {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 1000px;
+  overflow: hidden;
+  background-color: #111111;
+}
+.app-loading .spinner {
+  height: 399px;
+  width: 533px;
+  animation: rotate 2s linear infinite;
+  transform-origin: center center;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+.app-loading .spinner .path {
+  stroke-dasharray: 1, 200;
+  stroke-dashoffset: 0;
+  animation: dash 1.5s ease-in-out infinite;
+  stroke-linecap: round;
+  stroke: #F6C31F;
+}
+@keyframes rotate {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+@keyframes dash {
+  0% {
+    stroke-dasharray: 1, 200;
+    stroke-dashoffset: 0;
+  }
+  50% {
+    stroke-dasharray: 89, 200;
+    stroke-dashoffset: -35px;
+  }
+  100% {
+    stroke-dasharray: 89, 200;
+    stroke-dashoffset: -124px;
+  }
+}

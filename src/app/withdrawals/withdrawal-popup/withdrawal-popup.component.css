@@ -1,0 +1,70 @@
+.modal-header {
+  background-color: #252525;
+  font-family: Roboto;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+#btnClose,
+#btnRequest,
+#btnReset {
+  width: 120px;
+  height: 29px;
+  border-radius: 2px;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 2px;
+  text-align: center;
+}
+
+#btnClose {
+  border: 1px solid black;
+  color: black;
+  background-color: unset;
+}
+
+#btnRequest {
+  background-color: #f6c31f;
+  color: #1c1b1b;
+}
+
+#btnReset {
+  background-color: #252525;
+  color: #ffffff;
+}
+
+.modal-footer {
+  border-top: none;
+  justify-content: space-between;
+  background-color: #e1e1e1;
+}
+
+.modal-body {
+  background-color: #e1e1e1;
+}
+
+.modal-dialog {
+  width: 100%;
+  max-width: 613px;
+  margin: 0 auto;
+  height: 220px;
+  padding: 10px;
+}
+
+#btnRequest:hover {
+  background-color: #f6a01f;
+}
+
+#btnReset:hover {
+  background-color: #414141;
+}
+
+.btnClose:hover {
+  background-color: rgb(37, 37, 37);
+  color: white;
+}
+
+#error-message{
+  color: red;
+}

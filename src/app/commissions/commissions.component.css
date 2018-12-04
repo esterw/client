@@ -1,0 +1,70 @@
+.linkP {
+    background-color: #e8e8e8;
+    height: 48px;
+}
+.PTitle {
+    font-family: Roboto;
+    color: #000000;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 48px;
+    text-align: left;
+    padding-left: 20px;
+}
+
+table.data-table thead tr {
+    background-color: #b7b7b7 !important;
+    color: #6e6c6c;
+    width: 1170px;
+    height: 44px;
+    font-family: Roboto;
+    color: #363636;
+    font-size: 14px;
+    font-weight: 900;
+    line-height: 24px;
+    border-top: 1px solid white !important;
+    border-right: 1px solid white !important;
+    border-left: 1px solid white !important;
+    border-bottom: 0.5px solid white !important;
+}
+
+table.data-table tbody tr {
+    font-family: Roboto;
+    color: #363636;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 24px;
+    border-top: 1px solid white !important;
+    border-right: 1px solid white !important;
+    border-left: 1px solid white !important;
+    border-bottom: 0.5px solid white !important;
+    width: 1170px !important;
+    height: 40px !important;
+}
+
+table.data-table tbody tr:nth-of-type(even) {
+    background-color: #e8e8e8 !important;
+}
+
+table.data-table tbody tr:nth-of-type(odd) {
+    background-color: white !important;
+}
+
+
+
+@media screen and (min-width: 700px) and (max-width: 1200px) {
+
+
+    .PTitle {
+        font-size: 20px;
+    }
+
+}
+
+@media screen and (min-width: 100px) and (max-width: 699px) {
+
+    .PTitle {
+        font-size: 14px;
+    }
+
+}

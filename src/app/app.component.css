@@ -1,0 +1,38 @@
+/* .app-sidebar {
+  width: 20%;
+  display: table-cell;
+  height: 961px;
+  background-color: #111111;
+  min-width: 300px !important;
+} */
+
+.router-outlet {
+  width: 64%;
+  display: table-cell;
+  background-color: #ffffff;
+  padding-top: 0px !important;
+  margin-top: 0px !important;
+  height: 961px;
+}
+
+.app-row {
+  display: table;
+  width: 100%;
+  table-layout: fixed;
+  height: 961px;
+}
+
+.empty {
+  width: 18%;
+  background-color: #aeaeae;
+  display: table-cell;
+  height: 961px;
+}
+
+.container {
+  padding-right: 25px !important;
+  padding-left: 25px !important;
+  padding-top: 0px !important;
+  margin-top: 0px !important;
+}
+

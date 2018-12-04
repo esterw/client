@@ -1,0 +1,13 @@
+<div class="linkP">
+    <span class="PTitle">Media</span>
+    <span class="PLink">
+<app-affiliate-link></app-affiliate-link>
+    </span>
+</div>
+<br>
+<div class="btn-group" role="group" aria-label="Basic example">
+  <button type="button" [routerLink]="['Banners']" routerLinkActive="active" class="btn btn-group-filter">Banners <hr> </button>
+  <button type="button" [routerLink]="['Pixels']" routerLinkActive="active" class="btn btn-group-filter">Pixels <hr> </button>
+</div>
+<br><br>
+<router-outlet></router-outlet>

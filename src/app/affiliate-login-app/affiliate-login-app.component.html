@@ -1,0 +1,33 @@
+<div *ngIf="!loading">
+  <app-navbar-upper></app-navbar-upper>
+
+  <button id="side-mobile-btn" (click)="sidebarOpenClose()">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+  <div class="app-row">
+
+    <div class="app-sidebar">
+      <app-sidebar></app-sidebar>
+    </div>
+
+    <div class="router-outlet container">
+      <router-outlet>
+      </router-outlet>
+    </div>
+
+    <div class="empty">
+      <button class="btn btn-default float-right btn-sm" (click)="reloadData()">Update online changes</button>
+    </div>
+
+  </div>
+  <app-footer></app-footer>
+</div>
+
+<div *ngIf="loading" class="app-loading" >
+    <div class="logo"></div>
+    <svg class="spinner" viewBox="25 25 50 50">
+        <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10"/>
+      </svg>
+</div>

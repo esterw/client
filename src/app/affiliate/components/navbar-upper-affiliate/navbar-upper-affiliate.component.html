@@ -1,0 +1,82 @@
+<nav class="navbar navbar-expand navbar-dark bg-dark" id="navbarUp">
+
+  <div class="collapse navbar-collapse">
+    <a class="nav-link nav-item" href="#">
+      <img class="logoImg" src="../assets/images-navbar-upper/logo.png" alt="" id="logo" />
+    </a>
+    <ul class="navbar-nav d-flex justify-content-around float-right" id="navWrapper">
+      <!-- button login-->
+      <li class="nav-item " *ngIf="!this.authService.isLoggedIn()">
+        <button type="button" id="buttonLogin" class="btn" (click)="openLoginPopup()">
+          LOGIN
+        </button>
+
+      </li>
+
+      <!-- button register-->
+      <li class="nav-item " *ngIf="!this.authService.isLoggedIn()">
+        <button type="button" id="buttonRegister" class="btn" (click)="openRegisterPopup()">
+          REGISTER
+        </button>
+      </li>
+
+      <!-- drop down language -->
+      <li class="nav-item">
+        <div class="dropdown">
+          <button class="btn btn-secondary dropdown-toggle dropdownsNoBorder" type="button" id="dropdownMenuButton3" data-toggle="dropdown"
+                  aria-haspopup="true" aria-expanded="false">
+            <img src="../assets/images-navbar-upper/United_Kingdom.png" /> EN
+            <i class="fa fa-angle-down" aria-hidden="true"></i>
+          </button>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenu3">
+            <a class="dropdown-item" href="#">
+              <img src="../assets/flags/United_Kingdom.png" alt="" /> English
+            </a>
+            <a class="dropdown-item" href="#">
+              <img src="../assets/flags/germany.png" alt="" /> Germanisch
+            </a>
+            <a class="dropdown-item" href="#">
+              <img src="../assets/flags/germany.png" alt="" /> Español
+            </a>
+            <a class="dropdown-item" href="#">
+              <img src="../assets/flags/france.png" alt="" /> Français
+            </a>
+            <a class="dropdown-item" href="#">
+              <img src="../assets/flags/russia.png" alt="" /> Русский
+            </a>
+            <a class="dropdown-item" href="#">
+              <img src="../assets/flags/arabian.png" alt="" /> العربية
+            </a>
+            <a class="dropdown-item" href="#">
+              <img src="../assets/flags/indonessian.png" alt="" /> Indonesia
+            </a>
+            <a class="dropdown-item" href="#">
+              <img src="../assets/flags/China.png" alt="" /> 中国
+            </a>
+          </div>
+        </div>
+      </li>
+
+      <li *ngIf="this.authService.isLoggedIn()">
+        <a (click)="logout()" style="cursor:pointer">
+          <span class='glyphicon glyphicon-log-out'></span> Logout
+        </a>
+      </li>
+    </ul>
+  </div>
+  <div id="CurrentTime" class="float-right">
+  </div>
+
+
+</nav>
+
+
+
+
+<!-- <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <app-register-modal-affiliate></app-register-modal-affiliate>
+</div>
+
+<div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <app-login-affiliate-modal></app-login-affiliate-modal>
+</div> -->

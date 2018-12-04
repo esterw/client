@@ -1,0 +1,75 @@
+<div  *ngIf="!this.authService.isLoggedIn()" class=" modal-md modalLogin justify-content-center" style="background-color: black;">
+  <div class="modal-content" style="background-color: black">
+    <div class="modal-header">
+      <h5 class="modal-title" id="exampleModalLabel">AFFILIATE LOGIN</h5>
+      <button type="button" class="close" (click)="bsModalRef.hide()">
+        <span aria-hidden="true"><i class="fa fa-times" aria-hidden="true"></i></span>
+      </button>
+    </div>
+
+<div class="modal-body "  *ngIf="!this.authService.isLoggedIn()" >
+    <form> 
+        <input  type="text" class="form-control input-form input-border" #affiliateUsername placeholder="Email"><br>
+        <input type="password" #affiliatePassword class="form-control input-form input-border" placeholder="Password">
+        <div class="form-check input-form">
+          <label class="form-check-label">
+            <input type="checkbox" class="form-check-input">
+            Remember me
+          </label>
+        </div>
+        <div class="justify-content-center">
+        <button  [disabled]="loading" type="submit" (click)="login(affiliateUsername,affiliatePassword)" class="btn btn-yellow">
+          LOGIN
+          <img id="loading" *ngIf="loading" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA=="/>
+        </button>                 
+        </div>
+        <p style="color:red"> {{message}}</p>
+        <div id="whiteLittle">
+        <p>Forgot password</p>
+        <p>Haven't account yet? <span style="color: #f6c31f">Register</span></p>
+        </div>
+        
+      </form>
+</div>
+   
+  </div>
+</div>
+    <!--
+            <form id="needs-validation" novalidate>
+              <div class=" justify-content-center">
+           
+
+                 
+                   
+                      <div class="group-input">
+                        <input type="password" class="form-control input-form input-border" id="create_password" placeholder="Username/Email">
+                        <small style="color:black;margin-left: 12px" id="emailHelp" class='message '>Validations</small>
+                      </div>
+                      <div class="group-input">
+                        <input type="password" class="form-control input-form input-border" id="confirm_password" placeholder="Password" aria-describedby="emailHelp">
+                        <small style="color:black;margin-left: 12px" id="emailHelp" class='message '>Validations</small>
+                      </div>
+                      <div class="checkbox" style="background-color:black ">
+             
+                        <label>
+                         
+                          <input type="checkbox" value="" id="remember">
+                          <p style="float:right;color:  #7e7b7b; font-size: 12px; font-weight: 100;text-align: left; float:right; padding:10px;"> Remember me</p>
+                        </label>
+  
+                      </div>
+                    </div>
+                  </div>
+                  <div class="justify-content-center">
+                      <button type="submit" class="btn btn-primary btn-yellow ">REGISTER</button>                 
+                  </div>
+                  <br>
+                 
+                </div>
+              </div>
+            </form>
+  </div>
+
+</div>
+</div>
+</div>-->

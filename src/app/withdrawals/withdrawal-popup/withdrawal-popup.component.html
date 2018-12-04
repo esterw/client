@@ -1,0 +1,36 @@
+
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">NEW WITHDRAW REQUEST</h5>
+        <button type="button" class="close" (click)="bsModalRef.hide()">
+          <span aria-hidden="true">
+            <img src="../../../../../assets/modals/close.png">
+          </span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div>
+          <form>
+            <div class="form-group">
+              <label for="amount">Amount, EUR</label>
+              <br>
+              <input type="text" [(ngModel)]="amountValue" name="amount" #amount placeholder="0.00">
+            </div>
+          <small id="error-message"> {{serverMessage}}</small>
+          </form>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <div>
+          <button type="button" (click)="request()" class="btn" id="btnRequest">REQUEST
+            <img id="loading" *ngIf="loading" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA=="
+            />
+          </button>
+          <button type="button" (click)="resetModal()" class="btn" id="btnReset">RESET</button>
+        </div>
+        <div>
+          <button type="button" (click)="bsModalRef.hide()" class="btn" id="btnClose" data-dismiss="modal">CLOSE</button>
+  
+        </div>
+  
+      </div>
+   

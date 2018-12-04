@@ -1,0 +1,524 @@
+body {
+  background-color: gainsboro;
+  overflow-x: hidden;
+}
+
+#logo {
+  margin-left: 13vw;
+}
+
+#navWrapper {
+  border-radius: 3px;
+  /* margin-left: 32vw; */
+  position: absolute;
+  right: 40px;
+}
+
+#navWrapper>li {
+  padding: 1.5%;
+}
+
+#buttonLogin,
+#buttonRegister {
+  border-radius: 2px;
+  max-width: 138px;
+  height: 36px;
+  box-shadow: none;
+}
+
+#buttonLogin {
+  background-color: #363636;
+  color: white;
+  font-weight: 700;
+}
+
+#buttonRegister {
+  background-color: #f6c31f;
+  color: #000000;
+  font-weight: 700;
+}
+
+#dropdownMenuButton {
+  max-width: 135px;
+  height: 24px;
+  font-family: FontAwesome;
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 16px;
+  text-align: left;
+  border-radius: 2px;
+  border-width: 1px;
+  border-color: #e1e1e1;
+  border-style: solid;
+  height: 22px;
+  box-shadow: none;
+}
+
+#dropdown-menu1 {
+  border-width: 1px;
+  border-color: #959595;
+  border-style: solid;
+  background-color: #ffffff;
+  width: 156px;
+  height: 275px;
+}
+
+#dropDownMenuMoney {
+  border-width: 1px;
+  border-color: #959595;
+  border-style: solid;
+  background-color: #ffffff;
+  width: 320px;
+  height: 50px;
+}
+
+#moneyDiv1 {
+  padding-right: 1px;
+  padding-left: px;
+  border-block-end-color: #959595;
+}
+
+#moneyDiv2 {
+  padding-right: 1px;
+  padding-left: 1px;
+}
+
+#userN {
+  font-family: Roboto;
+  color: #b8b8b8;
+  font-size: 16px;
+  /* Approximation due to font substitution */
+  font-weight: 700;
+  line-height: 16px;
+  /* Approximation due to font substitution */
+  text-align: left
+}
+
+.fa-user {
+  font-family: FontAwesome;
+  color: #b8b8b8;
+  font-size: 20px;
+  /* Approximation due to font substitution */
+  font-weight: 400;
+  line-height: 3px;
+  /* Approximation due to font substitution */
+  text-align: left;
+}
+
+.bg-dark {
+  color: white;
+}
+
+.dropdownsNoBorder {
+  font-family: FontAwesome;
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 16px;
+  text-align: left;
+  border: none !important;
+  background-color: black !important;
+  box-shadow: none !important;
+}
+
+.dropdownsNoBorder #buttonDeposit {
+  align-self: center;
+  box-shadow: none !important;
+  margin: 8px;
+}
+
+#buttonDeposit {
+  border-radius: 2px;
+  background-color: #f6c31f;
+  max-width: 59px;
+  height: 24px;
+  font-family: Roboto;
+  color: #000000;
+  font-size: 10px;
+  font-weight: 700;
+  line-height: 16px;
+  text-align: center;
+  border: none;
+}
+
+.dropdown-toggle::after {
+  display: none !important;
+}
+
+#nav-some-items {
+  margin-left: 23.03191489361702vw;
+}
+
+#CurrentTime {
+  /*margin-left: 16.861702127659573vw;
+    margin-right:5vw;*/
+  color: white;
+  float: right;
+}
+
+.navbar-dark {
+  background-color: #000000 !important;
+  height: 5.319148936170213vw;
+}
+
+p {
+  margin-bottom: 0rem !important;
+}
+
+.navLinks {
+  margin-top: 2vw;
+}
+
+.nav-item>a {
+  color: white !important;
+}
+
+.nav-item>a:hover {
+  color: #f6c31f !important;
+  font-weight: 700;
+}
+
+.nav-item>a.active {
+  color: #f6c31f !important;
+}
+
+/*form design*/
+
+.dropdown-toggle {
+  border-radius: 2px;
+  border-width: 1px;
+  border-color: #a1a1a1;
+  border-style: solid;
+  background-color: #ffffff;
+  width: 100%;
+  height: 24px;
+  font-size: 12px;
+  font-weight: 400;
+  font-family: Roboto;
+  text-align: center;
+  box-shadow: none !important;
+  padding-right: 7px;
+  padding-left: 7px;
+}
+
+.ddDate {
+  padding-right: 7px;
+  padding-left: 7px;
+}
+
+.ddSecurity {
+  border: none !important;
+}
+
+#save {
+  border-radius: 2px;
+  background-color: #fdca31;
+  width: 270px;
+  height: 51px;
+}
+
+#p {
+  padding: 15px;
+  padding-left: 40px;
+  padding-bottom: 25px;
+  display: inline-block;
+}
+
+/*to update*/
+
+#dropdownMenu1 {
+  background-color: black;
+  border: 1px solid #ffffff;
+  height: 25px;
+}
+
+.dropdown-menu .fa fa-user {
+  font-size: 12px;
+}
+
+.dropdown-menu>div {
+  display: inline-block;
+  font-size: 12px;
+  text-align: center;
+}
+
+select {
+  color: white;
+  background-color: black;
+  border: none;
+}
+
+.navbar-icons-letter {
+  color: white;
+  font-size: 12px;
+}
+
+.li-icons {
+  text-align: center;
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
+#navbarIcons {
+  padding-bottom: 0;
+  padding-top: 0;
+  height: 77px;
+  background-color: #141414 !important;
+}
+
+hr {
+  margin-top: 0rem;
+  margin-bottom: 0rem;
+  border: 0;
+  border-top: 1px solid rgba(0, 0, 0, .1);
+}
+
+.input-write {
+  border-left: none;
+  border-right: none;
+  border-top: none;
+  border-bottom-color: lightgray !important;
+  box-shadow: none !important;
+}
+
+fa fa-pencil {
+  padding-top: 8px;
+}
+
+#wrapper.toggled {
+  padding-left: 250px;
+}
+
+#sidebar-wrapper {
+  z-index: 1000;
+  position: absolute;
+  left: 250px;
+  width: 100%;
+  height: 100%;
+  margin-left: -250px;
+  overflow-y: auto;
+  background: #000;
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+  padding-left: 2.6595744680851063vw;
+  padding-right: 2.6595744680851063vw;
+  width: 17.340425531914892vw;
+  background-color: #212123 !important;
+}
+
+/*#page-content-wrapper {
+    width: 100%;
+    position: absolute;
+    padding: 15px;
+}
+
+#wrapper.toggled #page-content-wrapper {
+    position: absolute;
+    margin-right: -250px;
+}*/
+
+/*@media(min-width:768px) {
+    #wrapper {
+        padding-left: 0;
+    }
+
+        #wrapper.toggled {
+            padding-left: 250px;
+        }
+
+    #sidebar-wrapper {
+        width: 0;
+    }
+
+    #wrapper.toggled #sidebar-wrapper {
+        width: 250px;
+    }
+
+    #page-content-wrapper {
+        padding: 20px;
+        position: relative;
+    }
+
+    #wrapper.toggled #page-content-wrapper {
+        position: relative;
+        margin-right: 0;
+    }
+}*/
+
+#page-content-wrapper {
+  background-color: #ffffff;
+  padding-bottom: 50px;
+  padding-left: 15px !important;
+  height: 100%;
+  position: inherit;
+  padding-right: 0;
+  margin: 0 !important;
+}
+
+.img-side {
+  width: 100%;
+  /*width:19.468VW;
+    /*height:11.117VW;*/
+  padding-right: 0px;
+  position: relative;
+}
+
+.col-lg-4,
+.col-lg-8,
+.col-lg-2 {
+  padding-right: 0 !important;
+  padding-left: 0 !important;
+}
+
+.gameDiv .boxDetails {
+  height: 7VW;
+  display: block;
+  width: 28.9VW;
+  position: absolute;
+  left: 1vw;
+  bottom: 1vw;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+​ ​.detailsText {
+  margin-top: 0.7vw;
+  font-family: Roboto;
+  color: #f6c31f;
+  font-size: 18px;
+  font-weight: 400;
+  text-align: center;
+}
+
+​ .gameImgBig {
+  width: 28.90625VW;
+  height: 16.979167VW;
+  text-align: center
+}
+
+.btnPlayNow {
+  border-radius: 2px;
+  background-color: #f6c31f;
+  width: 173px;
+  height: 34px;
+  border: none;
+}
+
+.letter-on {
+  display: inline-block;
+}
+
+.whiteLtrs {
+  font-family: GillSansMT;
+  color: #ffffff;
+  font-size: 40px;
+  /* Approximation due to font substitution */
+  line-height: 16px;
+  /* Approximation due to font substitution */
+  text-align: left;
+}
+
+.radio {
+  padding-right: 15px;
+  padding-left: 15px;
+  text-align: left;
+}
+
+.odd>.input-write {
+  background-color: #e1e1e1;
+}
+
+#checbox1 {
+  border: none !important;
+}
+
+/*responsive*/
+
+/*for mobile*/
+
+.img-side {
+  display: none;
+}
+
+#navbarIcons {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+#CurrentTime {
+  display: none;
+}
+
+#navbarUp {
+  height: 102px;
+}
+#navTop {
+  width: 1100px;
+}
+
+.nav-item {
+  margin: 0;
+}
+
+#buttonToggle {
+  display: inline;
+}
+
+/* register popup */
+
+.modal {
+  text-align: center;
+  padding: 0 !important;
+}
+
+.modal:before {
+  content: '';
+  display: inline-block;
+  height: 100%;
+  vertical-align: middle;
+  margin-right: -4px;
+}
+
+
+
+@media screen and (min-width: 700px) and (max-width: 1200px) {
+
+
+
+  #logo {
+      margin-left: 15px;
+  }
+
+}
+
+@media screen and (min-width: 100px) and (max-width: 699px) {
+
+    #buttonLogin, #buttonRegister {
+        width: 70px;
+        font-size: 10px;
+    }
+
+    #logo {
+        margin-left: 0;
+        width: 100px;
+        height: 37px;
+    }
+
+    .nav-link {
+      margin: 0;
+      padding: 0;
+    }
+
+    #navbarUp{
+      height: 60px;
+    }
+
+    #navWrapper {
+    }
+
+    #dropdownMenuButton3 {
+        width: 30px;
+    }
+}

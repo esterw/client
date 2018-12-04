@@ -1,0 +1,125 @@
+<div *ngIf="affiliate && RevenueReport; else">
+  <div class="linkP">
+    <span class="PDashboard">DASHBOARD</span>
+    <span class="PLink">
+      <app-affiliate-link></app-affiliate-link>
+    </span>
+  </div>
+  <br>
+
+
+  <div class="btn-group" role="group" aria-label="Basic example">
+    <button type="button" [ngClass]="showThisMonth? 'activeBtn':''" (click)="deactiveAll();showThisMonth=true;displayThisMonth()"
+      class="btn btn-time-filter" id="month">This month
+      <hr> </button>
+    <button type="button" [ngClass]="showLastMonth? 'activeBtn':''" (click)="deactiveAll();showLastMonth=true;displayLastMonth()"
+      class="btn btn-time-filter" id="lmonth">Last Month
+      <hr> </button>
+    <button type="button" [ngClass]="showThreeMonth? 'activeBtn':''" (click)="deactiveAll();showThreeMonth=true;displayThreeMonth()"
+      class="btn btn-time-filter" id="tmonth">Three Month
+      <hr> </button>
+    <button type="button" [ngClass]="showSixMonth? 'activeBtn':''" (click)="deactiveAll();showSixMonth=true;displaySixMonth()"
+      class="btn btn-time-filter" id="smonth">Six month
+      <hr> </button>
+    <button type="button" [ngClass]="showYear? 'activeBtn':''" (click)="deactiveAll();showYear=true;displayYear()" class="btn btn-time-filter"
+      id="year">Year
+      <hr> </button>
+
+  </div>
+
+
+
+  <br>
+  <br>
+
+  <!-- row justify-content-around -->
+
+  <div class="grid-report">
+
+    <div class="report-div">
+      <div class="reportsIcons signups justify-content-center d-flex align-items-center">
+        <img src="../../assets/dashboard/money-hand.png">
+      </div>
+      <div class="reports">
+        <p> {{signupsSum}}
+          <br> Signups
+        </p>
+      </div>
+    </div>
+
+    <div class="report-div">
+      <div class="reportsIcons deposits justify-content-center d-flex align-items-center">
+          <img src="../../assets/dashboard/users-money.png">
+      </div>
+      <div class="reports">
+        {{depositsCount}}
+        <br> Deposits
+      </div>
+    </div>
+
+    <div class="report-div">
+      <div class="reportsIcons turnovers justify-content-center d-flex align-items-center">
+          <img src="../../assets/dashboard/icon-user.png">
+      </div>
+      <div class="reports">
+        <i class="fas fa-euro-sign"></i> {{turnoversSum}}
+        <br> Turnovers
+      </div>
+    </div>
+    <div class="report-div">
+      <div class="reportsIcons profit justify-content-center d-flex align-items-center">
+        <img src="../../assets/dashboard/money-up.png">
+      </div>
+      <div class="reports">
+        <i class="fas fa-euro-sign"></i> {{profitSum}}
+        <br> Profit
+      </div>
+    </div>
+  </div>
+  <br>
+  <br>
+  <div class="row justify-content-around">
+    <div class="canvas-char">
+      <canvas baseChart [data]="lineChartData" [labels]="lineChartLabels" [chartType]="lineChartType" [colors]="lineChartColors"
+        [options]="lineChartOptions" height="207px" width="100%">
+      </canvas>
+    </div>
+  </div>
+  <div class="linkP">
+    <span class="sub-aff-title">SUB AFFILIATES</span>
+    <span class="link sub-aff-url">
+      <b>URL: </b>
+      <a class="link" [href]="SubAffiliatesURL">{{SubAffiliatesURL}}</a>
+    </span>
+  </div>
+  <br>
+
+  <div class="tabl">
+    <table class="table table-sub-aff ">
+      <thead>
+        <tr>
+          <td>Date</td>
+          <td>ID</td>
+          <td>Name</td>
+          <td>Clicks</td>
+          <td>FTD</td>
+          <td>FTD Amount</td>
+          <td>Type</td>
+          <td>Commission</td>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let SubAffiliate of SubAffiliates">
+          <td>{{SubAffiliate.RegistrationDate | date:'dd/MM/yy'}}</td>
+          <td>{{SubAffiliate.Id}}</td>
+          <td>{{SubAffiliate.UserName}}</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

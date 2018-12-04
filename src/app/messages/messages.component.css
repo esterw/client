@@ -1,0 +1,240 @@
+.linkP {
+  background-color: #e8e8e8;
+  height: 48px;
+}
+
+.PTitle {
+  font-family: Roboto;
+  color: #000000;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 48px;
+  text-align: left;
+  padding-left: 20px;
+}
+
+.btn-new-ticket {
+  border-radius: 2px;
+  background-color: #f6c31f;
+  width: 170px;
+  height: 32px;
+  font-family: Roboto;
+  color: #363636;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 24px;
+}
+
+.unread-msg {
+  color: red !important;
+  font-weight: 900;
+  font-size: 10px;
+}
+
+.select-status {
+  border-radius: 2px;
+  border-width: 1px;
+  border-color: #363636;
+  border-style: solid;
+  background-color: #ffffff;
+  width: 154px;
+  height: 30px;
+  font-family: Roboto;
+  color: #363636;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 24px;
+  /* -webkit-appearance: none;
+  background: url('../../assets/modals/arrow-down.png')no-repeat white; */
+  background-position: 135px 12px;
+  padding: 0px 20px 0 10px;
+}
+
+table.data-table thead tr {
+  background-color: #b7b7b7 !important;
+  color: #6e6c6c;
+  width: 100%;
+  height: 44px;
+  font-family: Roboto;
+  color: #363636;
+  font-size: 14px;
+  font-weight: 900;
+  line-height: 24px;
+  border-top: 1px solid white !important;
+  border-right: 1px solid white !important;
+  border-left: 1px solid white !important;
+  border-bottom: 0.5px solid white !important;
+}
+
+table.data-table tbody tr {
+  font-family: Roboto;
+  color: #363636;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 24px;
+  border-top: 1px solid white !important;
+  border-right: 1px solid white !important;
+  border-left: 1px solid white !important;
+  border-bottom: 0.5px solid white !important;
+  width: 100% !important;
+  height: 40px !important;
+}
+
+table.data-table tbody tr:nth-of-type(even) {
+  background-color: #e8e8e8;
+}
+
+table.data-table tbody tr:nth-of-type(odd) {
+  background-color: white;
+}
+
+tr:hover {
+  background-color: #999999 !important;
+}
+
+.btn-Yellow {
+  background-color: #f6c31f;
+  color: #363636;
+}
+
+.newTick {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 40% 60%;
+}
+
+#btnOpen {
+  border-radius: 2px;
+  background-color: #f6c31f;
+  width: 100%;
+  max-width: 200px;
+  height: 32px;
+  color: #363636;
+  font-size: 14px;
+  font-weight: 700;
+  border: none;
+}
+
+#btnOpen:hover {
+  background-color: #ffa216;
+}
+
+.status-div {
+  text-align: right;
+  width: 100%;
+}
+
+.modal {
+  overflow-y: hidden !important;
+}
+
+.modal-body {
+  background-color: white;
+  color: black;
+  padding: 30px;
+  text-align: left !important;
+}
+
+.modal-header {
+  background-color: #141414;
+  color: white;
+  margin-right: -5px;
+  border-top-left-radius: 0px !important;
+  border-top-right-radius: 0px !important;
+}
+
+#xButton {
+  color: white;
+}
+
+.modal-dialog {
+  overflow-y: initial !important
+}
+
+.contentModal {
+  font-family: Roboto;
+  color: #000000;
+  font-size: 14px;
+  /* Approximation due to font substitution */
+  font-weight: 400;
+  line-height: 20px;
+  /* Approximation due to font substitution */
+  text-align: right;
+}
+
+.modal-dialog {
+  overflow-y: initial !important
+}
+
+textarea {
+  width: 100%;
+  resize: none;
+  height: 27px;
+  overflow: hidden;
+}
+
+.modal-content {
+  /* width:1200px;
+    margin-left: -90px;*/
+  padding-right: 5px !important;
+  border-radius: 0px !important;
+}
+
+.modal-body {
+  max-height: 400px !important;
+  overflow-y: auto;
+  margin-top: 45px !important;
+  margin-bottom: 25px !important;
+  padding: 0px 50px !important;
+}
+
+.modal-open {
+  overflow-y: hidden !important;
+}
+
+.modal-open .modal {
+  overflow-y: hidden !important;
+}
+
+.modal-body::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px white !important;
+}
+
+.modal-body::-webkit-scrollbar-thumb {
+  background-color: #464646 !important;
+  outline: 3px solid #464646 !important;
+}
+
+.modal-body::-webkit-scrollbar {
+  width: 0.3em !important;
+}
+
+#btnSend {
+  border-radius: 2px;
+  background-color: #f6c31f;
+  width: 179px;
+  height: 29px;
+  color: #252525;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 14px;
+}
+
+.textarea-Content {
+  height: 104px;
+  max-height: 104px;
+  overflow-y: auto;
+}
+
+@media screen and (min-width: 100px) and (max-width: 450px) {
+  .newTick {
+    grid-template-columns: 100%;
+  }
+  .status-div {
+    margin-top: 12px;
+    text-align: center;
+  }
+  .select-status {
+    width: 70%;
+  }
+}

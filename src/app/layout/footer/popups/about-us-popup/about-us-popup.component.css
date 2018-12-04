@@ -1,0 +1,40 @@
+
+/* .modal-dialog {
+    width: 100%;
+    height: 391px;
+    max-width: 613px !important;
+    margin: 0 auto !important;
+    padding: 10px;
+  }
+  
+  .modal-header {
+    background-color: #252525;
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 700;
+    padding-left: 30px;
+    margin-right: 0px !important; 
+  }
+  
+  .modal-footer {
+    border-top: none;
+    justify-content: space-between;
+    background-color: #e1e1e1;
+    padding-top: 0;
+  }
+  
+  .modal-body {
+    background-color: #e1e1e1;
+    padding: 30px;
+    padding-bottom: 0 !important;
+  } */
+
+  .modal-body{
+    margin-right: 6px !important;
+    margin-bottom:25px;
+}
+
+  
+  .modal-header {
+    margin-right: 0px !important; 
+  }

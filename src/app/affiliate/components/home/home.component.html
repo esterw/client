@@ -1,0 +1,75 @@
+<div *ngIf="card1">
+<div class="cardsDiv">
+  <div class="card card-box">
+    <img class="card-img-top" [src]="card1.ImgSrc" alt="Card image cap">
+    <div class="card-body">
+      <h4 class="card-title">{{card1.Title}}</h4>
+      <p class="card-text">{{card1.Subtitle1}}</p>
+      <a class="btn btn-join" data-toggle="modal" (click)="openRegisterPopup()">{{card1.TextOnButton}}</a>
+    </div>
+  </div>
+  <div class="card card-box">
+    <img class="card-img-top" [src]="card2.ImgSrc" alt="Card image cap">
+    <div class="card-body">
+      <h4 class="card-title">{{card2.Title}}</h4>
+      <p class="card-text">{{card2.Subtitle1}}</p>
+      <br>
+      <a data-toggle="modal" (click)="openRegisterPopup()" class="btn btn-join">{{card2.TextOnButton}}</a>
+    </div>
+  </div>
+  <div class="card card-box">
+    <img class="card-img-top" [src]="card3.ImgSrc" alt="Card image cap">
+    <div class="card-body">
+      <h4 class="card-title">{{card3.Title}}</h4>
+      <p class="card-text">{{card3.Subtitle1}}</p>
+      <br>
+      <a data-toggle="modal" (click)="openRegisterPopup()" class="btn btn-join">{{card3.TextOnButton}}</a>
+    </div>
+  </div>
+  <div class="card card-box">
+    <img class="card-img-top" [src]="card4.ImgSrc" alt="Card image cap">
+    <div class="card-body">
+      <h4 class="card-title">{{card4.Title}}</h4>
+      <p class="card-text">{{card4.Subtitle1}}</p>
+      <a data-toggle="modal" (click)="openRegisterPopup()" class="btn btn-join">{{card4.TextOnButton}}</a>
+    </div>
+  </div>
+  <!--
+  <div class="card card-box" style="width: 20rem;">
+    <img class="card-img-top" src="../../../../assets/affiliate/col1Af.png" alt="Card image cap">
+    <div class="card-body">
+      <h4 class="card-title">DEDICATED <br> AFFILIATE MANAGER</h4>
+      <p class="card-text">Keeping you updated with latest offers and creatives, from <br> MONDAY to FRIDAY, to help <br> maximize your earing potential <br> data bespoke and banners.</p>
+      <a href="#" class="btn btn-join">{{card1.TextOnButton}}</a>
+    </div>
+  </div>
+<div class="card card-box" style="width: 20rem;">
+    <img class="card-img-top" src="../../../../assets/affiliate/col2Af.png" alt="Card image cap">
+    <div class="card-body">
+      <h4 class="card-title">GREAT <br> COMMITIONS</h4>
+      <p class="card-text">Keeping you updated with latest offers and creatives, from <br> MONDAY to FRIDAY, to help <br> maximize your earing potential <br> data bespoke and banners.</p>
+      <a href="#" class="btn btn-join">{{card2.TextOnButton}}</a>
+    </div>
+  </div>
+<div class="card card-box" style="width: 20rem;">
+    <img class="card-img-top" src="../../../../assets/affiliate/col3Af.png" alt="Card image cap">
+    <div class="card-body">
+      <h4 class="card-title">AFFILIATE <br> PROGRAM</h4>
+      <p class="card-text">Keeping you updated with latest offers and creatives, from <br> MONDAY to FRIDAY, to help <br> maximize your earing potential <br> data bespoke and banners.</p>
+      <a href="#" class="btn btn-join">{{card3.TextOnButton}}</a>
+    </div>
+  </div>
+  <div class="card card-box" style="width: 20rem;">
+    <img class="card-img-top" src="../../../../assets/affiliate/col1Af.png" alt="Card image cap">
+    <div class="card-body">
+      <h4 class="card-title">EYE-CATCHING BANNERS <br> & LANDING PAGES</h4>
+      <p class="card-text">Keeping you updated with latest offers and creatives, from <br> MONDAY to FRIDAY, to help <br> maximize your earing potential <br> data bespoke and banners.</p>
+      <a href="#" class="btn btn-join">{{card4.TextOnButton}}</a>
+    </div>
+  </div>-->
+</div>
+
+<!-- <div class="modal fade" id="registerModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <app-register-modal-affiliate></app-register-modal-affiliate>
+</div> -->
+</div>

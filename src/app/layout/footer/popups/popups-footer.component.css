@@ -1,0 +1,74 @@
+.modal-body {
+    background-color: white;
+    color: black;
+    padding: 30px;
+    text-align: left !important;
+}
+
+.modal-header {
+    background-color: #141414;
+    color: white;
+    margin-right: -5px;
+    border-top-left-radius: 0px !important;
+    border-top-right-radius: 0px !important;
+}
+
+#xButton {
+    color: white;
+}
+
+.modal-dialog {
+    margin-bottom: 500px;
+    overflow-y: initial !important
+}
+
+.contentModal {
+    font-family: Roboto;
+    color: #000000;
+    font-size: 14px;
+    /* Approximation due to font substitution */
+    font-weight: 400;
+    line-height: 20px;
+    /* Approximation due to font substitution */
+    text-align: right;
+}
+
+.modal-dialog {
+    overflow-y: initial !important
+}
+
+.modal-content {
+    width: 662px;
+    margin-left: -90px;
+    padding-right: 5px!important;
+    border-radius: 0px !important;
+    padding-bottom: 45px !important;
+}
+
+.modal-body {
+    max-height: 750px !important;
+    overflow-y: auto;
+    margin-top: 45px !important;
+    padding: 0px 50px!important;
+}
+
+.modal-open {
+    overflow-y: hidden !important;
+}
+
+.modal-open .modal {
+    overflow-y: hidden !important;
+}
+
+.modal-body::-webkit-scrollbar-track, body::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px white !important;
+}
+
+.modal-body::-webkit-scrollbar-thumb, body::-webkit-scrollbar-thumb {
+    background-color: #464646 !important;
+    outline: 3px solid #464646 !important;
+}
+
+.modal-body::-webkit-scrollbar, body::-webkit-scrollbar {
+    width: 0.3em !important;
+}

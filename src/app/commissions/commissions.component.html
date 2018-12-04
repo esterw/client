@@ -1,0 +1,31 @@
+<div class="linkP">
+  <span class="PTitle">COMMISSIONS</span>
+  <span class="PLink">
+    <app-affiliate-link></app-affiliate-link>
+  </span>
+</div>
+<br>
+
+<div class="tabl">
+  <table class="table data-table">
+    <thead>
+      <tr>
+        <td>Product Name</td>
+        <td>Logo</td>
+        <td>Cost Per Acquisition, EUR</td>
+        <td>Revenue Share, EUR</td>
+        <td>Cost Per Lead, EUR</td>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let Commission of Commissions">
+        <td>{{Commission.ProductName}}</td>
+        <td>{{Commission.Logo}}</td>
+        <td>{{Commission.CostPerAcquisition }}</td>
+        <td>{{Commission.RevenueSharePercentages}}
+          <span *ngIf="Commission.RevenueSharePercentages">% from</span> {{Commission.RevenueShareFromAmount}}</td>
+        <td>{{Commission.CostPerLead }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

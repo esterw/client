@@ -1,0 +1,85 @@
+<div class="profi">
+  <span class="prof-title profitText">Quick Summary Report</span>
+  <div class="">
+    <!-- <select #dateFrom="ngModel" [(ngModel)]="selectedDateFrom" name="dateFrom" class="float-right">
+                    <option  *ngFor="let date of dates" [value]="date">{{date | date:'MMMM yyyy'}}</option>
+                </select> 
+                <select #dateTill="ngModel" [(ngModel)]="selectedDateTill" name="dateTill" class="float-right">
+                    <option  *ngFor="let date of dates" [value]="date">{{date | date:'MMMM yyyy'}}</option>
+                </select> -->
+
+
+    <select #selectProduct="ngModel" [(ngModel)]="selectedProduct" name="selectProduct" class="float-right product-select">
+      <option value="Select BannerID">Select BannerID</option>
+      <option *ngFor="let SummaryPerSite of SummaryPerSite|uniqFilter:'Product'">{{SummaryPerSite.Product}}</option>
+    </select>
+    
+    <!--  <input class="form-control select-date"  (click)="dpFrom.toggle()" ngModel (ngModelChange)="onDateChange($event)"
+                name="dp" [displayMonths]="2"  [dayTemplate]="tFrom" ngbDatepicker #dpFrom="ngbDatepicker">
+                <input class="form-control select-date"  (click)="dpTill.toggle()" ngModel (ngModelChange)="onDateChange($event)"
+                name="dp" [displayMonths]="2"  [dayTemplate]="tFrom" ngbDatepicker #dpTill="ngbDatepicker">-->
+    <button class="btn btn-find" (click)="find()">
+      <i class="fa fa-search" aria-hidden="true"></i> Find</button>
+    <button class="btn btn-reset  float-right" (click)="reset()">
+      <i class="fa fa-eraser" aria-hidden="true"></i> Reset</button>
+  </div>
+</div>
+<!--test-->
+
+
+
+
+
+
+<!-- <ng-template #tFrom let-date="date" let-focused="focused">
+        <span class="custom-day"
+        [class.focused]="focused"
+        [class.range]="isFrom(date) || isTo(date) || isInside(date) || isHovered(date)"
+        [class.faded]="isHovered(date) || isInside(date)"
+        (mouseenter)="hoveredDate = date" 
+        (mouseup)="dpTill.toggle()"
+        (mouseleave)="hoveredDate = null" >
+          {{ date.day }}
+        </span>
+      </ng-template> 
+
+    <ng-template #tTill let-date="date" class="" let-focused="focused">
+        <span class="custom-day"
+              [class.focused]="focused"
+              [class.range]="isFrom(date) || isTo(date) || isInside(date) || isHovered(date)"
+              [class.faded]="isHovered(date) || isInside(date)"
+              (mouseenter)="hoveredDate = date"
+              (mouseleave)="hoveredDate = null" >
+          {{ date.day }}
+        </span>
+      </ng-template>-->
+
+<!--   <hr>
+      <pre>From: {{ fromDate | json }} </pre>
+      <pre>To: {{ toDate | json }} </pre>-->
+
+<!--test-->
+<div class="tabl">
+  <table class="table data-table">
+    <thead>
+      <tr>
+        <td>#</td>
+        <td>Banner ID</td>
+        <td>Impression</td>
+        <td>Clicks</td>
+        <td>Lead</td>
+        <td>Sale</td>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let SummaryPerSite of filteredData">
+        <td>{{SummaryPerSite.Id}}</td>
+        <td>{{SummaryPerSite.Product}}</td>
+        <td>{{SummaryPerSite.Impressions}}</td>
+        <td>{{SummaryPerSite.Clicks }}</td>
+        <td>{{SummaryPerSite.Lead}}</td>
+        <td>{{SummaryPerSite.Sale}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

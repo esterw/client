@@ -1,0 +1,143 @@
+<div *ngIf="timezone">
+<div class=" modal-lg justify-content-md-center modal-register justify-content-xs-center"  style="background-color: black;">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h5 class="modal-title" id="exampleModalLabel">AFFILIATE REGISTRATION</h5>
+      <button type="button" class="close"  (click)="bsModalRef.hide()">
+        <span aria-hidden="true">
+          <i class="fa fa-times" aria-hidden="true"></i>
+        </span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <p id="whiteLittle">Apply to our network submitting your information below. * - required fields.</p>
+      <form (ngSubmit)="onSubmitForm()" #affRegisterForm="ngForm">
+      <div class="row">
+        <div class="col-lg-6">
+          <div class="">
+            <p class="yellowTitle">ACCOUNT DETAILS</p>
+            <div class="form-group">
+              <label>Company / Name: *</label>
+              <input required [(ngModel)]="Affiliate.CompanyName" #CompanyName="ngModel" name="CompanyName" type="text" class="inputBottomBorder form-control ">
+              <div *ngIf="CompanyName.invalid && (CompanyName.touched || affRegisterForm.submitted)">
+                <small *ngIf="CompanyName?.errors.required" class="form-text text-muted">Field is required</small>
+              </div>
+            </div>
+            <div class="form-group">
+              <label>Address 1:</label>
+              <input  [(ngModel)]="Affiliate.Address1" #Address1="ngModel" name="Address1" type="text" class="inputBottomBorder form-control ">
+            </div>
+            <div class="form-group">
+              <label>Address 2:</label>
+              <input  [(ngModel)]="Affiliate.Address2" #Address2="ngModel" name="Address2" type="text" class="inputBottomBorder form-control ">
+            </div>
+            <div class="form-group">
+              <label>city</label>
+              <input  [(ngModel)]="Affiliate.City" #City="ngModel" name="City" type="text" class="inputBottomBorder form-control ">
+            </div>
+            <div class="form-group">
+              <label>Country</label>
+              <input  [(ngModel)]="Affiliate.Country" #Country="ngModel" name="Country" type="text" class="inputBottomBorder form-control ">
+            </div>
+            <div class="form-group">
+              <label>State</label>
+              <input  [(ngModel)]="Affiliate.State" #State="ngModel" name="State" type="text" class="inputBottomBorder form-control ">
+            </div>
+            <div class="form-group">
+              <label>Zipcode</label>
+              <input pattern="[a-zA-Z0-9-]+"  [(ngModel)]="Affiliate.ZipCode" #ZipCode="ngModel" name="ZipCode" type="text" class="inputBottomBorder form-control ">
+              <div *ngIf="ZipCode.invalid && (ZipCode.dirty || ZipCode.touched || affRegisterForm.submitted)">
+                <small *ngIf="ZipCode?.errors.pattern" class="form-text text-muted">Must be only numbers and letters</small>
+                </div>
+            </div>
+            <div class="form-group">
+              <label>Phone</label> 
+              <div class="input-group">
+                <span class="input-group-addon" *ngIf="timezone.data.timezone.phone_prefix">+{{timezone.data.timezone.phone_prefix}}</span>
+                 <input  [(ngModel)]="Affiliate.Phone" #Phone="ngModel" name="Phone" type="text" class="inputBottomBorder form-control"
+              maxlength="12" minlength="6" pattern="[0-9]*">
+              </div>
+              <div *ngIf="Phone.invalid && (Phone.dirty ||Phone.touched || affRegisterForm.submitted)">
+                <small *ngIf="Phone?.errors.pattern || Phone?.errors.minlength || Phone?.errors.maxlength" class="form-text text-muted">Please, enter 6-12 numbers</small>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="">
+            <p class="yellowTitle">USER DETAILS</p>
+            <div class="form-group">
+              <label>E-mail Address: *</label>
+              <input required  [(ngModel)]="Affiliate.Email" #Email="ngModel" 
+              name="Email" type="email" class="inputBottomBorder form-control " pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$">
+              <div *ngIf="Email.invalid && (Email.touched || Email.dirty || affRegisterForm.submitted)">
+                <small *ngIf="Email?.hasError.required" class="form-text text-muted">Field is required</small>
+                <small *ngIf="Email?.errors.pattern && !Email?.errors.required" class="form-text text-muted">Invalid e-mail address. Format: name@domain.com</small>
+              </div>
+            </div>
+            <div class="form-group">
+              <label>Password: *</label>
+              <input required  [(ngModel)]="Affiliate.Password" #Password="ngModel" name="Password" pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$" 
+              type="password" class="inputBottomBorder form-control" validateEqual="ConfirmPassword" reverse="true"> 
+                <div *ngIf="Password.invalid && (Password.touched || Password.dirty || affRegisterForm.submitted)">
+                  <small *ngIf="Password?.errors.required" class="form-text text-muted">Field is required</small>
+                  <small *ngIf="Password?.errors.pattern" class="form-text text-muted">Must be at least 8 characters, at least one letter and one number</small>
+                </div>  
+            </div>
+            <div class="form-group" id="confirm">
+              <label>Confirm Password: *</label>
+              <!---->
+              <input ngModel #ConfirmPassword="ngModel" name="ConfirmPassword" required type="password" 
+              class="inputBottomBorder form-control" validateEqual="Password" reverse="false">
+              <small>Password must be between 6 and 12 chracters</small>
+              <div *ngIf="ConfirmPassword.invalid && (ConfirmPassword.touched || ConfirmPassword.dirty || affRegisterForm.submitted)">
+                <small *ngIf="ConfirmPassword?.errors.required" class="form-text text-muted">Field is required</small>
+                <small *ngIf="ConfirmPassword.errors && !ConfirmPassword?.errors.required" class="form-text text-muted">Password do not match</small>
+              </div>
+            </div>
+            <div class="form-group">
+              <label>First Name:</label>
+              <input  [(ngModel)]="Affiliate.Name" #Name="ngModel" name="Name" type="text" class="inputBottomBorder form-control ">
+              <div *ngIf="Name.invalid && (Name.touched || Name.dirty || affRegisterForm.submitted)">
+                <small *ngIf="Name?.errors.pattern" class="form-text text-muted">You may only use letters (a-z) (A-Z)</small>
+              </div>
+            </div>
+            <div class="form-group">
+              <label>Last Name:</label>
+              <input  [(ngModel)]="Affiliate.Family" #Family="ngModel" id="Family" name="Family" type="text" pattern="^[a-zA-Z_ ]*$" class="inputBottomBorder form-control ">
+              <div *ngIf="Family.invalid && (Family.touched ||Family.dirty || affRegisterForm.submitted)">
+                <small *ngIf="Family?.errors.pattern" class="form-text text-muted">You may only use letters (a-z) (A-Z)</small>
+              </div>
+            </div>
+     
+            <div class="form-check ">
+              <label class="form-check-label">
+                <!-- ngModel #TermsAndConditions name="TermsAndConditions"-->
+                <input  (change)="conditionsChecked=!conditionsChecked"
+                 class="form-check-input" type="checkbox" value="">
+                 I agree to  <span style="color:#ffcd05;">Terms and Conditions</span>
+              </label>
+            </div>
+              <div *ngIf="!conditionsChecked && affRegisterForm.submitted">
+                <small  class="form-text text-muted">You didn't accept our terms</small>
+              </div>
+            <div class="form-group">
+              <div class="col float-right">
+                <div class="g-recaptcha" data-sitekey="6LePp0QUAAAAAMCoNYk1q40nTqRllnxGFZyUYlGA"></div>
+               </div>
+              </div>
+          </div>
+         
+        </div>
+      </div>
+<div class="row justify-content-center">
+              <button type="submit" class="btn btn-yellow">REGISTER
+                <img id="loading" *ngIf="loading" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA=="/>
+              </button>   
+          </div>
+          <p style="color:red"> {{message}}</p>
+        </form>
+    </div>
+  </div>
+</div>
+</div>
