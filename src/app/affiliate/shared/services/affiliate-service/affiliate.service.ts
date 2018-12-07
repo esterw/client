@@ -71,7 +71,7 @@ export class RegisterService {
         //this.user = new user();
         
         const base = {
-                "Id":newAffiliate.Id,
+                "ID":newAffiliate.ID,
               "CompanyName":newAffiliate.CompanyName,
               "Phone":newAffiliate.Phone,
               "Address1":newAffiliate.Address1,
@@ -87,7 +87,7 @@ export class RegisterService {
           };
 
             const user = {
-                "Id":newAffiliate.AffiliateUserID,
+                "ID":newAffiliate.AffiliateUserID,
                 "Username": newAffiliate.Username,
                 "Name": newAffiliate.Name,
                 "Family": newAffiliate.Family,
@@ -102,7 +102,7 @@ export class RegisterService {
         let options = new RequestOptions({ headers: headers });
         //console.log("New Affiliate Data Before Sending-----" + JSON.stringify(this.myData))
       //, options
-        return this.http.post('/api/Affiliates/PutAffiliate?id='+newAffiliate.Id, this.myData)
+        return this.http.post('/api/Affiliates/PutAffiliate?id='+newAffiliate.ID, this.myData)
         .map(
             (response: Response) => {
               const responseJson = response;// response.json();

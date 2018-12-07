@@ -40,10 +40,10 @@
       </tr>
     </thead>
     <tbody>
-      <!-- <tr *ngFor="let ticket of filteredData; let i =index" data-toggle="modal" (click)="onRead(ticket.Id,i)" [attr.data-target]="'#'+i"> -->
-          <tr *ngFor="let ticket of filteredData; let i =index" (click)="openModal(template);onRead(ticket.Id,i)" >
+      <!-- <tr *ngFor="let ticket of filteredData; let i =index" data-toggle="modal" (click)="onRead(ticket.ID,i)" [attr.data-target]="'#'+i"> -->
+          <tr *ngFor="let ticket of filteredData; let i =index" (click)="openModal(template);onRead(ticket.ID,i)" >
         <td>{{ticket.Status}}</td>
-        <td>{{ticket.Id}}</td>
+        <td>{{ticket.ID}}</td>
         <td>{{ticket.CreatedDate | date:'dd/MM/yy' }}</td>
         <td>{{ticket.CreatedDate | date:'HH:MM'}}</td>
         <td>{{ticket.Subject}}</td>
@@ -75,7 +75,7 @@
               <div class="modal-body">
                 <div class=" justify-content-center">
                   <div [hidden]="!DisplayReply" *ngFor="let message of ticket.MessagesContents; ">
-                    <!-- <span>Id: {{message.Id}}</span>
+                    <!-- <span>ID: {{message.ID}}</span>
                                     <br>-->
                     <span>{{message.CreatedDate | date:'dd/MM/yy HH:MM'}}</span>
                     <br>
@@ -90,7 +90,7 @@
                     <hr>
                   </div>
                   <div [hidden]="DisplayReply" class="new-message-div">
-                    <form (ngSubmit)="newMessagge(ticket.Id,i)" name="newMessaggeForm" #newMessaggeForm='ngForm'>
+                    <form (ngSubmit)="newMessagge(ticket.ID,i)" name="newMessaggeForm" #newMessaggeForm='ngForm'>
                       <h5>Reply</h5>
                       <div class="form-group">
                         <label for="example-text-input" class="col-form-label">Subject:</label>
@@ -105,7 +105,7 @@
                         </div>
                       </div>
                       <button type="submit" class="btn float-right" id="btnSend">SEND
-                          <img id="loading" *ngIf="loading" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA=="
+                          <img id="loading" *ngIf="loading" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIDhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA=="
                           />
                       </button>
                     </form>

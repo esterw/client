@@ -1,5 +1,5 @@
 export class ContentPagesFAQ{
-    public Id: number;
+    public ID: number;
     public Title: string;
     public Group: string;
     public Tags: string;

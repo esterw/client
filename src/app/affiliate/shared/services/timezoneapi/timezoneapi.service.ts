@@ -12,7 +12,7 @@ import { HttpClient, HttpHeaders, HttpHandler, HttpEvent, HttpInterceptor, HttpR
 @Injectable()
 export class TimezoneService {
   constructor(private http: HttpClient) { }
- url: string = "https://timezoneapi.io/api/ip";
+ url: string = "https://timezoneapi.io/api/ip/?token=bVNLWRzikIvs";
  timezone: Timezone = new Timezone();
  timezoneChanged = new Subject<Timezone>();
 

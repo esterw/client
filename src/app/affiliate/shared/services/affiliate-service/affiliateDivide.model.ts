@@ -1,5 +1,5 @@
 export class MyData{
-   //public Id:number;
+   //public ID:number;
   /*  base:base;
    user:user;*/
   public base:{
@@ -86,7 +86,7 @@ public CompanyName:string;
    public RegistrationDate:Date; */
 
 /* ---------Affiliate------------
-Id              
+ID              
 AffiliateUserID
 NetworkID   
 DateCreated

@@ -28,23 +28,23 @@ export class WithdrawalPopupComponent implements OnInit {
   request() {
     this.loading = true;
     this.service.requestWithdrawl(this.amountValue)
-      .subscribe((responseJson) => {
-        if (responseJson) {
-          this.loading = false;
-          this.serverMessage = responseJson.toString();
-        } else {
+      // .subscribe((responseJson) => {
+      //   if (responseJson) {
+      //     this.loading = false;
+      //     this.serverMessage = responseJson.toString();
+      //   } else {
 
-          this.loading = false;
-          this.closeModal();
-        }
-      }
-        , error => {
-          this.loading = false;
-          //console.log("error"+error);
-          this.serverMessage = "server isn't available ):";
-        }
+      //     this.loading = false;
+      //     this.closeModal();
+      //   }
+      // }
+      //   , error => {
+      //     this.loading = false;
+      //     //console.log("error"+error);
+      //     this.serverMessage = "server isn't available ):";
+      //   }
 
-      );
+      // );
   }
   closeModal(){
     this.bsModalRef.hide();

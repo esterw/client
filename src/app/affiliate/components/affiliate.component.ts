@@ -25,8 +25,8 @@ export class AffiliateComponent implements OnInit {
    // }
    // this.activatedRoute.params.subscribe((params: Params) => {
    //   if (params['id']) {
-   //     let affiliateId = params['id'];
-   //     localStorage.setItem("user",affiliateId) ;
+   //     let affiliateID = params['id'];
+   //     localStorage.setItem("user",affiliateID) ;
      
    //     if (localStorage.getItem('user'))
    //       this.router.navigate(['/Homepage']);
@@ -43,7 +43,7 @@ export class AffiliateComponent implements OnInit {
    // });
 
     this.contentfAQSService.getcontentsFAQs();
-    this.contentService.getContents();
+    // this.contentService.getContents();
     this.fAQsService.getContentsFAQ();
     this.bannersService.getBanners();
   }

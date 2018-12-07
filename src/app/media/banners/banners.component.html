@@ -8,7 +8,7 @@
 
   <div class="details-div">
     <div class="banner-image">
-      <p class="banner-name">{{banner.BannerName}} / ID: {{banner.Id}}</p>
+      <p class="banner-name">{{banner.BannerName}} / ID: {{banner.ID}}</p>
 
       <div class="banner-img-div">
         <a href="" data-toggle="modal" class="banner-size" [attr.data-target]="'#'+i">
@@ -41,7 +41,7 @@
       <div class="to-bottom-div">
         <b>Banner size:</b> {{banner.Width}}*{{banner.Height}}
         <br>
-        <button (click)="downloadBanner(banner.BannerName,banner.Id)" class="btn btn-download">DOWNLOAD</button>
+        <button (click)="downloadBanner(banner.BannerName,banner.ID)" class="btn btn-download">DOWNLOAD</button>
       </div>
     </div>
 
@@ -57,7 +57,7 @@
       Direct Link
       <br>
       <div class="">
-        <input #dl readonly class="txtToCopy linkToCopy" value="http://play24bet.net/click.ashx?Banner={{banner.Id}}&Aff={{affiliateID}}">
+        <input #dl readonly class="txtToCopy linkToCopy" value="http://play24bet.net/click.ashx?Banner={{banner.ID}}&Aff={{affiliateID}}">
         <button class="btn btn-copy btnCopyLink" ngxClipboard [cbContent]=dl.value (cbOnSuccess)="isCopied=true" triggers="click:blur"
           #b="ngbTooltip" placement="top" ngbTooltip="Copied!" (click)="t.close(); c.close()">{{btnCopyLink}}</button>
       </div>
@@ -65,8 +65,8 @@
       <br>
       <div class="">
         <textarea readonly class="txtToCopy" #htmlT>
-          <a href="http://play24bet.net/click.ashx?Banner={{banner.Id}}&Aff={{affiliateID}}">
-            <img src="http://play24bet.net/bannerh.ashx?Banner={{banner.Id}}&Aff={{affiliateID}}" />
+          <a href="http://play24bet.net/click.ashx?Banner={{banner.ID}}&Aff={{affiliateID}}">
+            <img src="http://play24bet.net/bannerh.ashx?Banner={{banner.ID}}&Aff={{affiliateID}}" />
           </a>
         </textarea>
         <button class="btn btn-copy" ngxClipboard [cbContent]=htmlT.value (cbOnSuccess)="isCopied=true" (click)="t.close(); b.close()"

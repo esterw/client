@@ -31,8 +31,8 @@ import { AuthGuard } from './shared/affiliate-server/auth.gaurd';
 const appRoutes:Routes = [
 
     { path: '', redirectTo: 'Homepage', pathMatch: 'full' },
-
-    { path: 'Login', component: AffiliateLoginAppComponent ,canActivate:[AuthGuard], children:
+// ,canActivate:[AuthGuard]
+    { path: 'Login', component: AffiliateLoginAppComponent , children:
             [
                 { path: '', redirectTo: 'Dashboard', pathMatch: 'full' },
                 { path: 'Dashboard', component: DashboardComponent },

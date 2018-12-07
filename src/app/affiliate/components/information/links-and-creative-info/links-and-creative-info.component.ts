@@ -24,7 +24,7 @@ export class LinksAndCreativeInfoComponent implements OnInit {
     this.subscription = this.contentfAQSService.getObservablefAQS().subscribe(
       contents => {
         this.contentsFAQS = contents.filter(content => { return content.Name == "LINKS AND CREATIVE" })[0];
-      //  this.FAQ = contents.filter(content => { return content.ComContentFAQID == this.contentsFAQS.Id });
+      //  this.FAQ = contents.filter(content => { return content.ComContentFAQID == this.contentsFAQS.ID });
       });
     this.subscription2 = this.fAQsService.getObservableFAQ().subscribe(
       contents => {

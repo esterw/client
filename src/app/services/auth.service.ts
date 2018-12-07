@@ -8,9 +8,9 @@ import 'rxjs/Rx';
 @Injectable()
 export class AuthService {
   authKey: string = "auth";
-  clientId: string = "TestMakerFree";
+  clientID: string = "TestMakerFree";
   constructor(private http: HttpClient,
-    @Inject(PLATFORM_ID) private platformId: any) {
+    @Inject(PLATFORM_ID) private platformID: any) {
   }
 
   // performs the login
@@ -49,7 +49,7 @@ export class AuthService {
   }
   // Persist auth into localStorage or removes it if a NULL argument is given
   setAuth(auth: TokenResponse | null): boolean {
-    if (isPlatformBrowser(this.platformId)) {
+    if (isPlatformBrowser(this.platformID)) {
   
       if (auth) {
         localStorage.setItem(
@@ -65,7 +65,7 @@ export class AuthService {
   }
 
   getAuth(): TokenResponse | null {
-    if (isPlatformBrowser(this.platformId)) {
+    if (isPlatformBrowser(this.platformID)) {
       var i = localStorage.getItem(this.authKey);
       if (i) {
         return JSON.parse(i);
@@ -75,7 +75,7 @@ export class AuthService {
   }
 
   isLoggedIn(): boolean {
-    if (isPlatformBrowser(this.platformId)) {
+    if (isPlatformBrowser(this.platformID)) {
       return localStorage.getItem(this.authKey) != null;
     }
     return false;

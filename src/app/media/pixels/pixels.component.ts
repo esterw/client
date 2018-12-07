@@ -3,7 +3,7 @@ import { ModalService } from '../../shared/modal-service/modal.service';
 import { BsDatepickerConfig } from 'ngx-bootstrap';
 
 @Component({
-  moduleId: module.id.toString(),
+  // moduleID: module.id.toString(),
   selector: 'app-pixels',
   templateUrl: './pixels.component.html',
   styleUrls: ['./pixels.component.css']

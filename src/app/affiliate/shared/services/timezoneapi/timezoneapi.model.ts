@@ -6,7 +6,7 @@ export class Timezone {
     }
     public data: {
         ip:string;
-        Id: number;
+        ID: number;
         country: string;
         country_code: string;
         city: string;

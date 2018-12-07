@@ -14,33 +14,37 @@ import { AuthService } from '../../services/auth.service';
   styleUrls: ['./sidebar.component.css']
 })
 export class SidebarComponent implements OnInit {
-  affiliate:Affiliate;
-  tickets:AffiliateTicket[];
+
+  affiliate: Affiliate;
+  tickets: AffiliateTicket[];
   subscription: Subscription;
-  subscriptionUnreadM: Subscription;
-  unReadMessages=0;
-  constructor(private modalService: BsModalService, private authService: AuthService, private  service:AffiliateService,private router:Router) { }
+  unReadMessages = 0;
+
+  constructor(private modalService: BsModalService,
+    private authService: AuthService,
+    private service: AffiliateService,
+    private router: Router) { }
 
   ngOnInit() {
+
     this.subscription = this.service.AffiliateChanged.subscribe(affiliate => {
-      this.affiliate = affiliate
+      this.affiliate = affiliate;
+      this.tickets = affiliate.AffiliateTickets.filter(x => x.IsReadByAffiliate == false);
+      this.unReadMessages = this.tickets.length;
     })
-      // this.service.closeModal.subscribe((val:boolean)=>this.close());
+
     this.affiliate = this.service.Affiliate;
-    this.subscriptionUnreadM = this.service.TicketChanged.subscribe(ticket => {
-      this.tickets = ticket.filter(x=>x.IsReadByAffiliate==false);
-      this.unReadMessages=this.tickets.length;
-      //console.log("this.unReadMessages",this.unReadMessages)
-    })
-    if (this.service.Ticket) {
-     // console.log(this.service.Ticket);
-    this.tickets =  this.service.Ticket.filter(x=>x.IsReadByAffiliate==false);
-    this.unReadMessages=this.tickets.length;}
+
+    if (this.service.Affiliate) {
+      this.tickets = this.service.Affiliate.AffiliateTickets.filter(x => x.IsReadByAffiliate == false);
+      this.unReadMessages = this.tickets.length;
+    }
   }
-  logout(){
+
+  logout() {
     //localStorage.removeItem('user');
     this.authService.logout();
-   // window.location.href="http://affiliatemf.com"
+    // window.location.href="http://affiliatemf.com"
     this.router.navigate(['/Homepage']);
   }
   bsModalRef: BsModalRef;
@@ -48,13 +52,14 @@ export class SidebarComponent implements OnInit {
   openEditProfilePopup() {
     // this.modalRef = this.modalService.open(EditProfilePopupComponent);
     this.bsModalRef = this.modalService.show(EditProfilePopupComponent);
-    
+
   }
+
   // close() {
   //   this.modalRef.close();
   // }
-  ngOnDestroy(){
-    this.subscriptionUnreadM.unsubscribe();
+
+  ngOnDestroy() {
     this.subscription.unsubscribe();
   }
 }

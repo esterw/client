@@ -13,23 +13,23 @@ export class MessagesPopupComponent implements OnInit {
   TicketSubject = "";
   TicketContent = "";
   loading=false;
-  $: any;
+  
   ngOnInit() {
   }
   newTicket() {
     this.loading = true;
     this.service.newTicket(this.TicketSubject, this.TicketContent)
-      .subscribe(
-        (responseJson) => {
-          this.loading = false;
-          this.closeModal();
-          //  this.serverMessage = "Your request has been successfully submitted";
-        }
-        , error => {
-         this.loading = false;
-          //  this.serverMessage  = "server isn't available ):";
-        }
-      )
+      // .subscribe(
+      //   (responseJson) => {
+      //     this.loading = false;
+      //     this.closeModal();
+      //     //  this.serverMessage = "Your request has been successfully submitted";
+      //   }
+      //   , error => {
+      //    this.loading = false;
+      //     //  this.serverMessage  = "server isn't available ):";
+      //   }
+      // )
 
   }
   closeModal() {

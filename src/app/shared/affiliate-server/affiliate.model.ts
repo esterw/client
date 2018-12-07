@@ -1,258 +1,185 @@
 import { Time } from "@angular/common";
 
 export class Affiliate {
-    public Id: number;
-    public CompanyName: string;
-    public Phone: string;
-    public Address1: string;
-    public Address2: string;
-    public City: string;
-    public Country: string;
-    public State: string;
-    public ZipCode: string;
-    public Username: string;
-    public Password: string;
-    public Name: string;
-    public Family: string;
-    public AffiliateUserID:number;
-    public Tile: string;
-    public Email: string;
-    public RegistrationDate: Date;
-    public Balance: number;
-    public AffiliateLink: string;
-    public AffiliateLastLogin: Date;
-    public LastActivityTime:Date;
-    public Skype:string;
+    ID: number;
+    CompanyName: string;
+    Phone: string;
+    Address1: string;
+    Address2: string;
+    City: string;
+    Country: string;
+    State: string;
+    ZipCode: string;
+    Username: string;
+    Password: string;
+    Name: string;
+    Family: string;
+    AffiliateUserID: number;
+    Tile: string;
+    Email: string;
+    RegistrationDate: Date;
+    Balance: number;
+    AffiliateLink: string;
+    AffiliateLastLogin: Date;
+    LastActivityTime: Date;
+    Skype: string;
+    AffiliatesBanners: AffiliatesBanners[];
+    AffiliateAccount: AffiliateAccount;
+    AffiliateMedias: AffiliateMedia[];
+    AffiliateRequestWithdrawls: AffilateRequestWithdraw[];
+    AffiliateRevenueReports: AffiliateRevenueReport[];
+    AffiliateSummaryPerSites: AffiliateSummaryPerSite;
+    AffiliateTickets: AffiliateTicket[];
+    AffiliatesCommissions: AffiliateCommission[];
+    SubAffiliates: SubAffiliates;
+}
+
+//AffiliateAccount
+export class AffiliateAccount {
+    ID: number;
+    AccountDate: Date;
+    Transaction: string;
+    Amount: any;
+    Balance: any;
+}
+
+//AffiliatesBanners
+export class AffiliatesBanners {
+    ID: number;
+    AffiliateBanner:AffiliateBanner;
+    AffiliateID: number;
+    BannerID: number;
+    Clicks: number;
+    Impressions: number;
+    Lead: number;
+    Sale: number;
+    SummaryDate: Date;
+}
+
+//AffiliateBanner
+export class AffiliateBanner {
+    ID: number;
+    BannerName: string;
+    BannerPath: string;
+    Javascript: string;
+    DirectLink: string;
+    HTMLCode: string;
+    AffiliateBannerSize: AffiliateBannerSize;
+}
+
+export class AffiliateBannerSize {
     
-}
-    //AffiliateAccount
-    export class AffiliateAccount{
-    public Id: number;    
-    public AccountDate: Date;
-    public Transaction: string;
-    public Amount: any;
-    public Balance: any;
+    Width: string;
+    Height: string;
 }
 
-    //AffiliateBanner
-    export class AffiliateBanner{
-    public Id: number;
-    public BannerName: string;
-    public BannerPath: string;
-    public Javascript: string;
-    public DirectLink: string;
-    public HTMLCode: string;
-    public Width: string;
-    public Height: string;
+//AffiliateMedia
+export class AffiliateMedia {
+    ID: number;
+}
 
-    }
-    //AffiliateMedia
-    export class AffiliateMedia{
-    public Id: number;
-    }
+//AffiliatePixel
+export class AffiliatePixel {
+    ID: number;
+    Pixel: string;
+    PixelTrigger: string;
+    Code: string;
+}
 
-    //AffiliatePixel
-    export class AffiliatePixel{
-    public Id: number;
-    public Pixel: string;
-    public PixelTrigger: string;
-    public Code: string;
-    }
+//AffiliateCommission
+export class AffiliateCommission {
+    ID: number;
+    ProductID: number;
+    ProductName: string;
+    ProductLink: string;
+    Logo: string;
+    CostPerLead: any;
+    RevenueSharePercentages: any;
+    RevenueShareFromAmount: any;
+    CostPerAcquisition: any;
+    IsActive: boolean;
+    AvailableDateFrom: Date;
+    AvailableDateTill: Date;
+}
 
-    //AffiliateCommission
-    export class AffiliateCommission{
-    public Id: number;
-    public ProductID: number;
-    public ProductName: string;
-    public ProductLink: string;
-    public Logo:string;
-    public CostPerLead:any;
-    public RevenueSharePercentages :any;
-    public RevenueShareFromAmount :any;
-    public CostPerAcquisition:any;
-    public IsActive:boolean;
-    public AvailableDateFrom:Date;
-    public AvailableDateTill:Date;
-    }
+//AffiliateRevenueReport todo -primarykey
+export class AffiliateRevenueReport {
+    ID: number;
+    AffiliateDate: Date;
+    Visits: number;
+    Registrations: number;
+    Deposits: number;
+    DepositSum: any;
+    TurnOver: any;
+    Profit: any;
+    Players: number;
+}
 
-    //AffiliateRevenueReport
-    export class AffiliateRevenueReport{
-    public Id: number;
-    public AffiliateDate: Date;
-    public Visits: number;
-    public Registrations: number;
-    public Deposits: number;
-    public DepositSum: any;
-    public TurnOver: any;
-    public Profit: any;
-    public Players: number;
-    }
+//AffiliateSummaryPerSite
+export class AffiliateSummaryPerSite {
+    ID: number;
+    Product: string;
+    Impressions: number;
+    Clicks: number;
+    Lead: number;
+    Sale: number;
+    AffiliateSummaryDate: Date;
+}
 
-    //AffiliateSummaryPerSite
-    export class AffiliateSummaryPerSite{
-    public Id: number;
-    public Product: string;
-    public Impressions: number;
-    public Clicks: number;
-    public Lead: number;
-    public Sale: number;
-    public AffiliateSummaryDate: Date;
-    }
-
-    //AffiliateTicket
+//AffiliateTicket
 export class AffiliateTicket {
-    public Id: number;
-    public Status: string
-    public CreatedDate: Date;
-    public CreatedBy: string;
-    public Subject: string;
-    public LastResponse: Date;
-    public Actions: string;
-    public IsReadByAffiliate:boolean;
-    public MessagesContents: MessagesContents[];
+    ID: number;
+    Status: string
+    CreatedDate: Date;
+    CreatedBy: string;
+    Subject: string;
+    LastResponse: Date;
+    Actions: string;
+    IsReadByAffiliate: boolean;
+    AffiliateTicketContents: AffiliateTicketContent[];
+    AffiliateID: number;
 }
-export class Ticket {
-    public Id: number;
-    public Status: string
-    public CreatedDate: Date;
-    public CreatedBy: string;
-    public Subject: string;
-    public LastResponse: Date;
-    public Actions: string;
-    public AffiliateID:number;
-    public IsReadByAffiliate:boolean;
-}
-export class AffiliateNewTicket{
-   public Ticket:Ticket;
-   public Message:Messages;  
-}
-export class Messages {
 
-    public Id: number;
-    public Subject: String;
-    public Content: String;
-    public CreatedBy: String;
-    public CreatedDate: Date;
-    public IsActivateOnCreation: Boolean;
-    public IsPopupUntilApproval: Boolean;
-    public IsSendByEmail: Boolean;
-    public IsReadByAffiliate:boolean;
-    public TicketID:number;
-    
- }
-export class MessagesContents {
+// AffiliateTicketContent
+export class AffiliateTicketContent {
 
-   public Id: number;
-   public Subject: String;
-   public Content: String;
-   public CreatedBy: String;
-   public CreatedDate: Date;
-   public IsActivateOnCreation: Boolean;
-   public IsPopupUntilApproval: Boolean;
-   public IsSendByEmail: Boolean;
-   public IsReadByAffiliate:boolean;
-   
-}
-/*export class AffiliateTicket {
-    public Id: number;
-    public Status: string
-    public CreatedDate: Date;
-    public CreatedBy: string;
-    public Subject: string;
-    public LastResponse: Date;
-    public Actions: string;
-    public MessagesContents: {
-        Id: number;
-        Content: String;
-        Subject: String;
-        CreatedBy: String;
-        CreatedDate: Date;
-        IsActivateOnCreation: Boolean;
-        IsPopupUntilApproval: Boolean;
-        IsSendByEmail: Boolean;
-    }
-} */
-
-    //AffiliateWithdrawlHistory
-    export class AffiliateWithdrawlHistory{
-    public Id: number;
-    public Created: Date;
-    public Amount: any;
-    public AmountPayout: any;
-    public BalanceAfterPayout: any;
-    public Status:string;
-    }
-
-    //SubAffiliates
-    export class SubAffiliates{
-    public Id: number;
-    public RegistrationDate: Date;
-    public UserName: string;
-    public URL: string;
-    }
-    export class AffilateRequestWithdraw{
-     public Id:number;
-     public RequestDate:Date;
-     public AffiliateID:number;
-     public Amount:any;
-     public Status:string;
-     public BalanceAfterPayout:any;
-     public RejectedDetails:string;
-        }
-
-      
-
-
-
-
-
-
-
-
-export class MyData {
-
-    public base: {
-        CompanyName: string;
-        Phone: string;
-        Address1: string;
-        Address2: string;
-        City: string;
-        Country: string;
-        State: string;
-        ZipCode: string;
-        Email: string;
-    }
-    public user: {
-        Username: string;
-        Password: string;
-        Name: string;
-        Family: string;
-        Tile: string;
-        RegistrationDate: Date;
-    }
-    constructor(
-
-    ) { };
+    ID: number;
+    Subject: String;
+    Content: String;
+    CreatedBy: String;
+    CreatedDate: Date;
+    IsActivateOnCreation: Boolean;
+    IsPopupUntilApproval: Boolean;
+    IsSendByEmail: Boolean;
+    IsReadByAffiliate: boolean;
+    TicketID: number;
 
 }
 
-export class base {
-    public CompanyName: string;
-    public Phone: string;
-    public Address1: string;
-    public Address2: string;
-    public City: string;
-    public Country: string;
-    public State: string;
-    public ZipCode: string;
-    public Email: string;
+//AffiliateWithdrawlHistory
+export class AffiliateWithdrawlHistory {
+    ID: number;
+    Created: Date;
+    Amount: any;
+    AmountPayout: any;
+    BalanceAfterPayout: any;
+    Status: string;
 }
 
-export class user {
-    public Username: string;
-    public Password: string;
-    public Name: string;
-    public Family: string;
-    public Tile: string;
-    public RegistrationDate: Date;
+//SubAffiliates
+export class SubAffiliates {
+    ID: number;
+    RegistrationDate: Date;
+    UserName: string;
+    URL: string;
+}
+
+export class AffilateRequestWithdraw {
+    ID: number;
+    RequestDate: Date;
+    AffiliateID: number;
+    Amount: any;
+    Status: string;
+    BalanceAfterPayout: any;
+    RejectedDetails: string;
 }

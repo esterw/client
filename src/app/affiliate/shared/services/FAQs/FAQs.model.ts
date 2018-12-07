@@ -1,6 +1,6 @@
 export class FAQ{
 
-    public Id: number;
+    public ID: number;
     public FirstP: string;
     public SecondP: string;
     public IsHelpfulCnt: number;

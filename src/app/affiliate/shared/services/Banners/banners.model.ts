@@ -1,5 +1,5 @@
 export class Banner{
-    public Id: number;
+    public ID: number;
     public FromDate: Date;
     public TillDate: Date;
     public Name: string;

@@ -1,7 +1,7 @@
 import { Component, OnInit, Input, ViewChild, TemplateRef } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { AffiliateService } from '../shared/affiliate-server/affiliate.service';
-import { AffiliateTicket, MessagesContents } from '../shared/affiliate-server/affiliate.model';
+import { AffiliateTicket, AffiliateTicketContent } from '../shared/affiliate-server/affiliate.model';
 import { UniquePipe } from '../shared/shared-pipes/uniquw-pipe.pipe';
 import { NgForm } from '@angular/forms';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
@@ -22,7 +22,7 @@ export class MessagesComponent implements OnInit {
   constructor(private modalService: BsModalService,private service: AffiliateService) { }
   tickets: AffiliateTicket[];
   //newTickets:AffiliateTicket=new AffiliateTicket();
-  newMessages: MessagesContents = new MessagesContents();
+  newMessages: AffiliateTicketContent = new AffiliateTicketContent();
   messages;
   bsModalRef: BsModalRef;
   filteredData: AffiliateTicket[];
@@ -67,19 +67,19 @@ export class MessagesComponent implements OnInit {
 this.loading=true;
     this.newMessages.CreatedDate = new Date();
     this.service.addMessage(this.newMessages, ticketID)
-      .subscribe((responseJson) => {
-        // this.newMessaggeForm.reset();
-        this.newMessages.Subject="";
-        this.newMessages.Content="";
-       this.loading = false;
-       this.DisplayReply=true;
-      }
-        , error => {
-          this.loading = false;
-          //this.message = "server is not available ):";ן
-        }
+      // .subscribe((responseJson) => {
+      //   // this.newMessaggeForm.reset();
+      //   this.newMessages.Subject="";
+      //   this.newMessages.Content="";
+      //  this.loading = false;
+      //  this.DisplayReply=true;
+      // }
+      //   , error => {
+      //     this.loading = false;
+      //     //this.message = "server is not available ):";ן
+      //   }
 
-      );
+      // );
   }
 
   ngOnDestroy() {

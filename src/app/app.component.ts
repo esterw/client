@@ -13,7 +13,7 @@ import { Router } from '@angular/router';
 export class AppComponent implements OnInit{
   
   ngOnInit() {
-    this.contentService.getContents();
+    // this.contentService.getContents();
     this.timezoneService.get();
   }
   title = 'app';id;

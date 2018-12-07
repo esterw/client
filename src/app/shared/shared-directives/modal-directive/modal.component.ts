@@ -4,7 +4,7 @@ import * as $ from 'jquery';
 import { ModalService } from '../../modal-service/index';
 
 @Component({
-    moduleId: module.id.toString(),
+    // moduleID: module.id.toString(),
     selector: 'modal',
     template: '<ng-content></ng-content>'
 })
