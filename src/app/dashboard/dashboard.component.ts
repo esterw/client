@@ -40,27 +40,22 @@ export class DashboardComponent implements OnInit {
 
 
   ngOnInit() {
-    this.subscription = this.service.AffiliateChanged.subscribe(affiliate => {
-      this.affiliate = affiliate
-    })
-    this.subscriptionRevenueReport = this.service.RevenueReportChanged.subscribe(RevenueReport => {
-      this.RevenueReport = RevenueReport;
-      let thisMonthRev = RevenueReport.filter(x => (new Date(x.AffiliateDate).getMonth() == this.todayDate.getMonth()) && (new Date(x.AffiliateDate).getFullYear() == this.todayDate.getFullYear()))
+    this.subscription = this.service.affiliateChanged.subscribe(affiliate => {
+      this.affiliate = affiliate;
+      this.RevenueReport = affiliate.AffiliateRevenueReports;
+      let thisMonthRev = affiliate.AffiliateRevenueReports.filter(x => (new Date(x.AffiliateDate).getMonth() == this.todayDate.getMonth()) && (new Date(x.AffiliateDate).getFullYear() == this.todayDate.getFullYear()))
       this.revenueToShow(thisMonthRev);
-      // this.subscriptionRevenueReport.unsubscribe();
+      this.SubAffiliates = affiliate.SubAffiliates;
+      // this.SubAffiliatesURL = affiliate.SubAffiliates[0].URL // new comment;
+      this.SubAffiliatesURL = "http/esther.com";
     })
 
-    this.subscriptionSubAffiliates = this.service.SubAffiliatesChanged.subscribe(SubAffiliates => {
-      this.SubAffiliates = SubAffiliates;
-      this.SubAffiliatesURL = SubAffiliates[0].URL
-    })
-
-    this.affiliate = this.service.Affiliate;
-    this.SubAffiliates = this.service.SubAffiliates;
-    this.RevenueReport = this.service.RevenueReport;
-    if (this.service.RevenueReport != undefined) {
+    this.affiliate = this.service.affiliate;
+    this.SubAffiliates = this.service.affiliate.SubAffiliates;
+    this.RevenueReport = this.service.affiliate.AffiliateRevenueReports;
+    if (this.service.affiliate.AffiliateRevenueReports != undefined) {
       console.log("---defined---");
-      let thisMonthRev = this.service.RevenueReport.filter(x => (new Date(x.AffiliateDate).getMonth() == this.todayDate.getMonth()) && (new Date(x.AffiliateDate).getFullYear() == this.todayDate.getFullYear()))
+      let thisMonthRev = this.service.affiliate.AffiliateRevenueReports.filter(x => (new Date(x.AffiliateDate).getMonth() == this.todayDate.getMonth()) && (new Date(x.AffiliateDate).getFullYear() == this.todayDate.getFullYear()))
       this.revenueToShow(thisMonthRev);
     }
   }
@@ -186,8 +181,6 @@ export class DashboardComponent implements OnInit {
 
   ngOnDestroy() {
     this.subscription.unsubscribe();
-    this.subscriptionRevenueReport.unsubscribe();
-    this.subscriptionSubAffiliates.unsubscribe();
   }
 
 

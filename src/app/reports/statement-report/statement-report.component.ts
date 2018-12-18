@@ -17,8 +17,8 @@ export class StatementReportComponent implements OnInit {
   selectedDate: Date = new Date(2017, 11, 1);
   subscription: Subscription;
   constructor(private service: AffiliateService) { }
-  AffiliateAccount: AffiliateAccount[];
-  filteredData: AffiliateAccount[];
+  AffiliateAccount: AffiliateAccount;
+  filteredData: AffiliateAccount;
   ngOnInit() {
     this.bsConfig = Object.assign({}, 
       { containerClass: this.colorTheme,
@@ -26,18 +26,19 @@ export class StatementReportComponent implements OnInit {
         showWeekNumbers: false,
         rangeSeparator: ' - '
     });
-    this.subscription = this.service.AccountChanged.subscribe(items => {
-      this.AffiliateAccount = items;
-      this.filteredData = items;
+    this.subscription = this.service.affiliateChanged.subscribe(affiliate => {
+      this.AffiliateAccount = affiliate.AffiliateAccount;
+      this.filteredData = affiliate.AffiliateAccount;
     })
-    this.AffiliateAccount = this.service.Account;
-    this.filteredData = this.service.Account;
+    this.AffiliateAccount = this.service.affiliate.AffiliateAccount;
+    this.filteredData = this.service.affiliate.AffiliateAccount;
     for (let index = 0; index < 12; index++) {
       this.dates.push(new Date(2017, index, 1))
     }
   }
   find() {
-    this.filteredData=this.AffiliateAccount.filter(item => (new Date(item.AccountDate) >= this.daterangepickerModel[0]) &&  (new Date(item.AccountDate) <= this.daterangepickerModel[1]) );
+    // new comment
+    // this.filteredData=this.AffiliateAccount.filter(item => (new Date(item.AccountDate) >= this.daterangepickerModel[0]) &&  (new Date(item.AccountDate) <= this.daterangepickerModel[1]) );
   }
   reset() {
     this.filteredData=this.AffiliateAccount;

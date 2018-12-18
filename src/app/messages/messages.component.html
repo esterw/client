@@ -8,7 +8,7 @@
 
 <div class="newTick">
   <div>
-      <button id="btnOpen"(click)="openMessagesPopup()">Open New Ticket</button>
+    <button id="btnOpen" (click)="openMessagesPopup()">Open New Ticket</button>
   </div>
   <div class="status-div">
     <label for="Status">Status:</label>
@@ -41,90 +41,90 @@
     </thead>
     <tbody>
       <!-- <tr *ngFor="let ticket of filteredData; let i =index" data-toggle="modal" (click)="onRead(ticket.ID,i)" [attr.data-target]="'#'+i"> -->
-          <tr *ngFor="let ticket of filteredData; let i =index" (click)="openModal(template);onRead(ticket.ID,i)" >
+      <tr *ngFor="let ticket of filteredData; let i =index" (click)="openModal(template);onRead(ticket.ID,i)">
         <td>{{ticket.Status}}</td>
         <td>{{ticket.ID}}</td>
         <td>{{ticket.CreatedDate | date:'dd/MM/yy' }}</td>
         <td>{{ticket.CreatedDate | date:'HH:MM'}}</td>
         <td>{{ticket.Subject}}</td>
         <td>{{ticket.LastResponse| date:'dd/MM/yy HH:MM'}}</td>
-        <td  style="min-width: 85px;">
+        <td style="min-width: 85px;">
           READ
           <span [hidden]="ticket.IsReadByAffiliate" [ngClass]="ticket.IsReadByAffiliate?'':'unread-msg'">NEW</span>
         </td>
-        
+
         <!-- <td [ngClass]="ticket.IsReadByAffiliate?'':'unread-msg'">
           <span [hidden]="ticket.IsReadByAffiliate">NEW</span>
         </td> -->
 
         <ng-template #template>
-        <div class="" id="{{i}}" >
-          <div class=" modal-lg">
-           <div class="modal-content justify-content-center">
-        <!--  <div class="modal fade" id="{{i}}" tabindex="-1" role="dialog" aria-labelledby="ReadPopup" aria-hidden="true">
+          <div class="" id="{{i}}">
+            <div class=" modal-lg">
+              <div class="modal-content justify-content-center">
+                <!--  <div class="modal fade" id="{{i}}" tabindex="-1" role="dialog" aria-labelledby="ReadPopup" aria-hidden="true">
           <div class="modal-dialog modal-lg" role="document">
             <div class="modal-content justify-content-center"> -->
-              <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">READ</h5>
-                <button type="button" class="close" (click)="modalRef.hide()">
-                  <span aria-hidden="true">
-                    <img src="../../../../assets/modals/close.png">
-                  </span>
-                </button>
-              </div>
-              <div class="modal-body">
-                <div class=" justify-content-center">
-                  <div [hidden]="!DisplayReply" *ngFor="let message of ticket.MessagesContents; ">
-                    <!-- <span>ID: {{message.ID}}</span>
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">READ</h5>
+                  <button type="button" class="close" (click)="modalRef.hide()">
+                    <span aria-hidden="true">
+                      <img src="../../../../assets/modals/close.png">
+                    </span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <div class=" justify-content-center">
+                    <div [hidden]="!DisplayReply" *ngFor="let message of ticket.AffiliateTicketContents; ">
+                      <!-- <span>ID: {{message.ID}}</span>
                                     <br>-->
-                    <span>{{message.CreatedDate | date:'dd/MM/yy HH:MM'}}</span>
-                    <br>
-                    <span>Sent By: {{message.CreatedBy}}</span>
-                    <br>
-                    <span>Subject:</span>
-                    <textarea class="textarea-subject" disabled="disabled" [innerHtml]="message.Subject"></textarea>
-                    <br>
-                    <span>Content: </span>
-                    <textarea class="textarea-Content" disabled="disabled" [innerHtml]="message.Content"></textarea>
-                    <br>
-                    <hr>
-                  </div>
-                  <div [hidden]="DisplayReply" class="new-message-div">
-                    <form (ngSubmit)="newMessagge(ticket.ID,i)" name="newMessaggeForm" #newMessaggeForm='ngForm'>
-                      <h5>Reply</h5>
-                      <div class="form-group">
-                        <label for="example-text-input" class="col-form-label">Subject:</label>
-                        <div>
-                          <textarea #newSubject="ngModel" [(ngModel)]="newMessages.Subject" class=" textarea-subject" name="newSubject"></textarea>
+                      <span>{{message.CreatedDate | date:'dd/MM/yy HH:MM'}}</span>
+                      <br>
+                      <span>Sent By: {{message.CreatedBy}}</span>
+                      <br>
+                      <span>Subject:</span>
+                      <textarea class="textarea-subject" disabled="disabled" [innerHtml]="message.Subject"></textarea>
+                      <br>
+                      <span>Content: </span>
+                      <textarea class="textarea-Content" disabled="disabled" [innerHtml]="message.Content"></textarea>
+                      <br>
+                      <hr>
+                    </div>
+                    <div [hidden]="DisplayReply" class="new-message-div">
+                      <form (ngSubmit)="newMessagge(ticket.ID,i)" name="newMessaggeForm" #newMessaggeForm='ngForm'>
+                        <h5>Reply</h5>
+                        <div class="form-group">
+                          <label for="example-text-input" class="col-form-label">Subject:</label>
+                          <div>
+                            <textarea #newSubject="ngModel" [(ngModel)]="newMessages.Subject" class=" textarea-subject"
+                              name="newSubject"></textarea>
+                          </div>
                         </div>
-                      </div>
-                      <div class="form-group">
-                        <label for="example-text-input" class="col-form-label">Content:</label>
-                        <div>
-                          <textarea #newContent="ngModel" [(ngModel)]="newMessages.Content" class="textarea-Content" name="newContent"></textarea>
+                        <div class="form-group">
+                          <label for="example-text-input" class="col-form-label">Content:</label>
+                          <div>
+                            <textarea #newContent="ngModel" [(ngModel)]="newMessages.Content" class="textarea-Content"
+                              name="newContent"></textarea>
+                          </div>
                         </div>
-                      </div>
-                      <button type="submit" class="btn float-right" id="btnSend">SEND
-                          <img id="loading" *ngIf="loading" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIDhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA=="
-                          />
-                      </button>
-                    </form>
+                        <button type="submit" class="btn float-right" id="btnSend">SEND
+                          <img id="loading" *ngIf="loading" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIDhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
+                        </button>
+                      </form>
+                    </div>
                   </div>
                 </div>
-              </div>
-              <div class="modal-footer">
-                <button type="button" *ngIf="DisplayReply" class="btn  btn-Yellow float-right" (click)="DisplayReply=false">Reply</button>
-                <button type="button" *ngIf="!DisplayReply" class="btn  btn-Yellow float-right" (click)="DisplayReply=true">Back</button>
-                <button type="button" (click)="modalRef.hide()" class="btn btn-default float-right">close</button>
+                <div class="modal-footer">
+                  <button type="button" *ngIf="DisplayReply" class="btn  btn-Yellow float-right" (click)="DisplayReply=false">Reply</button>
+                  <button type="button" *ngIf="!DisplayReply" class="btn  btn-Yellow float-right" (click)="DisplayReply=true">Back</button>
+                  <button type="button" (click)="modalRef.hide()" class="btn btn-default float-right">close</button>
+                </div>
               </div>
             </div>
-          </div>
 
-        </div>
-      </ng-template>
+          </div>
+        </ng-template>
 
       </tr>
     </tbody>
   </table>
 </div>
-

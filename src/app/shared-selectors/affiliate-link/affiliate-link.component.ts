@@ -15,10 +15,10 @@ export class AffiliateLinkComponent implements OnInit {
   constructor(private  service:AffiliateService) { }
   
   ngOnInit() {
-    this.subscription = this.service.AffiliateChanged.subscribe( affiliate => {
+    this.subscription = this.service.affiliateChanged.subscribe( affiliate => {
       this.affiliate=affiliate
     }) 
-    this.affiliate=this.service.Affiliate;
+    this.affiliate=this.service.affiliate;
   }
   ngOnDestroy() {
     this.subscription.unsubscribe();

@@ -35,18 +35,20 @@ export class SummaryPerSiteReportComponent implements OnInit {
     this.toDate = calendar.getNext(calendar.getToday(), 'd', 10);
   }
 
-  SummaryPerSite:AffiliateSummaryPerSite[];
-  filteredData:AffiliateSummaryPerSite[];
+  // was an array
+
+  SummaryPerSite:AffiliateSummaryPerSite;
+  filteredData:AffiliateSummaryPerSite;
   ngOnInit() {
     for (let index = 0; index < 12; index++) {
       this.dates.push(new Date(2017, index, 1))
     }
-    this.subscription = this.service.SummaryPerSiteChanged.subscribe( items => {
-      this.SummaryPerSite=items; 
-      this.filteredData=items;
+    this.subscription = this.service.affiliateChanged.subscribe( affiliate => {
+      this.SummaryPerSite=affiliate.AffiliateSummaryPerSites; 
+      this.filteredData=affiliate.AffiliateSummaryPerSites;
     }) 
-    this.SummaryPerSite=this.service.SummaryPerSite;
-    this.filteredData=this.service.SummaryPerSite;
+    this.SummaryPerSite=this.service.affiliate.AffiliateSummaryPerSites;
+    this.filteredData=this.service.affiliate.AffiliateSummaryPerSites;
     this.selectedProduct="Select BannerID";
     //const products=this.SummaryPerSite.map(data => data.Product);
     //this.products=products.filter((x,i,a)=> x&& a.indexOf(x)==i)
@@ -56,8 +58,8 @@ export class SummaryPerSiteReportComponent implements OnInit {
     //new Date(item.AffiliateSummaryDate)>new Date(this.selectedDateFrom) 
      if(this.selectedProduct=="Select BannerID")
     this.reset();
-    else
-    this.filteredData=this.SummaryPerSite.filter(item => item.Product==this.selectedProduct );
+    // else // new comment
+    // this.filteredData=this.SummaryPerSite.filter(item => item.Product==this.selectedProduct );
    
   }
   reset() {

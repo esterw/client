@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Affiliate, AffiliateAccount, AffiliateBanner, AffiliateMedia, AffiliatePixel, AffiliateWithdrawlHistory, AffiliateTicket, AffiliateSummaryPerSite, AffiliateCommission, AffiliateRevenueReport, SubAffiliates, AffilateRequestWithdraw, AffiliateTicketContent } from './affiliate.model';
 import { Subject } from 'rxjs/Subject';
 import { environment } from '../../../environments/environment';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { map } from 'rxjs/operators';
 import { RequestOptions } from '@angular/http';
 
@@ -13,29 +13,8 @@ export class AffiliateService {
     closeTicketModal: Subject<boolean> = new Subject();
     closeWithdrModal: Subject<boolean> = new Subject();
 
-    Affiliate: Affiliate;
-    WithdrawlHistory: AffilateRequestWithdraw[];
-    Ticket: AffiliateTicket[];
-    SummaryPerSite: AffiliateSummaryPerSite[];
-    Commission: AffiliateCommission[];
-    RevenueReport: AffiliateRevenueReport[];
-    Pixel: AffiliatePixel;
-    Media: AffiliateMedia;
-    Banner: AffiliateBanner[];
-    Account: AffiliateAccount[];
-    SubAffiliates: SubAffiliates[];
-
-    AffiliateChanged = new Subject<Affiliate>();
-    WithdrawlHistoryChanged = new Subject<AffilateRequestWithdraw[]>();
-    TicketChanged = new Subject<AffiliateTicket[]>();
-    SummaryPerSiteChanged = new Subject<AffiliateSummaryPerSite[]>();
-    CommissionChanged = new Subject<AffiliateCommission[]>();
-    RevenueReportChanged = new Subject<AffiliateRevenueReport[]>();
-    PixelChanged = new Subject<AffiliatePixel>();
-    MediaChanged = new Subject<AffiliateMedia>();
-    BannerChanged = new Subject<AffiliateBanner[]>();
-    AccountChanged = new Subject<AffiliateAccount[]>();
-    SubAffiliatesChanged = new Subject<SubAffiliates[]>();
+    affiliate: Affiliate = new Affiliate;
+    affiliateChanged = new Subject<Affiliate>();
 
     url: string = environment.apiUrl;
 
@@ -56,46 +35,32 @@ export class AffiliateService {
     }
 
     setAffiliate(affiliate) {
-        this.Affiliate = affiliate;
-        this.AffiliateChanged.next(this.Affiliate);
-        // this.Account = fullAffiliate[0]['AffAccount'];
-        // this.Banner = fullAffiliate[0]['AffBannerSize'];
-        // this.Media = fullAffiliate[0]['AffMedia'];
-        // this.Pixel = fullAffiliate[0]['AffPixel'];
-        // this.Commission = fullAffiliate[0]['AffCommissions'];
-        // this.RevenueReport = fullAffiliate[0]['AffRevenueReport'];
-        // this.SummaryPerSite = fullAffiliate[0]['AffBanners'];
-        // this.Ticket = fullAffiliate[0]['AffTicket'];
-        // this.WithdrawlHistory = fullAffiliate[0]['AffRequestWithdrawls'];
-        // this.SubAffiliates = fullAffiliate[0]['SubAff'];
-        // this.WithdrawlHistoryChanged.next(this.WithdrawlHistory);
-        // this.TicketChanged.next(this.Ticket);
-        // this.SummaryPerSiteChanged.next(this.SummaryPerSite);
-        // this.CommissionChanged.next(this.Commission);
-        // this.RevenueReportChanged.next(this.RevenueReport);
-        // this.PixelChanged.next(this.Pixel);
-        // this.MediaChanged.next(this.Media);
-        // this.BannerChanged.next(this.Banner);
-        // this.AccountChanged.next(this.Account);
-        // this.SubAffiliatesChanged.next(this.SubAffiliates);
-
+        this.affiliate = affiliate;
+        this.affiliateChanged.next(this.affiliate);
     }
 
     addMessage(newMessage: AffiliateTicketContent, ticketID: number) {
-        // newMessage.CreatedBy = this.Affiliate.Name + " " + this.Affiliate.Family;
-        // let headers = new Headers({ 'Content-Type': 'application/json' });
-        // let options = new RequestOptions({ headers: headers });//, options
-        // return this.http.post(environment.apiUrl + '/api/AffiliateTicketContents/PutAffilissate?id=' + ticketID, newMessage)
-        //     .map(
-        //         (response: Response) => {
-        //             const responseJson: any = response;//MessagesContents = response;//response.json().Message;
-        //             let t: AffiliateTicket; let mc: MessagesContents;
-        //             let re = this.Ticket.find(ticket => ticket.ID == ticketID).MessagesContents.push(responseJson);
-        //             //console.log("res=========>",this.Ticket)
-        //             this.TicketChanged.next(this.Ticket);
-        //             //console.log(responseJson);
-        //             return responseJson;
-        //         })
+        debugger
+        newMessage.CreatedBy = this.affiliate.Name + " " + this.affiliate.Family;
+        
+        let httpHeaders = new HttpHeaders({
+            'Content-Type' : 'application/json',
+            'Cache-Control': 'no-cache'
+       });
+       let options = {
+        headers: httpHeaders
+         }; 
+        return this.http.post(environment.apiUrl + '/api/AffiliateTicketContents', newMessage)
+            // .map(
+            //     (response: Response) => {
+            //         const responseJson: any = response;//MessagesContents = response;//response.json().Message;
+            //         let t: AffiliateTicket; let mc: MessagesContents;
+            //         let re = this.Ticket.find(ticket => ticket.ID == ticketID).MessagesContents.push(responseJson);
+            //         //console.log("res=========>",this.Ticket)
+            //         this.TicketChanged.next(this.Ticket);
+            //         //console.log(responseJson);
+            //         return responseJson;
+            //     })
     }
 
     requestWithdrawl(amountValue) {

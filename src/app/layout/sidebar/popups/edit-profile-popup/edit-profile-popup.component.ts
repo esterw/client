@@ -17,9 +17,9 @@ export class EditProfilePopupComponent implements OnInit {
     private registerService: RegisterService) { }
   
   ngOnInit() {
-    this.service.AffiliateChanged.subscribe(
+    this.service.affiliateChanged.subscribe(
       affiliate => this.affiliate = affiliate)
-    this.affiliate = this.service.Affiliate? this.service.Affiliate: new Affiliate();
+    this.affiliate = this.service.affiliate? this.service.affiliate: new Affiliate();
   }
   $:any;
   payType = [

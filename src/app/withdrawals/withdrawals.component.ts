@@ -17,10 +17,10 @@ export class WithdrawalsComponent implements OnInit {
   constructor(private modalService: BsModalService,private  service:AffiliateService) { }
   WithdrawlHistories:AffilateRequestWithdraw[];
   ngOnInit() {
-    this.subscription = this.service.WithdrawlHistoryChanged.subscribe( items => {
-      this.WithdrawlHistories=items
+    this.subscription = this.service.affiliateChanged.subscribe( affiliate => {
+      this.WithdrawlHistories= affiliate.AffiliateRequestWithdrawls
     }) 
-    this.WithdrawlHistories=this.service.WithdrawlHistory;
+    this.WithdrawlHistories=this.service.affiliate.AffiliateRequestWithdrawls;
     // this.service.closeWithdrModal.subscribe((val:boolean)=>this.closeModal());
   }
 

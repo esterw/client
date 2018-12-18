@@ -31,7 +31,7 @@ export class Affiliate {
     AffiliateSummaryPerSites: AffiliateSummaryPerSite;
     AffiliateTickets: AffiliateTicket[];
     AffiliatesCommissions: AffiliateCommission[];
-    SubAffiliates: SubAffiliates;
+    SubAffiliates: SubAffiliates[];
 }
 
 //AffiliateAccount

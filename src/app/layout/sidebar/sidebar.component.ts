@@ -27,16 +27,18 @@ export class SidebarComponent implements OnInit {
 
   ngOnInit() {
 
-    this.subscription = this.service.AffiliateChanged.subscribe(affiliate => {
+    this.subscription = this.service.affiliateChanged.subscribe(affiliate => {
       this.affiliate = affiliate;
+      if (this.service.affiliate.AffiliateTickets) {
       this.tickets = affiliate.AffiliateTickets.filter(x => x.IsReadByAffiliate == false);
       this.unReadMessages = this.tickets.length;
+      }
     })
 
-    this.affiliate = this.service.Affiliate;
+    this.affiliate = this.service.affiliate;
 
-    if (this.service.Affiliate) {
-      this.tickets = this.service.Affiliate.AffiliateTickets.filter(x => x.IsReadByAffiliate == false);
+    if (this.service.affiliate.AffiliateTickets) {
+      this.tickets = this.service.affiliate.AffiliateTickets.filter(x => x.IsReadByAffiliate == false);
       this.unReadMessages = this.tickets.length;
     }
   }

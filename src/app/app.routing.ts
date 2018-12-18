@@ -30,7 +30,7 @@ import { AuthGuard } from './shared/affiliate-server/auth.gaurd';
 
 const appRoutes:Routes = [
 
-    { path: '', redirectTo: 'Homepage', pathMatch: 'full' },
+    { path: '', redirectTo: 'Login', pathMatch: 'full' },
 // ,canActivate:[AuthGuard]
     { path: 'Login', component: AffiliateLoginAppComponent , children:
             [
@@ -94,11 +94,12 @@ const appRoutes:Routes = [
         ]
     },
 ]
-//}
+
 @NgModule({
     imports: [RouterModule.forRoot(appRoutes)],
     exports: [RouterModule]
 })
+
 @NgModule({
     imports: [
         RouterModule.forRoot(appRoutes)

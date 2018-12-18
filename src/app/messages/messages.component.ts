@@ -16,10 +16,10 @@ import { BsModalRef, BsModalService } from 'ngx-bootstrap';
 export class MessagesComponent implements OnInit {
 
   @ViewChild("newMessaggeForm") newMessaggeForm: NgForm;
-  DisplayReply=true;
+  DisplayReply = true;
   selectedStatus = "All";
   subscription: Subscription;
-  constructor(private modalService: BsModalService,private service: AffiliateService) { }
+  constructor(private modalService: BsModalService, private service: AffiliateService) { }
   tickets: AffiliateTicket[];
   //newTickets:AffiliateTicket=new AffiliateTicket();
   newMessages: AffiliateTicketContent = new AffiliateTicketContent();
@@ -27,16 +27,16 @@ export class MessagesComponent implements OnInit {
   bsModalRef: BsModalRef;
   filteredData: AffiliateTicket[];
   ngOnInit() {
-    this.subscription = this.service.TicketChanged.subscribe(items => {
-      this.tickets = items; this.filteredData = items;
+    this.subscription = this.service.affiliateChanged.subscribe(affiliate => {
+      this.tickets = affiliate.AffiliateTickets;
+      this.filteredData = affiliate.AffiliateTickets;
     })
-    this.tickets = this.service.Ticket;
-    this.filteredData = this.service.Ticket;
+    this.tickets = this.service.affiliate.AffiliateTickets;
+    this.filteredData = this.service.affiliate.AffiliateTickets;
     // this.service.closeTicketModal.subscribe((val:boolean)=>this.closeModal());
   }
-  // modalRef: any;
+
   openMessagesPopup() {
-    // this.modalRef = this.modalService.open(MessagesPopupComponent);
     this.bsModalRef = this.modalService.show(MessagesPopupComponent);
 
   }
@@ -44,42 +44,48 @@ export class MessagesComponent implements OnInit {
   //   // this.modalRef.close();
   //   this.bsModalRef.hide();
   // }
-   modalRef: BsModalRef;
+  modalRef: BsModalRef;
   openModal(template: TemplateRef<any>) {
     this.modalRef = this.modalService.show(template);
   }
+
   statusFilterChanged() {
     if (this.selectedStatus == "All")
       this.filteredData = this.tickets;
     else
       this.filteredData = this.tickets.filter(item => item.Status == this.selectedStatus);
   }
+
   onRead(ticketID, index: number) {
-    this.DisplayReply=true;
+    this.DisplayReply = true;
     if (this.tickets[index].IsReadByAffiliate == false)
       this.service.updateTicketIsRead(ticketID);
     // this.newMessaggeForm.reset();
-    this.newMessages.Subject="";
-    this.newMessages.Content="";
+    this.newMessages.Subject = "";
+    this.newMessages.Content = "";
   }
-  loading=false;
-  newMessagge(ticketID: number) {
-this.loading=true;
-    this.newMessages.CreatedDate = new Date();
-    this.service.addMessage(this.newMessages, ticketID)
-      // .subscribe((responseJson) => {
-      //   // this.newMessaggeForm.reset();
-      //   this.newMessages.Subject="";
-      //   this.newMessages.Content="";
-      //  this.loading = false;
-      //  this.DisplayReply=true;
-      // }
-      //   , error => {
-      //     this.loading = false;
-      //     //this.message = "server is not available ):";ן
-      //   }
 
-      // );
+  loading = false;
+
+  newMessagge(ticketID: number) {
+
+    this.loading = true;
+    this.newMessages.CreatedDate = new Date();
+    debugger
+    this.service.addMessage(this.newMessages, ticketID)
+    .subscribe((responseJson) => {
+      // this.newMessaggeForm.reset();
+      this.newMessages.Subject="";
+      this.newMessages.Content="";
+     this.loading = false;
+     this.DisplayReply=true;
+    }
+      , error => {
+        this.loading = false;
+        //this.message = "server is not available ):";ן
+      }
+
+    );
   }
 
   ngOnDestroy() {

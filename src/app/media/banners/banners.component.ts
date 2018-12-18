@@ -1,7 +1,7 @@
 import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { AffiliateService } from '../../shared/affiliate-server/affiliate.service';
-import { AffiliateBanner } from '../../shared/affiliate-server/affiliate.model';
+import { AffiliateBanner, AffiliatesBanners } from '../../shared/affiliate-server/affiliate.model';
 import * as FileSaver from 'file-saver';
 import { TooltipModule } from "ng2-tooltip";
 
@@ -14,27 +14,24 @@ export class BannersComponent implements OnInit {
 
   btnCopyJS = "copy"; btnCopyLink = "copy"; btnCopyHTML = "copy";
   subscription: Subscription; 
-  affSubscription: Subscription;
-  banners: AffiliateBanner[];
+  banners: AffiliatesBanners[];
   affiliateID: number;
 
   constructor(private service: AffiliateService) { }
 
   ngOnInit() {
-    this.subscription = this.service.BannerChanged.subscribe(items => {
-      this.banners = items;
-      // this.subscription.unsubscribe();
+    this.subscription = this.service.affiliateChanged.subscribe(affiliate => {
+      this.banners = affiliate.AffiliatesBanners;
+      this.affiliateID = affiliate.ID;
     })
 
-    this.banners = this.service.Banner;
-    this.affiliateID = this.service.Affiliate.ID;
-    this.affSubscription = this.service.AffiliateChanged.subscribe(affiliate => { this.affiliateID = affiliate.ID; })
+    this.banners = this.service.affiliate.AffiliatesBanners;
+    this.affiliateID = this.service.affiliate.ID;
 
   }
 
   ngOnDestroy() {
     this.subscription.unsubscribe();
-    this.affSubscription.unsubscribe();
   }
 
   downloadBanner(bannerName: string, bannerID: number) {

@@ -29,10 +29,10 @@ export class RegisterModalAffiliateComponent implements OnInit {
 
     this.Affiliate = new Affiliate();
 
-    this.subscription = this.timezoneService.getObservable().subscribe(timezone => {
-      this.timezone = timezone;
-      this.Affiliate.Country = timezone.data.country;
-    });
+    // this.subscription = this.timezoneService.getObservable().subscribe(timezone => {
+    //   this.timezone = timezone;
+    //   this.Affiliate.Country = timezone.data.country;
+    // }); // new comment
 
     if(this.timezoneService.timezone.data !=undefined)
     {

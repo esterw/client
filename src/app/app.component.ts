@@ -14,7 +14,7 @@ export class AppComponent implements OnInit{
   
   ngOnInit() {
     // this.contentService.getContents();
-    this.timezoneService.get();
+    // this.timezoneService.get();
   }
   title = 'app';id;
   constructor(private router:Router,private service:AffiliateService,private contentService:ContentPagesService, private timezoneService: TimezoneService){}

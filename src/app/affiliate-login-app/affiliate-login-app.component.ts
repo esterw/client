@@ -20,7 +20,7 @@ export class AffiliateLoginAppComponent implements OnInit {
   ngOnInit() {
     //console.log(localStorage.getItem('auth'));
     this.service.getAffiliateByID();
-    this.subscription = this.service.AffiliateChanged.subscribe(x => { this.loading = false; this.subscription.unsubscribe(); })
+    this.subscription = this.service.affiliateChanged.subscribe(x => { this.loading = false; this.subscription.unsubscribe(); })
   }
   reloadData() {
     this.service.getAffiliateByID();
