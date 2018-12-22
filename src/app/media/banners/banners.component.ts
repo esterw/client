@@ -1,4 +1,4 @@
-import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef, OnChanges, AfterViewChecked } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { AffiliateService } from '../../shared/affiliate-server/affiliate.service';
 import { AffiliateBanner, AffiliatesBanners } from '../../shared/affiliate-server/affiliate.model';
@@ -10,14 +10,15 @@ import { TooltipModule } from "ng2-tooltip";
   templateUrl: './banners.component.html',
   styleUrls: ['./banners.component.css']
 })
-export class BannersComponent implements OnInit {
+export class BannersComponent implements OnInit, AfterViewChecked {
 
   btnCopyJS = "copy"; btnCopyLink = "copy"; btnCopyHTML = "copy";
   subscription: Subscription; 
   banners: AffiliatesBanners[];
   affiliateID: number;
 
-  constructor(private service: AffiliateService) { }
+  constructor(private service: AffiliateService,
+    private cdr: ChangeDetectorRef) { }
 
   ngOnInit() {
     this.subscription = this.service.affiliateChanged.subscribe(affiliate => {
@@ -28,6 +29,10 @@ export class BannersComponent implements OnInit {
     this.banners = this.service.affiliate.AffiliatesBanners;
     this.affiliateID = this.service.affiliate.ID;
 
+  }
+
+  ngAfterViewChecked(): void {
+    this.cdr.detectChanges();
   }
 
   ngOnDestroy() {

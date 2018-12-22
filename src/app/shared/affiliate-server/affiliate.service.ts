@@ -39,8 +39,19 @@ export class AffiliateService {
         this.affiliateChanged.next(this.affiliate);
     }
 
+    
+    updateAffiliate(affiliate: Affiliate): any {
+        let httpHeaders = new HttpHeaders({
+            'Content-Type': 'application/json'
+        });
+        let options = {
+            headers: httpHeaders
+        };
+        return this.http.post(this.url + "/api/Affiliates/1", affiliate);
+    }
+
     addMessage(newMessage: AffiliateTicketContent, ticketID: number) {
-        debugger
+        
         newMessage.CreatedBy = this.affiliate.Name + " " + this.affiliate.Family;
         
         let httpHeaders = new HttpHeaders({
@@ -50,7 +61,7 @@ export class AffiliateService {
        let options = {
         headers: httpHeaders
          }; 
-        return this.http.post(environment.apiUrl + '/api/AffiliateTicketContents', newMessage)
+        return this.http.post(environment.apiUrl + '/api/AffiliateTicketContents', newMessage, options)
             // .map(
             //     (response: Response) => {
             //         const responseJson: any = response;//MessagesContents = response;//response.json().Message;

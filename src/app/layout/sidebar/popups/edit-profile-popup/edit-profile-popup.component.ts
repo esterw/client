@@ -56,7 +56,7 @@ export class EditProfilePopupComponent implements OnInit {
   
   onUpdateProfile() {
     this.loadingProfile = true;
-    this.registerService.updateAffiliate(this.affiliate).subscribe((updatedAffiliate: any) => {
+    this.service.updateAffiliate(this.affiliate).subscribe((updatedAffiliate: any) => {
       this.loadingProfile = false;
       this.bsModalRef.hide();
       // this.closeModal();
