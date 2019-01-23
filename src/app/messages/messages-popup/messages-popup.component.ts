@@ -19,6 +19,7 @@ export class MessagesPopupComponent implements OnInit {
   newTicket() {
     this.loading = true;
     this.service.newTicket(this.TicketSubject, this.TicketContent)
+    // .subscribe(res => {});
       // .subscribe(
       //   (responseJson) => {
       //     this.loading = false;

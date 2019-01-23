@@ -70,8 +70,6 @@ export class MessagesComponent implements OnInit {
   newMessagge(ticketID: number) {
 
     this.loading = true;
-    this.newMessages.CreatedDate = new Date();
-    debugger
     this.service.addMessage(this.newMessages, ticketID)
     .subscribe((responseJson) => {
       // this.newMessaggeForm.reset();

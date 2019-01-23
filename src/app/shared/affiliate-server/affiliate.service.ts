@@ -47,13 +47,21 @@ export class AffiliateService {
         let options = {
             headers: httpHeaders
         };
-        return this.http.post(this.url + "/api/Affiliates/1", affiliate);
+        return this.http.put(this.url + "/api/Affiliates/1", affiliate);
     }
 
     addMessage(newMessage: AffiliateTicketContent, ticketID: number) {
         
         newMessage.CreatedBy = this.affiliate.Name + " " + this.affiliate.Family;
         
+newMessage.TicketID = ticketID;
+// newMessage.IsActivateOnCreation = false;
+// newMessage.IsPopupUntilApproval = false;
+//  newMessage.IsReadByAffiliate = true;
+//  newMessage.IsSendByEmail = false;
+//  newMessage.ID = null;
+newMessage.CreatedDate = new Date();
+
         let httpHeaders = new HttpHeaders({
             'Content-Type' : 'application/json',
             'Cache-Control': 'no-cache'
