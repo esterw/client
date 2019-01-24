@@ -40,7 +40,7 @@ export class BannersComponent implements OnInit, AfterViewChecked {
   }
 
   downloadBanner(bannerName: string, bannerID: number) {
-    fetch('http://play24bet.net/bannerh.ashx?Banner=' + bannerID).
+    fetch('http://localhost:50741/bannerh.ashx?Banner=' + bannerID).
       then(function (response) {
 
         return response.blob();

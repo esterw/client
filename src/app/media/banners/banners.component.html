@@ -52,12 +52,11 @@
         <textarea readonly class="txtToCopy" [(ngModel)]="banner.AffiliateBanner.Javascript"></textarea>
         <button class="btn btn-copy" ngxClipboard [cbContent]="banner.AffiliateBanner.Javascript" (cbOnSuccess)="isCopied=true" (click)="b.close(); c.close()"
           triggers="click:blur" #t="ngbTooltip" placement="top" ngbTooltip="Copied!">{{btnCopyJS}}</button>
-        <!-- showOnClick="true" tooltip content="Copied!"-->
       </div>
       Direct Link
       <br>
       <div class="">
-        <input #dl readonly class="txtToCopy linkToCopy" value="http://play24bet.net/click.ashx?Banner={{banner.AffiliateBanner.ID}}&Aff={{affiliateID}}">
+        <input #dl readonly class="txtToCopy linkToCopy" value="http://localhost:50741/click.ashx?Banner={{banner.AffiliateBanner.ID}}&Aff={{affiliateID}}">
         <button class="btn btn-copy btnCopyLink" ngxClipboard [cbContent]=dl.value (cbOnSuccess)="isCopied=true" triggers="click:blur"
           #b="ngbTooltip" placement="top" ngbTooltip="Copied!" (click)="t.close(); c.close()">{{btnCopyLink}}</button>
       </div>
@@ -65,8 +64,8 @@
       <br>
       <div class="">
         <textarea readonly class="txtToCopy" #htmlT>
-          <a href="http://play24bet.net/click.ashx?Banner={{banner.AffiliateBanner.ID}}&Aff={{affiliateID}}">
-            <img src="http://play24bet.net/bannerh.ashx?Banner={{banner.AffiliateBanner.ID}}&Aff={{affiliateID}}" />
+          <a href="http://localhost:50741/click.ashx?Banner={{banner.AffiliateBanner.ID}}&Aff={{affiliateID}}">
+            <img src="http://localhost:50741/bannerh.ashx?Banner={{banner.AffiliateBanner.ID}}&Aff={{affiliateID}}" />
           </a>
         </textarea>
         <button class="btn btn-copy" ngxClipboard [cbContent]=htmlT.value (cbOnSuccess)="isCopied=true" (click)="t.close(); b.close()"
@@ -76,9 +75,3 @@
   </div>
   <br>
 </div>
-
-<!--<img src="http://affiliatesserver.azurewebsites.net/bannerh.ashx?Banner=39&Aff=1" alt="">
-<a href="http://affiliatesserver.azurewebsites.net/click.ashx?Banner=34&Aff=1">Test Click</a>
-
-<a href = "http://affiliatesserver.azurewebsites.net/click.ashx?Banner=34&Aff=1" > <img src = "http://affiliatesserver.azurewebsites.net/bannerh.ashx?Banner=34&Aff=1" /></a >
--->
