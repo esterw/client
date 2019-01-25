@@ -11,7 +11,7 @@
 
     <select #selectProduct="ngModel" [(ngModel)]="selectedProduct" name="selectProduct" class="float-right product-select">
       <option value="Select BannerID">Select BannerID</option>
-      <option *ngFor="let SummaryPerSite of SummaryPerSite|uniqFilter:'Product'">{{SummaryPerSite.Product}}</option>
+      <option *ngFor="let SummaryPerSite of SummaryPerSite|uniqFilter:'BannerID'">{{SummaryPerSite.BannerID}}</option>
     </select>
     
     <!--  <input class="form-control select-date"  (click)="dpFrom.toggle()" ngModel (ngModelChange)="onDateChange($event)"
@@ -74,7 +74,7 @@
     <tbody>
       <tr *ngFor="let SummaryPerSite of filteredData">
         <td>{{SummaryPerSite.ID}}</td>
-        <td>{{SummaryPerSite.Product}}</td>
+        <td>{{SummaryPerSite.BannerID}}</td>
         <td>{{SummaryPerSite.Impressions}}</td>
         <td>{{SummaryPerSite.Clicks }}</td>
         <td>{{SummaryPerSite.Lead}}</td>

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AffiliateSummaryPerSite } from '../../shared/affiliate-server/affiliate.model';
+import { AffiliatesBanners} from '../../shared/affiliate-server/affiliate.model';
 import { AffiliateService } from '../../shared/affiliate-server/affiliate.service';
 import { Subscription } from 'rxjs';
 import { NgbCalendar, NgbDateStruct } from '@ng-bootstrap/ng-bootstrap';
@@ -25,7 +25,7 @@ const after = (one: NgbDateStruct, two: NgbDateStruct) =>
 export class SummaryPerSiteReportComponent implements OnInit {
   subscription: Subscription;
   dates: Date[] = new Array<Date>();
-  selectedProduct="";
+  selectedProduct:any;
   //products=new Array<string>();
   selectedDateFrom: Date = new Date(2017, 11, 1);
   selectedDateTill: Date = new Date(2017, 11, 1);
@@ -37,18 +37,18 @@ export class SummaryPerSiteReportComponent implements OnInit {
 
   // was an array
 
-  SummaryPerSite:AffiliateSummaryPerSite;
-  filteredData:AffiliateSummaryPerSite;
+  SummaryPerSite:AffiliatesBanners[];
+  filteredData:AffiliatesBanners[];
   ngOnInit() {
     for (let index = 0; index < 12; index++) {
       this.dates.push(new Date(2017, index, 1))
     }
     this.subscription = this.service.affiliateChanged.subscribe( affiliate => {
-      this.SummaryPerSite=affiliate.AffiliateSummaryPerSites; 
-      this.filteredData=affiliate.AffiliateSummaryPerSites;
+      this.SummaryPerSite=affiliate.AffiliatesBanners; 
+      this.filteredData=affiliate.AffiliatesBanners;
     }) 
-    this.SummaryPerSite=this.service.affiliate.AffiliateSummaryPerSites;
-    this.filteredData=this.service.affiliate.AffiliateSummaryPerSites;
+    this.SummaryPerSite=this.service.affiliate.AffiliatesBanners;
+    this.filteredData=this.service.affiliate.AffiliatesBanners;
     this.selectedProduct="Select BannerID";
     //const products=this.SummaryPerSite.map(data => data.Product);
     //this.products=products.filter((x,i,a)=> x&& a.indexOf(x)==i)
@@ -58,8 +58,8 @@ export class SummaryPerSiteReportComponent implements OnInit {
     //new Date(item.AffiliateSummaryDate)>new Date(this.selectedDateFrom) 
      if(this.selectedProduct=="Select BannerID")
     this.reset();
-    // else // new comment
-    // this.filteredData=this.SummaryPerSite.filter(item => item.Product==this.selectedProduct );
+    else
+    this.filteredData=this.SummaryPerSite.filter(item => item.BannerID==this.selectedProduct );
    
   }
   reset() {

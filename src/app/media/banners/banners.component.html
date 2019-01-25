@@ -17,6 +17,9 @@
         </a>
       </div>
 
+      <button (click)="downloadBanner(banner.AffiliateBanner.BannerName,banner.AffiliateBanner.ID)" class="btn btn-download">DOWNLOAD</button>
+
+
       <!--<img id="exportImg" [height]="banner.AffiliateBannerSize.Height" #i [width]="banner.AffiliateBannerSize.Width" [src]="banner.BannerPath" *ngIf="time==true" alt="">-->
       <div class="modal fade" id="{{i}}" tabindex="-1" role="dialog" aria-labelledby="bannerFoolSize" aria-hidden="true">
         <div class="modal-dialog" role="document">
@@ -30,7 +33,7 @@
               </button>
             </div>
             <div class="modal-body">
-              <img id="exportImg" [height]="banner.AffiliateBanner.AffiliateBannerSize.Height" [width]="banner.AffiliateBanner.AffiliateBannerSize.Width" [src]="banner.AffiliateBanner.BannerPath" alt="">
+              <img id="exportImg" [height]="banner.AffiliateBanner?.AffiliateBannerSize.Height" [width]="banner.AffiliateBanner.AffiliateBannerSize.Width" [src]="banner.AffiliateBanner.BannerPath" alt="">
             </div>
           </div>
         </div>
@@ -39,9 +42,8 @@
 
     <div class="download-div">
       <div class="to-bottom-div">
-        <b>Banner size:</b> {{banner.AffiliateBanner.AffiliateBannerSize.Width}}*{{banner.AffiliateBanner.AffiliateBannerSize.Height}}
+        <b>Banner size:</b> {{banner.AffiliateBanner?.AffiliateBannerSize?.Width}}*{{banner.AffiliateBanner.AffiliateBannerSize.Height}}
         <br>
-        <button (click)="downloadBanner(banner.AffiliateBanner.BannerName,banner.AffiliateBanner.ID)" class="btn btn-download">DOWNLOAD</button>
       </div>
     </div>
 
@@ -65,7 +67,8 @@
       <div class="">
         <textarea readonly class="txtToCopy" #htmlT>
           <a href="http://localhost:50741/click.ashx?Banner={{banner.AffiliateBanner.ID}}&Aff={{affiliateID}}">
-            <img src="http://localhost:50741/bannerh.ashx?Banner={{banner.AffiliateBanner.ID}}&Aff={{affiliateID}}" />
+            <img src="http://localhost:50741/bannerh.ashx?Banner={{banner.AffiliateBanner.ID}}&Aff={{affiliateID}}" 
+            width="{{banner.AffiliateBanner.AffiliateBannerSize?.Width}}" height="{{banner.AffiliateBanner.AffiliateBannerSize?.Height}}" />
           </a>
         </textarea>
         <button class="btn btn-copy" ngxClipboard [cbContent]=htmlT.value (cbOnSuccess)="isCopied=true" (click)="t.close(); b.close()"
