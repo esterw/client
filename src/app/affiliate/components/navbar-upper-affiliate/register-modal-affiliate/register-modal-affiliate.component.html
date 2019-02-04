@@ -1,4 +1,5 @@
-<div *ngIf="timezone">
+<div>
+    <!-- *ngIf="timezone" -->
 <div class=" modal-lg justify-content-md-center modal-register justify-content-xs-center"  style="background-color: black;">
   <div class="modal-content">
     <div class="modal-header">
@@ -53,7 +54,8 @@
             <div class="form-group">
               <label>Phone</label> 
               <div class="input-group">
-                <span class="input-group-addon" *ngIf="timezone.data.timezone.phone_prefix">+{{timezone.data.timezone.phone_prefix}}</span>
+                  <!-- *ngIf="timezone.data.timezone.phone_prefix"{{timezone.data.timezone.phone_prefix}} -->
+                <span class="input-group-addon" >+</span>
                  <input  [(ngModel)]="Affiliate.Phone" #Phone="ngModel" name="Phone" type="text" class="inputBottomBorder form-control"
               maxlength="12" minlength="6" pattern="[0-9]*">
               </div>

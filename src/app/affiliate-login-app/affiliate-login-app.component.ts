@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AffiliateService } from '../shared/affiliate-server/affiliate.service';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
 import * as JWT from 'jwt-decode';
 
@@ -12,7 +12,8 @@ import * as JWT from 'jwt-decode';
 })
 export class AffiliateLoginAppComponent implements OnInit {
 
-  constructor(private service: AffiliateService, private router: Router) { }
+  constructor(private service: AffiliateService, 
+    private router: Router) { }
   id; isLogined = false;
   loading = true;
   subscription: Subscription;

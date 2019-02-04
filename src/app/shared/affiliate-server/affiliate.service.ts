@@ -22,7 +22,9 @@ export class AffiliateService {
      
     getAffiliateByID() {
 
-        this.http.get(this.url + "/api/Affiliates/1").pipe(map(
+       const affiliateID = localStorage.getItem('userID');
+
+        this.http.get(this.url + "/api/Affiliates/" + affiliateID).pipe(map(
             (response: Affiliate) => {
                 const affiliate: any = response;
                 return affiliate;
@@ -39,6 +41,15 @@ export class AffiliateService {
         this.affiliateChanged.next(this.affiliate);
     }
 
+    newAffiliate(newAffiliate: Affiliate) {
+        let httpHeaders = new HttpHeaders({
+            'Content-Type': 'application/json'
+        });
+        let options = {
+            headers: httpHeaders
+        };
+        return this.http.post(this.url + "/api/Affiliates", newAffiliate);
+    }
     
     updateAffiliate(affiliate: Affiliate): any {
         let httpHeaders = new HttpHeaders({
@@ -47,7 +58,7 @@ export class AffiliateService {
         let options = {
             headers: httpHeaders
         };
-        return this.http.put(this.url + "/api/Affiliates/1", affiliate);
+        return this.http.put(this.url + "/api/Affiliates/" + affiliate.ID, affiliate);
     }
 
     addMessage(newMessage: AffiliateTicketContent, ticketID: number) {

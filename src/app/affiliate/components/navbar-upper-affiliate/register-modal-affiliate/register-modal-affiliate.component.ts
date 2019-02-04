@@ -7,6 +7,7 @@ import { TimezoneService } from '../../../shared/services/timezoneapi/timezoneap
 import { Timezone } from '../../../shared/services/timezoneapi/timezoneapi.model';
 import { Router } from '@angular/router';
 import { BsModalRef } from 'ngx-bootstrap';
+import { AffiliateService } from 'src/app/shared/affiliate-server/affiliate.service';
 
 @Component({
   selector: 'app-register-modal-affiliate',
@@ -23,7 +24,7 @@ export class RegisterModalAffiliateComponent implements OnInit {
   loading = false;
   message: string = "";
 
-  constructor(private affiliateService: RegisterService,  private timezoneService: TimezoneService,  private router:Router,public bsModalRef: BsModalRef) { }
+  constructor(private affiliateService: AffiliateService, private timezoneService: TimezoneService, private router: Router, public bsModalRef: BsModalRef) { }
 
   ngOnInit() {
 
@@ -34,49 +35,31 @@ export class RegisterModalAffiliateComponent implements OnInit {
     //   this.Affiliate.Country = timezone.data.country;
     // }); // new comment
 
-    if(this.timezoneService.timezone.data !=undefined)
-    {
-      this.Affiliate.Country = this.timezoneService.timezone.data.country;
-      this.timezone = this.timezoneService.timezone;
-    }
-      //this.Affiliate.
-    
+    // if (this.timezoneService.timezone.data != undefined) {
+    //   this.Affiliate.Country = this.timezoneService.timezone.data.country;
+    //   this.timezone = this.timezoneService.timezone;
+    // }
+    //this.Affiliate.
+
   }
 
   onSubmitForm() {
     if (this.registerForm.valid && this.conditionsChecked == true) {
-    this.loading = true;
+      this.loading = true;
       let form = this.registerForm.value;
       let currentDate = new Date();
       this.Affiliate.RegistrationDate = currentDate;
-      var affiliateModel = <AffiliateViewModel>{};
-      
-      affiliateModel.CompanyName = this.Affiliate.CompanyName;
-      affiliateModel.Phone = this.Affiliate.Phone;
-      affiliateModel.Address1 = this.Affiliate.Address1;
-      affiliateModel.Address2 = this.Affiliate.Address2;
-      affiliateModel.City = this.Affiliate.City;
-      affiliateModel.Country = this.Affiliate.Country;
-      affiliateModel.State = this.Affiliate.State;
-      affiliateModel.ZipCode = this.Affiliate.ZipCode;
-      affiliateModel.Email = this.Affiliate.Email;
-      affiliateModel.Password = this.Affiliate.Password;
-      affiliateModel.FirstName = this.Affiliate.Name;
-      affiliateModel.LastName = this.Affiliate.Family;
 
-      //console.log("Affiliate Submission ");
-      //console.log(affiliateModel);
-
-      this.affiliateService.addAffiliate(this.Affiliate)
-        .subscribe((responseJson) => {
+      this.affiliateService.newAffiliate(this.Affiliate)
+        .subscribe((responseJson: any) => {
           this.loading = false;
           this.bsModalRef.hide();
-         this.router.navigate(['/Login']);
+          localStorage.setItem('userID', responseJson.ID)
+          this.router.navigate(['/Login']);
         }
           , error => {
             this.loading = false;
             this.message = "server isn't available ):";
-         //   console.log(error);
           }
 
         );
