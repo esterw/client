@@ -69,6 +69,10 @@ a.active {
     border-radius: 5px;
 }
 
+.modal-body {
+    width: 43rem;
+}
+
 .modal-content {
     border: none;
 

@@ -30,7 +30,7 @@ import { AuthGuard } from './shared/affiliate-server/auth.gaurd';
 
 const appRoutes:Routes = [
 
-    { path: '', redirectTo: 'Login', pathMatch: 'full' },
+    { path: '', redirectTo: 'Homepage', pathMatch: 'full' },
 // ,canActivate:[AuthGuard]
     { path: 'Login', component: AffiliateLoginAppComponent , children:
             [
@@ -79,17 +79,17 @@ const appRoutes:Routes = [
     { path: 'Homepage', component: AffiliateComponent, children: [
             { path: '', pathMatch: 'full', redirectTo: 'home' },
             { path: 'home', component: HomeComponent },
-            {
-                path: 'information', component: InformationComponent, children: [
-                    { path: '', redirectTo: 'LinksAndCreative', pathMatch: 'full' },
-                    { path: 'Earning', component: EaringInfoComponent },
-                    { path: 'LinksAndCreative', component: LinksAndCreativeInfoComponent },
-                    { path: 'AffiliateProgram', component: AffProgramInfoComponent },
-                    { path: 'TermsAndConditions', component: TermsAndConditionsInfoComponent },
-                    { path: 'Restricitions', component: RestrictionsInfoComponent },
+            // {
+            //     path: 'information', component: InformationComponent, children: [
+            //         { path: '', redirectTo: 'LinksAndCreative', pathMatch: 'full' },
+            //         { path: 'Earning', component: EaringInfoComponent },
+            //         { path: 'LinksAndCreative', component: LinksAndCreativeInfoComponent },
+            //         { path: 'AffiliateProgram', component: AffProgramInfoComponent },
+            //         { path: 'TermsAndConditions', component: TermsAndConditionsInfoComponent },
+            //         { path: 'Restricitions', component: RestrictionsInfoComponent },
 
-                ]
-            },
+            //     ]
+            // },
             { path: 'contactUs', component: ContactUsComponent },
         ]
     },

@@ -19,32 +19,32 @@ export class AffiliateComponent implements OnInit {
     private bannersService: BannersService, private activatedRoute: ActivatedRoute) { }
   isLogined = false;
   ngOnInit() {
-   //this.isLogined = localStorage.getItem('user') ? true : false;
-   // if (this.isLogined == true) {
-   //   this.router.navigate(['/Login']);
-   // }
-   // this.activatedRoute.params.subscribe((params: Params) => {
-   //   if (params['id']) {
-   //     let affiliateID = params['id'];
-   //     localStorage.setItem("user",affiliateID) ;
-     
-   //     if (localStorage.getItem('user'))
-   //       this.router.navigate(['/Homepage']);
-   //     else
-   //       var si = setInterval(() => {
-   //         if (localStorage.getItem('user')) {
-   //           this.router.navigate(['/Homepage']);
-   //           clearInterval(si);
-   //         }
-   //       }, 1000);
+    //this.isLogined = localStorage.getItem('user') ? true : false;
+    // if (this.isLogined == true) {
+    //   this.router.navigate(['/Login']);
+    // }
+    // this.activatedRoute.params.subscribe((params: Params) => {
+    //   if (params['id']) {
+    //     let affiliateID = params['id'];
+    //     localStorage.setItem("user",affiliateID) ;
+
+    //     if (localStorage.getItem('user'))
+    //       this.router.navigate(['/Homepage']);
+    //     else
+    //       var si = setInterval(() => {
+    //         if (localStorage.getItem('user')) {
+    //           this.router.navigate(['/Homepage']);
+    //           clearInterval(si);
+    //         }
+    //       }, 1000);
 
 
-   //   }
-   // });
+    //   }
+    // });
 
-    this.contentfAQSService.getcontentsFAQs();
-    // this.contentService.getContents();
-    this.fAQsService.getContentsFAQ();
-    this.bannersService.getBanners();
+    // this.contentfAQSService.getcontentsFAQs();
+    // // this.contentService.getContents();
+    // this.fAQsService.getContentsFAQ();
+    // this.bannersService.getBanners();
   }
 }

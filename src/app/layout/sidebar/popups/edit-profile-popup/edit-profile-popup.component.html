@@ -21,69 +21,69 @@
     <div *ngIf="showProfile" class="modal-body">
       <form (ngSubmit)="onUpdateProfile()">
         <div class="form-group">
-          <label for="example-text-input" class="col-3 col-form-label">Company/Name</label>
+          <label class="col-3 col-form-label">Company/Name</label>
           <div class="col-9">
-            <input class="form-control" name="companyName" [(ngModel)]="affiliate.CompanyName" type="text" id="example-text-input" readonly>
+            <input class="form-control" name="companyName" [(ngModel)]="affiliate.CompanyName" type="text" id="example-text-input1" readonly>
           </div>
         </div>
         <div class="form-group">
-          <label for="example-text-input" class="col-3 col-form-label">E-mail/userName</label>
+          <label class="col-3 col-form-label">E-mail/userName</label>
           <div class="col-9">
-            <input class="form-control" name="email" [(ngModel)]="affiliate.Email" type="text" id="example-text-input" readonly>
+            <input class="form-control" name="email" [(ngModel)]="affiliate.Email" type="text" id="example-text-input2" readonly>
           </div>
         </div>
         <div class="form-group">
-          <label for="example-text-input" class="col-3 col-form-label">First Name</label>
+          <label class="col-3 col-form-label">First Name</label>
           <div class="col-9">
-            <input class="form-control" name="firstName" [(ngModel)]="affiliate.Name" type="text" id="example-text-input" readonly>
+            <input class="form-control" name="firstName" [(ngModel)]="affiliate.Name" type="text" id="example-text-input3" readonly>
           </div>
         </div>
         <div class="form-group">
-          <label for="example-text-input" class="col-3 col-form-label">Last Name</label>
+          <label class="col-3 col-form-label">Last Name</label>
           <div class="col-9">
-            <input class="form-control" name="LastName" [(ngModel)]="affiliate.Family" type="text" id="example-text-input" readonly>
+            <input class="form-control" name="LastName" [(ngModel)]="affiliate.Family" type="text" id="example-text-input4" readonly>
           </div>
         </div>
         <div class="form-group">
-          <label for="example-text-input" class="col-3 col-form-label">Address</label>
+          <label class="col-3 col-form-label">Address</label>
           <div class="col-9">
-            <input class="form-control" name="address" [(ngModel)]="affiliate.Address1" type="text" id="example-text-input">
+            <input class="form-control" name="address" [(ngModel)]="affiliate.Address1" type="text" id="example-text-input5">
           </div>
         </div>
         <div class="form-group">
-          <label for="example-text-input" class="col-3 col-form-label">City</label>
+          <label class="col-3 col-form-label">City</label>
           <div class="col-9">
-            <input class="form-control" name="city" [(ngModel)]="affiliate.City" type="text" id="example-text-input">
+            <input class="form-control" name="city" [(ngModel)]="affiliate.City" type="text">
           </div>
         </div>
         <div class="form-group">
-          <label for="example-text-input" class="col-3 col-form-label">Country</label>
+          <label class="col-3 col-form-label">Country</label>
           <div class="col-9">
-            <input class="form-control" name="country" [(ngModel)]="affiliate.Country" type="text" id="example-text-input">
+            <input class="form-control" name="country" [(ngModel)]="affiliate.Country" type="text">
           </div>
         </div>
         <div class="form-group">
-          <label for="example-text-input" class="col-3 col-form-label">State</label>
+          <label class="col-3 col-form-label">State</label>
           <div class="col-9">
-            <input class="form-control" name="state" [(ngModel)]="affiliate.State" type="text" id="example-text-input">
+            <input class="form-control" name="state" [(ngModel)]="affiliate.State" type="text">
           </div>
         </div>
         <div class="form-group">
-          <label for="example-text-input" class="col-3 col-form-label">Zipcode</label>
+          <label class="col-3 col-form-label">Zipcode</label>
           <div class="col-9">
-            <input class="form-control" name="zipcode" [(ngModel)]="affiliate.ZipCode" type="text" id="example-text-input">
+            <input class="form-control" name="zipcode" [(ngModel)]="affiliate.ZipCode" type="text">
           </div>
         </div>
         <div class="form-group">
-          <label for="example-text-input" class="col-3 col-form-label">Phone</label>
+          <label class="col-3 col-form-label">Phone</label>
           <div class="col-9">
-            <input class="form-control" name="phone" [(ngModel)]="affiliate.Phone" type="text" id="example-text-input">
+            <input class="form-control" name="phone" [(ngModel)]="affiliate.Phone" type="text">
           </div>
         </div>
         <div class="form-group">
-          <label for="example-text-input" class="col-3 col-form-label">Skype</label>
+          <label class="col-3 col-form-label">Skype</label>
           <div class="col-9">
-            <input class="form-control" type="text" name="Skype" [(ngModel)]="affiliate.Skype" id="example-text-input">
+            <input class="form-control" type="text" name="Skype" [(ngModel)]="affiliate.Skype">
           </div>
         </div>
         <div style="width:100%" class=" d-flex justify-content-center">
@@ -98,18 +98,18 @@
     <!--***************************payment*1********************-->
 
     <div *ngIf="showPayment" class="modal-body">
-      <form>
+      <form (submit)="onUpdateProfile()">
         <div class="d-flex justify-content-between">
           <div class="form-group col-6 d-flex justify-content-between">
-            <label for="example-text-input" class="col-form-label">Company name</label>
+            <label for="example-text-input666" class="col-form-label">Company name</label>
             <div>
             </div>
             <div>
-              <input class="form-control input-small" type="text" value="Company name LTD" id="example-text-input" readonly>
+              <input class="form-control input-small" type="text" value="Company name LTD" readonly>
             </div>
           </div>
           <div class="form-group col-6 d-flex justify-content-between">
-            <label for="example-text-input"  class="col-form-label">Payment type</label>
+            <label  class="col-form-label">Payment type</label>
             <div>
               <select  name="PaymentType" [(ngModel)]="PaymentTypeSelected" (change)="PaymentTypeChange()" class="form-control input-small">
                 <option *ngFor="let pt of payType;let i=index" [value]="i" >{{pt}}</option>
@@ -120,18 +120,18 @@
         </div>
         <div  *ngIf="showPayment1">
         <div class="form-group">
-          <label for="example-text-input" class="col-form-label">Netlleter email</label>
+          <label class="col-form-label">Netlleter email</label>
           <div>
-            <input class="form-control big-input" type="text" id="example-text-input">
+            <input class="form-control big-input" type="text">
           </div>
         </div>
        
       </div>
         <div *ngIf="showPayment2">
             <div class="form-group">
-                <label for="example-text-input" class="col-form-label">Skrill email</label>
+                <label class="col-form-label">Skrill email</label>
                 <div>
-                  <input class="form-control big-input" type="text" id="example-text-input">
+                  <input class="form-control big-input" type="text">
                 </div>
               </div>
          
@@ -139,7 +139,7 @@
         <div *ngIf="showPayment3">
             <div class="d-flex justify-content-between">
                 <div class="form-group col-6 d-flex justify-content-between">
-                  <label for="example-text-input" class="col-form-label">Bank name</label>
+                  <label class="col-form-label">Bank name</label>
                   <div>
                   </div>
                   <div>
@@ -147,7 +147,7 @@
                   </div>
                 </div>
                 <div class="form-group col-6 d-flex justify-content-between">
-                  <label for="example-text-input" class="col-form-label">Bank Account</label>
+                  <label class="col-form-label">Bank Account</label>
                   <div>
                     <input class="form-control input-small" type="text">
                   </div>
@@ -155,7 +155,7 @@
               </div>
               <div class="d-flex justify-content-between">
                 <div class="form-group col-6 d-flex justify-content-between">
-                  <label for="example-text-input" class="col-form-label">Bank Branch</label>
+                  <label class="col-form-label">Bank Branch</label>
                   <div>
                   </div>
                   <div>
@@ -163,49 +163,49 @@
                   </div>
                 </div>
                 <div class="form-group col-6 d-flex justify-content-between">
-                  <label for="example-text-input" class="col-form-label">Bank E-mail</label>
+                  <label class="col-form-label">Bank E-mail</label>
                   <div>
                     <input class="form-control input-small" type="text">
                   </div>
                 </div>
               </div>
               <div class="form-group">
-                <label for="example-text-input" class="col-form-label">IBAN</label>
+                <label class="col-form-label">IBAN</label>
                 <div>
-                  <input class="form-control big-input" type="text" id="example-text-input">
+                  <input class="form-control big-input" type="text" id="example-text-input11">
                 </div>
               </div>
               <div class="form-group">
-                <label for="example-text-input" class="col-form-label">Swift</label>
+                <label class="col-form-label">Swift</label>
                 <div>
-                  <input class="form-control big-input" type="text" id="example-text-input">
+                  <input class="form-control big-input" type="text">
                 </div>
               </div>
               <div class="form-group">
-                <label for="example-text-input" class="col-form-label">Account Name</label>
+                <label class="col-form-label">Account Name</label>
                 <div>
-                  <input class="form-control big-input" type="text" id="example-text-input">
+                  <input class="form-control big-input" type="text">
                 </div>
               </div>
               <div class="form-group">
-                <label for="example-text-input" class="col-form-label">Account Number</label>
+                <label class="col-form-label">Account Number</label>
                 <div>
-                  <input class="form-control big-input" type="text" id="example-text-input">
+                  <input class="form-control big-input" type="text">
                 </div>
               </div>
            
         </div>
         <div class="d-flex justify-content-between">
             <div class="form-group col-6 d-flex justify-content-between">
-              <label for="example-text-input" class="col-form-label">Minimal payout</label>
+              <label class="col-form-label">Minimal payout</label>
               <div>
               </div>
               <div>
-                <input class="form-control input-small" type="text" value="Company name LTD" id="example-text-input" readonly>
+                <input class="form-control input-small" type="text" value="Company name LTD" readonly>
               </div>
             </div>
             <div class="form-group col-6 d-flex justify-content-between">
-              <label for="example-text-input" class="col-form-label">Payout currency</label>
+              <label class="col-form-label">Payout currency</label>
               <div>
                 <select class="form-control input-small">
                   <option>EUR</option>
@@ -216,204 +216,34 @@
             </div>
           </div>
         <div class="form-group">
-          <label for="example-text-input" class="col-form-label">Comission plan</label>
+          <label class="col-form-label">Comission plan</label>
           <div>
-            <input class="form-control big-input" type="text" value="35% from NGR" id="example-text-input">
+            <input class="form-control big-input" type="text" value="35% from NGR">
           </div>
         </div>
         <div style="width:100%" class=" d-flex justify-content-center">
-          <button type="submit">SAVE</button>
+          <button type="submit">SAVE
+              <img id="loading" *ngIf="loadingProfile" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIDhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA=="
+            />
+          </button>
         </div>
      
       </form>
     </div>
-    <!--***************************payment*2********************
-
-    <div *ngIf="showPayment2" class="modal-body">
-      <form>
-        <div class="d-flex justify-content-between">
-          <div class="form-group col-6 d-flex justify-content-between">
-            <label for="example-text-input" class="col-form-label">Company name</label>
-            <div>
-            </div>
-            <div>
-              <input class="form-control input-small" type="text" value="Company name LTD" id="example-text-input" readonly>
-            </div>
-          </div>
-          <div class="form-group col-6 d-flex justify-content-between">
-            <label for="example-text-input" class="col-form-label">Payment type</label>
-            <div>
-              <select class="form-control input-small">
-                <option>Netlleter</option>
-                <option selected>Skrill</option>
-                <option>Netlleter</option>
-              </select>
-            </div>
-          </div>
-        </div>
-        <div class="form-group">
-          <label for="example-text-input" class="col-form-label">Skrill email</label>
-          <div>
-            <input class="form-control big-input" type="text" id="example-text-input">
-          </div>
-        </div>
-        <div class="d-flex justify-content-between">
-          <div class="form-group col-6 d-flex justify-content-between">
-            <label for="example-text-input" class="col-form-label">Minimal payout</label>
-            <div>
-            </div>
-            <div>
-              <input class="form-control input-small" type="text" value="Company name LTD" id="example-text-input" readonly>
-            </div>
-          </div>
-          <div class="form-group col-6 d-flex justify-content-between">
-            <label for="example-text-input" class="col-form-label">Payout currency</label>
-            <div>
-              <select class="form-control input-small">
-                <option>EUR</option>
-                <option>EUR</option>
-                <option>EUR</option>
-              </select>
-            </div>
-          </div>
-        </div>
-        <div class="form-group">
-          <label for="example-text-input" class="col-form-label">Comission plan</label>
-          <div>
-            <input class="form-control big-input" type="text" value="35% from NGR" id="example-text-input">
-          </div>
-        </div>
-        <div style="width:100%" class=" d-flex justify-content-center">
-          <button type="submit">SAVE</button>
-        </div>
-      </form>
-    </div>-->
-
-    <!--***************************payment*3********************
-
-    <div *ngIf="showPayment3" class="modal-body">
-      <form>
-        <div class="d-flex justify-content-between">
-          <div class="form-group col-6 d-flex justify-content-between">
-            <label for="example-text-input" class="col-form-label">Company name</label>
-            <div>
-            </div>
-            <div>
-              <input class="form-control input-small" type="text" value="Company name LTD" id="example-text-input" readonly>
-            </div>
-          </div>
-          <div class="form-group col-6 d-flex justify-content-between">
-            <label for="example-text-input" class="col-form-label">Payment type</label>
-            <div>
-              <select class="form-control input-small">
-                <option>Netlleter</option>
-                <option>Skrill</option>
-                <option selected>Bank wire</option>
-              </select>
-            </div>
-          </div>
-        </div>
-        <div class="d-flex justify-content-between">
-          <div class="form-group col-6 d-flex justify-content-between">
-            <label for="example-text-input" class="col-form-label">Bank name</label>
-            <div>
-            </div>
-            <div>
-              <input class="form-control input-small" type="text">
-            </div>
-          </div>
-          <div class="form-group col-6 d-flex justify-content-between">
-            <label for="example-text-input" class="col-form-label">Bank Account</label>
-            <div>
-              <input class="form-control input-small" type="text">
-            </div>
-          </div>
-        </div>
-        <div class="d-flex justify-content-between">
-          <div class="form-group col-6 d-flex justify-content-between">
-            <label for="example-text-input" class="col-form-label">Bank Branch</label>
-            <div>
-            </div>
-            <div>
-              <input class="form-control input-small" type="text">
-            </div>
-          </div>
-          <div class="form-group col-6 d-flex justify-content-between">
-            <label for="example-text-input" class="col-form-label">Bank E-mail</label>
-            <div>
-              <input class="form-control input-small" type="text">
-            </div>
-          </div>
-        </div>
-        <div class="form-group">
-          <label for="example-text-input" class="col-form-label">IBAN</label>
-          <div>
-            <input class="form-control big-input" type="text" id="example-text-input">
-          </div>
-        </div>
-        <div class="form-group">
-          <label for="example-text-input" class="col-form-label">Swift</label>
-          <div>
-            <input class="form-control big-input" type="text" id="example-text-input">
-          </div>
-        </div>
-        <div class="form-group">
-          <label for="example-text-input" class="col-form-label">Account Name</label>
-          <div>
-            <input class="form-control big-input" type="text" id="example-text-input">
-          </div>
-        </div>
-        <div class="form-group">
-          <label for="example-text-input" class="col-form-label">Account Number</label>
-          <div>
-            <input class="form-control big-input" type="text" id="example-text-input">
-          </div>
-        </div>
-        <div class="d-flex justify-content-between">
-          <div class="form-group col-6 d-flex justify-content-between">
-            <label for="example-text-input" class="col-form-label">Minimal payout</label>
-            <div>
-            </div>
-            <div>
-              <input class="form-control input-small" type="text">
-            </div>
-          </div>
-          <div class="form-group col-6 d-flex justify-content-between">
-            <label for="example-text-input" class="col-form-label">Payout currency</label>
-            <div>
-              <select class="form-control input-small">
-                <option>EUR</option>
-                <option>EUR</option>
-                <option>EUR</option>
-              </select>
-            </div>
-          </div>
-        </div>
-        <div class="form-group">
-          <label for="example-text-input" class="col-form-label">Comission plan</label>
-          <div>
-            <input class="form-control big-input" type="text" value="35% from NGR" id="example-text-input">
-          </div>
-        </div>
-        <div style="width:100%" class=" d-flex justify-content-center">
-          <button type="submit">SAVE</button>
-        </div>
-      </form>
-    </div>-->
 
     <!--***************************change password********************-->
 
     <div *ngIf="showChangePassword" class="modal-body">
-      <form (ngSubmit)="onChangePassword(changePasswordForm)" #changePasswordForm='ngForm' >
+      <form (submit)="onChangePassword(changePasswordForm)" #changePasswordForm='ngForm' >
         <div class="form-group">
-          <label for="example-text-input" class="col-form-label">Current Password</label>
+          <label class="col-form-label">Current Password</label>
           <div>
             <input #passwordAffiliate type="password" ngModel class="form-control big-input" name="passwordAffiliate" id="password">
             <div class="err" style="color:red">{{errPasswordMsg}}</div>
           </div>
         </div>
         <div class="form-group">
-          <label for="example-text-input" class="col-form-label">New Password</label>
+          <label class="col-form-label">New Password</label>
           <div>
             <input autocomplete="false" pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$" validateEqual="RepeatPassword" reverse="true" ngModel #NewPassword="ngModel" required name="NewPassword" class="form-control big-input" type="password" id="NewPassword">
             <div *ngIf="NewPassword.invalid && (NewPassword.dirty || NewPassword.touched || changePasswordForm.submitted)">
@@ -423,9 +253,9 @@
           </div>
         </div>
         <div class="form-group">
-          <label for="example-text-input" class="col-form-label">Repeat Password</label>
+          <label class="col-form-label">Repeat Password</label>
           <div>
-            <input autocomplete="false" ngModel #RepeatPassword="ngModel" validateEqual="NewPassword" reverse="false" required name="RepeatPassword" class="form-control big-input" type="password" id="example-text-input">
+            <input autocomplete="false" ngModel #RepeatPassword="ngModel" validateEqual="NewPassword" reverse="false" required name="RepeatPassword" class="form-control big-input" type="password">
             <div *ngIf="RepeatPassword.invalid && (RepeatPassword.dirty || RepeatPassword.touched || changePasswordForm.submitted)">
                 <small *ngIf="RepeatPassword?.errors.required" class="form-text text-muted">Field is required</small>
                 <small *ngIf="RepeatPassword.errors && !RepeatPassword?.errors.required" class="form-text text-muted">Passwords do not match</small>

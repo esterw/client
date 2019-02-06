@@ -93,14 +93,14 @@
                       <form (ngSubmit)="newMessagge(ticket.ID,i)" name="newMessaggeForm" #newMessaggeForm='ngForm'>
                         <h5>Reply</h5>
                         <div class="form-group">
-                          <label for="example-text-input" class="col-form-label">Subject:</label>
+                          <label class="col-form-label">Subject:</label>
                           <div>
                             <textarea #newSubject="ngModel" [(ngModel)]="newMessages.Subject" class=" textarea-subject"
                               name="newSubject"></textarea>
                           </div>
                         </div>
                         <div class="form-group">
-                          <label for="example-text-input" class="col-form-label">Content:</label>
+                          <label class="col-form-label">Content:</label>
                           <div>
                             <textarea #newContent="ngModel" [(ngModel)]="newMessages.Content" class="textarea-Content"
                               name="newContent"></textarea>

@@ -8,6 +8,9 @@ import { RequestOptions } from '@angular/http';
 
 @Injectable()
 export class AffiliateService {
+  updateAccount(affiliateAccount: AffiliateAccount): any {
+    throw new Error("Method not implemented.");
+  }
 
     closeModal: Subject<boolean> = new Subject();
     closeTicketModal: Subject<boolean> = new Subject();
@@ -19,7 +22,7 @@ export class AffiliateService {
     url: string = environment.apiUrl;
 
     constructor(private http: HttpClient) { }
-     
+    
     getAffiliateByID() {
 
        const affiliateID = localStorage.getItem('userID');
@@ -34,6 +37,15 @@ export class AffiliateService {
                     this.setAffiliate(affiliate);
                 })
             )
+    }
+
+    loginAffiliate(username: string, password: string): any {
+      return  this.http.get(this.url + "/api/Affiliates?email=" + username + '&password=' + password).pipe(map(
+            (response: Affiliate) => {
+                const affiliate: any = response;
+                    this.setAffiliate(affiliate);
+                return affiliate;
+            }));
     }
 
     setAffiliate(affiliate) {

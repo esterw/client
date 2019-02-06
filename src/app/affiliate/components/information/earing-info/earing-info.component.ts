@@ -22,18 +22,19 @@ export class EaringInfoComponent implements OnInit {
   subscription2: Subscription;
   PrivacyContent: ContentPagesFAQ;
   ngOnInit() {
-    this.subscription = this.contentfAQSService.getObservablefAQS().subscribe(
-      contents => {
-        this.contentsFAQS = contents.filter(content => { return content.Name == "Earing" })[0];
-      //  this.FAQ = contents.filter(content => { return content.ComContentFAQID == this.contentsFAQS.ID });
-      });
-    this.subscription2 = this.fAQsService.getObservableFAQ().subscribe(
-      contents => {
-       this.FAQ = contents.filter(content => { return content.ComContentFAQID ==12 });
-      });
-      this.contentsFAQS = this.contentfAQSService.contentsFAQs.filter(content => { return content.Name == "Earing" })[0];
-      this.FAQ = this.fAQsService.contentsFAQ.filter(content => { return content.ComContentFAQID ==12 });
-  }
+    // this.subscription = this.contentfAQSService.getObservablefAQS().subscribe(
+    //   contents => {
+    //     this.contentsFAQS = contents.filter(content => { return content.Name == "Earing" })[0];
+    //   //  this.FAQ = contents.filter(content => { return content.ComContentFAQID == this.contentsFAQS.ID });
+    //   });
+    // this.subscription2 = this.fAQsService.getObservableFAQ().subscribe(
+    //   contents => {
+    //    this.FAQ = contents.filter(content => { return content.ComContentFAQID ==12 });
+    //   });
+    //   this.contentsFAQS = this.contentfAQSService.contentsFAQs.filter(content => { return content.Name == "Earing" })[0];
+    //   this.FAQ = this.fAQsService.contentsFAQ.filter(content => { return content.ComContentFAQID ==12 });
+ 
+    }
   ngOnDestroy() {
     this.subscription.unsubscribe();
     this.subscription2.unsubscribe();

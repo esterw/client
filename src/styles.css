@@ -1,1 +1,34 @@
 /* You can add global styles to this file, and also import other style files */
+
+button,
+span,
+div {
+  outline: none !important;
+}
+
+/* .modal.show {
+  width: max-content !important;
+  max-width: unset !important;
+}
+
+.modal-dialog {
+  width: max-content !important;
+  max-width: unset !important;
+} */
+
+.modal-content {
+  border: none;
+}
+
+div.modal-dialog {
+  background-color: #ffffff;
+  height: auto;
+  border-radius: 5px;
+  max-width: max-content !important;
+}
+
+@media (min-width: 576px) {
+  .modal-dialog {
+    max-width: 659px !important;
+  }
+}

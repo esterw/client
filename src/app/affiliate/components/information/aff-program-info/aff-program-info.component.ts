@@ -16,14 +16,15 @@ export class AffProgramInfoComponent implements OnInit {
   subscription: Subscription;
   ngOnInit() {
     //console.log("content-----------");
-    this.subscription = this.contentService.getObservableBanners().subscribe(
-      contents => {
-        this.contents = contents.filter(content => { return content.Group == "affiliate information" });
-        this.content = this.contents.filter(content => { return content.Name == "information1" })[0];
-      })
+    // this.subscription = this.contentService.getObservableBanners().subscribe(
+    //   contents => {
+    //     this.contents = contents.filter(content => { return content.Group == "affiliate information" });
+    //     this.content = this.contents.filter(content => { return content.Name == "information1" })[0];
+    //   })
     
-      this.contents = this.contentService.contents.filter(content => { return content.Group == "affiliate information" });
-      this.content = this.contents.filter(content => { return content.Name == "information1" })[0];
+    //   this.contents = this.contentService.contents.filter(content => { return content.Group == "affiliate information" });
+    //   this.content = this.contents.filter(content => { return content.Name == "information1" })[0];
+   
     }
       ngOnDestroy() {
         this.subscription.unsubscribe();
