@@ -6,7 +6,9 @@ import { Http } from '@angular/http';
 import { environment } from '../../../../../environments/environment';
 import { HttpClient, HttpHeaders, HttpHandler, HttpEvent, HttpInterceptor, HttpRequest } from "@angular/common/http";
 
-@Injectable()
+@Injectable(
+  {providedIn: 'root'}
+)
 export class AuthenticationService {
   constructor(private http: HttpClient) { }
 

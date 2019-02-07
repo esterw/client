@@ -8,7 +8,7 @@ import { AuthService } from '../../../../services/auth.service';
 import { HttpClient, HttpHeaders, HttpHandler, HttpEvent, HttpInterceptor, HttpRequest } from "@angular/common/http";
 import { Observable } from "rxjs";
 import 'rxjs/Rx';
-import { AffiliateService } from 'src/app/shared/affiliate-server/affiliate.service';
+import { AffiliateService } from 'src/app/shared/services/affiliate.service';
 
 @Component({
   selector: 'app-login-affiliate-modal',

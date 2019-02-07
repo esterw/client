@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AffiliateService } from '../../shared/affiliate-server/affiliate.service';
+import { AffiliateService } from '../../shared/services/affiliate.service';
 import { BsModalRef } from 'ngx-bootstrap';
 
 @Component({
@@ -9,30 +9,22 @@ import { BsModalRef } from 'ngx-bootstrap';
 })
 export class MessagesPopupComponent implements OnInit {
 
-  constructor(private service: AffiliateService,public bsModalRef: BsModalRef) { }
+  constructor(private service: AffiliateService, public bsModalRef: BsModalRef) { }
   TicketSubject = "";
   TicketContent = "";
   loading=false;
   
   ngOnInit() {
   }
+
   newTicket() {
     this.loading = true;
-    this.service.newTicket(this.TicketSubject, this.TicketContent)
-    // .subscribe(res => {});
-      // .subscribe(
-      //   (responseJson) => {
-      //     this.loading = false;
-      //     this.closeModal();
-      //     //  this.serverMessage = "Your request has been successfully submitted";
-      //   }
-      //   , error => {
-      //    this.loading = false;
-      //     //  this.serverMessage  = "server isn't available ):";
-      //   }
-      // )
-
+    this.service.newTicket(this.TicketSubject).subscribe(res => {
+            this.loading = false;
+          this.closeModal();
+    })
   }
+
   closeModal() {
     this.bsModalRef.hide();
     // this.service.closeTicketModal.next(true);

@@ -2,9 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ContentPagesService } from '../../shared/ContentPages/ContentPages.service';
 import { ContentPagesFAQService } from '../shared/services/ContentPagesFAQs/ContentPagesFAQs.service';
 import { FAQsService } from '../shared/services/FAQs/FAQs.service';
-import { BannersService } from '../shared/services/Banners/banners.service';
 import { Router, ActivatedRoute, Params } from '@angular/router';
-import { AffiliateService } from '../../shared/affiliate-server/affiliate.service';
+import { AffiliateService } from '../../shared/services/affiliate.service';
 import * as JWT from 'jwt-decode';
 
 @Component({
@@ -16,7 +15,7 @@ export class AffiliateComponent implements OnInit {
 
 
   constructor(private contentfAQSService: ContentPagesFAQService, private router: Router, private fAQsService: FAQsService, private contentService: ContentPagesService,
-    private bannersService: BannersService, private activatedRoute: ActivatedRoute) { }
+    private activatedRoute: ActivatedRoute) { }
   isLogined = false;
   ngOnInit() {
     //this.isLogined = localStorage.getItem('user') ? true : false;

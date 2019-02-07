@@ -12,10 +12,8 @@
       <div class="modal-body">
         
         <textarea placeholder="Ticket Subject" [(ngModel)]="TicketSubject" name="Subject" #Subject ></textarea>
-        <textarea style="height: 157px;" placeholder="Ticket Content..." [(ngModel)]="TicketContent" name="Content" #Subject ></textarea>
-        <textarea placeholder="Email"></textarea>
-        <p>Please verify your current e-mail address in order to get notification</p>
-      </div>
+        <!-- <textarea style="height: 157px;" placeholder="Ticket Content..." [(ngModel)]="TicketContent" name="Content" #Subject ></textarea> -->
+     </div>
       <div class="modal-footer justify-content-center">
         <div>
           <button type="button" class="btn" (click)="newTicket()" id="btnSend">SEND

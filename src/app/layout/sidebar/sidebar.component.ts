@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Affiliate, AffiliateTicket } from '../../shared/affiliate-server/affiliate.model';
-import { AffiliateService } from '../../shared/affiliate-server/affiliate.service';
+import { AffiliateService } from '../../shared/services/affiliate.service';
 import { Subscription } from 'rxjs';
 import { Router } from '@angular/router';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';

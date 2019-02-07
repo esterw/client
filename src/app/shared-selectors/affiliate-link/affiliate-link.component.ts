@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { Affiliate } from '../../shared/affiliate-server/affiliate.model';
-import { AffiliateService } from '../../shared/affiliate-server/affiliate.service';
+import { AffiliateService } from '../../shared/services/affiliate.service';
 
 @Component({
   selector: 'app-affiliate-link',

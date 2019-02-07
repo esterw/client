@@ -113,6 +113,7 @@ tr:hover {
   font-size: 14px;
   font-weight: 700;
   border: none;
+  cursor: pointer;
 }
 
 #btnOpen:hover {

@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { Banner } from '../../shared/services/Banners/banners.model';
-import { BannersService } from '../../shared/services/Banners/banners.service';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap';
 import { RegisterModalAffiliateComponent } from '../navbar-upper-affiliate/register-modal-affiliate/register-modal-affiliate.component';
 
@@ -18,7 +17,7 @@ export class HomeComponent implements OnInit {
   card2: Banner;
   card3: Banner;
   card4: Banner;
-  constructor(private bannersService: BannersService, private modalService: BsModalService) { }
+  constructor( private modalService: BsModalService) { }
 
   ngOnInit() {
     //   this.bannersService.getMessageBunners();

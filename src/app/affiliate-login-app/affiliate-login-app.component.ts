@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AffiliateService } from '../shared/affiliate-server/affiliate.service';
+import { AffiliateService } from '../shared/services/affiliate.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
 import * as JWT from 'jwt-decode';

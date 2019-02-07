@@ -48,20 +48,24 @@
     </div>
 
     <div class="details-code">
-      Java script
+      <!-- Java script
       <br>
       <div class="">
         <textarea readonly class="txtToCopy" [(ngModel)]="banner.AffiliateBanner.Javascript"></textarea>
         <button class="btn btn-copy" ngxClipboard [cbContent]="banner.AffiliateBanner.Javascript" (cbOnSuccess)="isCopied=true" (click)="b.close(); c.close()"
           triggers="click:blur" #t="ngbTooltip" placement="top" ngbTooltip="Copied!">{{btnCopyJS}}</button>
-      </div>
+      </div> -->
       Direct Link
       <br>
       <div class="">
         <input #dl readonly class="txtToCopy linkToCopy" value="http://localhost:50741/click.ashx?Banner={{banner.AffiliateBanner.ID}}&Aff={{affiliateID}}">
         <button class="btn btn-copy btnCopyLink" ngxClipboard [cbContent]=dl.value (cbOnSuccess)="isCopied=true" triggers="click:blur"
-          #b="ngbTooltip" placement="top" ngbTooltip="Copied!" (click)="t.close(); c.close()">{{btnCopyLink}}</button>
+          #b="ngbTooltip" placement="top" ngbTooltip="Copied!" (click)=" c.close()">{{btnCopyLink}}</button>
       </div>
+
+      <br>
+      <br>
+
       HTML code
       <br>
       <div class="">
@@ -71,7 +75,7 @@
             width="{{banner.AffiliateBanner.AffiliateBannerSize?.Width}}" height="{{banner.AffiliateBanner.AffiliateBannerSize?.Height}}" />
           </a>
         </textarea>
-        <button class="btn btn-copy" ngxClipboard [cbContent]=htmlT.value (cbOnSuccess)="isCopied=true" (click)="t.close(); b.close()"
+        <button class="btn btn-copy" ngxClipboard [cbContent]=htmlT.value (cbOnSuccess)="isCopied=true" (click)=" b.close()"
           triggers="click:blur" #c="ngbTooltip" placement="top" ngbTooltip="Copied!">{{btnCopyHTML}}</button>
       </div>
     </div>

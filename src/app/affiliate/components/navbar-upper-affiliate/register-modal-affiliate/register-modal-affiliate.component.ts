@@ -7,7 +7,7 @@ import { TimezoneService } from '../../../shared/services/timezoneapi/timezoneap
 import { Timezone } from '../../../shared/services/timezoneapi/timezoneapi.model';
 import { Router } from '@angular/router';
 import { BsModalRef } from 'ngx-bootstrap';
-import { AffiliateService } from 'src/app/shared/affiliate-server/affiliate.service';
+import { AffiliateService } from 'src/app/shared/services/affiliate.service';
 
 @Component({
   selector: 'app-register-modal-affiliate',

@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { AffiliateService } from '../../../../shared/affiliate-server/affiliate.service';
+import { AffiliateService } from '../../../../shared/services/affiliate.service';
 import { Affiliate, AffiliateAccount } from '../../../../shared/affiliate-server/affiliate.model';
 import { NgForm } from '@angular/forms';
 import { RegisterService } from '../../../../affiliate/shared/services/affiliate-service/affiliate.service';

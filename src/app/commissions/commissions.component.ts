@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
-import { AffiliateService } from '../shared/affiliate-server/affiliate.service';
+import { AffiliateService } from '../shared/services/affiliate.service';
 import { AffiliateCommission } from '../shared/affiliate-server/affiliate.model';
 
 @Component({

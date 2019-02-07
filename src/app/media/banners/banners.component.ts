@@ -1,10 +1,11 @@
 import { Component, OnInit, ChangeDetectorRef, OnChanges, AfterViewChecked } from '@angular/core';
 import { Subscription, Observable } from 'rxjs';
-import { AffiliateService } from '../../shared/affiliate-server/affiliate.service';
+import { AffiliateService } from '../../shared/services/affiliate.service';
 import { AffiliateBanner, AffiliatesBanners } from '../../shared/affiliate-server/affiliate.model';
 import * as FileSaver from 'file-saver';
 import { TooltipModule } from "ng2-tooltip";
 import { HttpClient } from '@angular/common/http';
+import { BannersService } from 'src/app/shared/services/banners.service';
 
 @Component({
   selector: 'app-banners',
@@ -18,7 +19,8 @@ export class BannersComponent implements OnInit, AfterViewChecked {
   banners: AffiliatesBanners[];
   affiliateID: number;
 
-  constructor(private service: AffiliateService,
+  constructor(private service: AffiliateService, 
+    private bannersService: BannersService,
     private cdr: ChangeDetectorRef,
     private http: HttpClient) { }
 
@@ -28,7 +30,11 @@ export class BannersComponent implements OnInit, AfterViewChecked {
       this.affiliateID = affiliate.ID;
     })
 
-    this.banners = this.service.affiliate.AffiliatesBanners;
+    this.bannersService.getAllBanners().subscribe(res => {
+      this.banners =res;
+    })
+
+    this.banners = this.bannersService.banners;
     this.affiliateID = this.service.affiliate.ID;
 
   }
@@ -42,13 +48,6 @@ export class BannersComponent implements OnInit, AfterViewChecked {
   }
 
   downloadBanner(bannerName: string, bannerID: number) {
-    // fetch('http://localhost:50741/bannerh.ashx?Banner=' + bannerID).
-    //   then(function (response) {
-
-    //     return response.blob();
-    //   }).then(function (myBlob) {
-    //     FileSaver.saveAs(myBlob, bannerName + myBlob.type);
-    //   })
     this.getBanner(bannerID, bannerName)
   }
 

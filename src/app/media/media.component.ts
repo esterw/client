@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AffiliateService } from '../shared/affiliate-server/affiliate.service';
+import { AffiliateService } from '../shared/services/affiliate.service';
 
 @Component({
   selector: 'app-media',

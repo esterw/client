@@ -18,7 +18,7 @@ import { MediaComponent } from './media/media.component';
 import { MessagesComponent } from './messages/messages.component';
 import { SettingsComponent } from './settings/settings.component';
 import { FaqComponent } from './faq/faq.component';
-import { AffiliateService } from './shared/affiliate-server/affiliate.service';
+import { AffiliateService } from './shared/services/affiliate.service';
 import { ChartsModule } from 'ng2-charts'; 
 import { HttpClientModule, HTTP_INTERCEPTORS, HttpClient, HttpHandler, HttpRequest } from '@angular/common/http';
 import { CommonModule, DatePipe, LocationStrategy, HashLocationStrategy } from '@angular/common';
@@ -51,7 +51,6 @@ import { SlidersBunnerAffiliateComponent } from './affiliate/components/sliders-
 import { NavbarInformationComponent } from './affiliate/components/information/navbar-information/navbar-information.component';
 import { RegisterService } from './affiliate/shared/services/affiliate-service/affiliate.service';
 import { AuthenticationService } from './affiliate/shared/services/Authentication/Authentication.service';
-import { BannersService } from './affiliate/shared/services/Banners/banners.service';
 import { ContentPagesFAQService } from './affiliate/shared/services/ContentPagesFAQs/ContentPagesFAQs.service';
 import { FAQsService } from './affiliate/shared/services/FAQs/FAQs.service';
 import { TimezoneService } from './affiliate/shared/services/timezoneapi/timezoneapi.service';
@@ -163,7 +162,6 @@ import { AuthGuard } from './shared/affiliate-server/auth.gaurd';
   providers: [
     HttpModule, AffiliateService, UniquePipe, HttpClient,
     ContentPagesService, RegisterService,  
-    AuthenticationService, BannersService,
     ContentPagesService, ModalService,
     ContentPagesFAQService,AuthGuard,
     FAQsService, TimezoneService,BsModalRef,

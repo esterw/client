@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AffiliatesBanners} from '../../shared/affiliate-server/affiliate.model';
-import { AffiliateService } from '../../shared/affiliate-server/affiliate.service';
+import { AffiliateService } from '../../shared/services/affiliate.service';
 import { Subscription } from 'rxjs';
 import { NgbCalendar, NgbDateStruct } from '@ng-bootstrap/ng-bootstrap';
 

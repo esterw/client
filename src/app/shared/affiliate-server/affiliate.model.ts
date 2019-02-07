@@ -135,7 +135,7 @@ export class AffiliateTicket {
     Subject: string;
     LastResponse: Date;
     Actions: string;
-    IsReadByAffiliate: boolean;
+    IsReadByAffiliate: any;
     AffiliateTicketContents: AffiliateTicketContent[];
     AffiliateID: number;
 }
@@ -178,7 +178,7 @@ export class AffilateRequestWithdraw {
     ID: number;
     RequestDate: Date;
     AffiliateID: number;
-    Amount: any;
+    Amount: number;
     Status: string;
     BalanceAfterPayout: any;
     RejectedDetails: string;

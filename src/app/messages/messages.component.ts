@@ -1,6 +1,6 @@
 import { Component, OnInit, Input, ViewChild, TemplateRef } from '@angular/core';
 import { Subscription } from 'rxjs';
-import { AffiliateService } from '../shared/affiliate-server/affiliate.service';
+import { AffiliateService } from '../shared/services/affiliate.service';
 import { AffiliateTicket, AffiliateTicketContent } from '../shared/affiliate-server/affiliate.model';
 import { UniquePipe } from '../shared/shared-pipes/uniquw-pipe.pipe';
 import { NgForm } from '@angular/forms';
@@ -26,11 +26,14 @@ export class MessagesComponent implements OnInit {
   messages;
   bsModalRef: BsModalRef;
   filteredData: AffiliateTicket[];
+
   ngOnInit() {
+
     this.subscription = this.service.affiliateChanged.subscribe(affiliate => {
       this.tickets = affiliate.AffiliateTickets;
-      this.filteredData = affiliate.AffiliateTickets;
-    })
+      this.filteredData = affiliate.AffiliateTickets.sort((a,b)=> {return new Date(a.CreatedDate) > new Date(b.CreatedDate) ? -1 : 1});
+    });
+
     this.tickets = this.service.affiliate.AffiliateTickets;
     this.filteredData = this.service.affiliate.AffiliateTickets;
     // this.service.closeTicketModal.subscribe((val:boolean)=>this.closeModal());
@@ -40,10 +43,7 @@ export class MessagesComponent implements OnInit {
     this.bsModalRef = this.modalService.show(MessagesPopupComponent);
 
   }
-  // closeModal() {
-  //   // this.modalRef.close();
-  //   this.bsModalRef.hide();
-  // }
+  
   modalRef: BsModalRef;
   openModal(template: TemplateRef<any>) {
     this.modalRef = this.modalService.show(template);
@@ -71,19 +71,19 @@ export class MessagesComponent implements OnInit {
 
     this.loading = true;
     this.service.addMessage(this.newMessages, ticketID)
-    .subscribe((responseJson) => {
-      // this.newMessaggeForm.reset();
-      this.newMessages.Subject="";
-      this.newMessages.Content="";
-     this.loading = false;
-     this.DisplayReply=true;
-    }
-      , error => {
+      .subscribe((responseJson) => {
+        // this.newMessaggeForm.reset();
+        this.newMessages.Subject = "";
+        this.newMessages.Content = "";
         this.loading = false;
-        //this.message = "server is not available ):";ן
+        this.DisplayReply = true;
       }
+        , error => {
+          this.loading = false;
+          //this.message = "server is not available ):";ן
+        }
 
-    );
+      );
   }
 
   ngOnDestroy() {

@@ -13,7 +13,7 @@
             <div class="form-group">
               <label for="amount">Amount, EUR</label>
               <br>
-              <input type="text" [(ngModel)]="amountValue" name="amount" #amount placeholder="0.00">
+              <input type="number" [(ngModel)]="amountValue" name="amount" #amount placeholder="0.00">
             </div>
           <small id="error-message"> {{serverMessage}}</small>
           </form>
