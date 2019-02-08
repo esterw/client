@@ -21,7 +21,6 @@ export class MessagesComponent implements OnInit {
   subscription: Subscription;
   constructor(private modalService: BsModalService, private service: AffiliateService) { }
   tickets: AffiliateTicket[];
-  //newTickets:AffiliateTicket=new AffiliateTicket();
   newMessages: AffiliateTicketContent = new AffiliateTicketContent();
   messages;
   bsModalRef: BsModalRef;
@@ -36,7 +35,7 @@ export class MessagesComponent implements OnInit {
 
     this.tickets = this.service.affiliate.AffiliateTickets;
     this.filteredData = this.service.affiliate.AffiliateTickets;
-    // this.service.closeTicketModal.subscribe((val:boolean)=>this.closeModal());
+    this.service.closeTicketModal.subscribe((val:boolean)=> this.service.getAffiliateByID());
   }
 
   openMessagesPopup() {
@@ -57,30 +56,35 @@ export class MessagesComponent implements OnInit {
   }
 
   onRead(ticketID, index: number) {
+
+    this.tickets[index].AffiliateTicketContents.sort((a,b)=> {return new Date(a.CreatedDate) > new Date(b.CreatedDate) ? -1 : 1});
     this.DisplayReply = true;
-    if (this.tickets[index].IsReadByAffiliate == false)
-      this.service.updateTicketIsRead(ticketID);
-    // this.newMessaggeForm.reset();
+    if (!this.tickets[index].IsReadByAffiliate)
+      this.service.updateTicketIsRead(this.tickets[index], ticketID).subscribe((res) => { 
+        this.tickets[index].IsReadByAffiliate = true;
+      });
+
     this.newMessages.Subject = "";
     this.newMessages.Content = "";
   }
 
   loading = false;
 
-  newMessagge(ticketID: number) {
+  newMessagge(ticketID: number, index) {
 
     this.loading = true;
     this.service.addMessage(this.newMessages, ticketID)
-      .subscribe((responseJson) => {
-        // this.newMessaggeForm.reset();
+      .subscribe((res: AffiliateTicketContent) => {
+
+        this.tickets[index].AffiliateTicketContents.push(res);
+        this.tickets[index].AffiliateTicketContents.sort((a,b)=> {return new Date(a.CreatedDate) > new Date(b.CreatedDate) ? -1 : 1});
         this.newMessages.Subject = "";
         this.newMessages.Content = "";
         this.loading = false;
         this.DisplayReply = true;
-      }
-        , error => {
+     
+      }, error => {
           this.loading = false;
-          //this.message = "server is not available ):";ן
         }
 
       );

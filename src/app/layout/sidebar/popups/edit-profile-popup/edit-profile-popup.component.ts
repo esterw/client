@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { AffiliateService } from '../../../../shared/services/affiliate.service';
-import { Affiliate, AffiliateAccount } from '../../../../shared/affiliate-server/affiliate.model';
+import { Affiliate, AffiliateAccount, AffiliateBankAccount } from '../../../../shared/affiliate-server/affiliate.model';
 import { NgForm } from '@angular/forms';
 import { RegisterService } from '../../../../affiliate/shared/services/affiliate-service/affiliate.service';
 import 'jquery'
@@ -19,9 +19,21 @@ export class EditProfilePopupComponent implements OnInit {
     private affService: AffiliateService) { }
   
   ngOnInit() {
+
+    if(this.affiliate && !this.affiliate.AffiliateBankAccount)
+    this.affiliate.AffiliateBankAccount = new AffiliateBankAccount()
+
     this.service.affiliateChanged.subscribe(
-      affiliate => this.affiliate = affiliate)
-    this.affiliate = this.service.affiliate? this.service.affiliate: new Affiliate();
+
+
+      affiliate => {this.affiliate = affiliate;
+        if(this.affiliate && !this.affiliate.AffiliateBankAccount)
+      this.affiliate.AffiliateBankAccount = new AffiliateBankAccount()})
+    
+    
+      this.affiliate = this.service.affiliate? this.service.affiliate: new Affiliate();
+      if(this.affiliate && !this.affiliate.AffiliateBankAccount)
+    this.affiliate.AffiliateBankAccount = new AffiliateBankAccount()
   }
   $:any;
   payType = [

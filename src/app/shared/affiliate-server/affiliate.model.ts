@@ -32,6 +32,7 @@ export class Affiliate {
     AffiliateTickets: AffiliateTicket[];
     AffiliatesCommissions: AffiliateCommission[];
     SubAffiliates: SubAffiliates[];
+    AffiliateBankAccount: AffiliateBankAccount;
 }
 
 //AffiliateAccount
@@ -113,6 +114,26 @@ export class AffiliateRevenueReport {
     TurnOver: any;
     Profit: any;
     Players: number;
+}
+
+//AffiliateBankAccount
+export class AffiliateBankAccount {
+    ID: number;
+    BankName: string;
+    BankAccount: string;
+    BankBranch: string;
+    BankEmail: string;
+    IBAN: string;
+    Swift: string;
+    AccountName: string;
+    AccountNumber: string;
+    ComissionPlan: string;
+    MinimalPayout: string;
+    PayoutCurrency: string;
+    NetlleterEmail: string;
+    SkrillEmail: string;
+    PaymentType: string;
+    CompanyName: string;
 }
 
 //AffiliateSummaryPerSite

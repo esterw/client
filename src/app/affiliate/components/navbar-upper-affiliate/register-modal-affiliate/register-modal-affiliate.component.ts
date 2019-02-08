@@ -8,6 +8,7 @@ import { Timezone } from '../../../shared/services/timezoneapi/timezoneapi.model
 import { Router } from '@angular/router';
 import { BsModalRef } from 'ngx-bootstrap';
 import { AffiliateService } from 'src/app/shared/services/affiliate.service';
+import * as moment from 'moment';
 
 @Component({
   selector: 'app-register-modal-affiliate',
@@ -47,7 +48,7 @@ export class RegisterModalAffiliateComponent implements OnInit {
     if (this.registerForm.valid && this.conditionsChecked == true) {
       this.loading = true;
       let form = this.registerForm.value;
-      let currentDate = new Date();
+      let currentDate = moment(new Date()).toDate();
       this.Affiliate.RegistrationDate = currentDate;
 
       this.affiliateService.newAffiliate(this.Affiliate)

@@ -4,7 +4,7 @@ import { Subject } from 'rxjs/Subject';
 import { environment } from '../../../environments/environment';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { map } from 'rxjs/operators';
-import { RequestOptions } from '@angular/http';
+import * as moment from 'moment'
 
 @Injectable()
 export class AffiliateService {
@@ -78,7 +78,7 @@ export class AffiliateService {
 
         newMessage.CreatedBy = this.affiliate.Name + " " + this.affiliate.Family;
         newMessage.TicketID = ticketID;
-        newMessage.CreatedDate = new Date();
+        newMessage.CreatedDate = moment(new Date()).toDate();
 
         let httpHeaders = new HttpHeaders({
             'Content-Type': 'application/json',
@@ -92,7 +92,7 @@ export class AffiliateService {
 
     requestWithdrawl(amountValue) {
         let newRequest: AffilateRequestWithdraw = new AffilateRequestWithdraw();
-        newRequest.RequestDate = new Date();
+        newRequest.RequestDate = moment(new Date()).toDate();
         newRequest.AffiliateID = this.affiliate.ID;
         newRequest.Amount = amountValue;
         newRequest.Status = "Pending";
@@ -135,57 +135,28 @@ export class AffiliateService {
         let obj = new AffiliateTicket()
         
            obj.Subject = Subject;
-        //    obj.IsReadByAffiliate =1;
+           obj.IsReadByAffiliate = true;
            obj.AffiliateID =  this.affiliate.ID;
-           obj.CreatedDate =  new Date();
-           obj.Status = "active";
+           obj.CreatedDate =  moment(new Date()).toDate();
+           obj.Status = "open";
            obj.CreatedBy = this.affiliate.Name + ' ' + this.affiliate.Family;
 
         return this.http.post(environment.apiUrl + '/api/AffiliateTickets', obj)
-    
-
-        // let newTicket: AffiliateNewTicket = new AffiliateNewTicket();
-        // let ticket: Ticket = new Ticket();
-        // let Message: Messages = new Messages()
-        // ticket.CreatedDate = new Date();
-        // ticket.Subject = Subject;
-        // ticket.CreatedBy = this.Affiliate.Name + " " + this.Affiliate.Family;
-        // ticket.Status = "Open";
-        // ticket.AffiliateID = this.Affiliate.ID;
-        // ticket.IsReadByAffiliate = true;
-        // Message.CreatedDate = new Date();
-        // Message.CreatedBy = this.Affiliate.Name + " " + this.Affiliate.Family;
-
-        // Message.Content = Content;
-        // Message.Subject = Subject;
-        // newTicket.Ticket = ticket;
-        // newTicket.Message = Message;
-        // let headers = new Headers({ 'Content-Type': 'application/json' });
-        // let options = new RequestOptions({ headers: headers });//, options
-        // return this.http.post(environment.apiUrl + '/api/AffiliateTickets/PostAffiliateTicket', newTicket)
-        //     .map(
-        //         (response: Response) => {
-        //             const responseJson = response;//response.json();
-        //             let returendTicket: AffiliateTicket = responseJson[0][0];
-        //             this.Ticket.push(returendTicket);
-        //             this.TicketChanged.next(this.Ticket);
-        //             return responseJson;
-        //         })
     }
 
-    updateTicketIsRead(ticketID) {
+    updateTicketIsRead(ticket: AffiliateTicket, ticketID: number) {
 
-        // this.http.get(environment.apiUrl + '/api/AffiliateTickets/GetAffiliateTicket?id=' + ticketID)
-        //     .map((response: Response) => {
-        //         const fullAffiliate: any = response;///response.json();
-        //         return fullAffiliate;
-        //     })
-        //     .subscribe(
-        //         ((affiliate: any) => {
-        //             let c = this.Ticket.filter(x => x.ID == ticketID)[0].IsReadByAffiliate = true;
-        //             this.TicketChanged.next(this.Ticket)
-        //         })
-        //     )
+        let httpHeaders = new HttpHeaders({
+            'Content-Type': 'application/json',
+            'Cache-Control': 'no-cache'
+        });
+        let options = {
+            headers: httpHeaders
+        };
+
+        ticket.IsReadByAffiliate = true;
+
+        return this.http.put(environment.apiUrl + '/api/AffiliateTickets/' +ticketID, ticket)
     }
 
 
@@ -225,7 +196,7 @@ export class AffiliateService {
         // this.myData = new MyData();
         // this.myData.base = this.base;
         // this.myData.User = this.user;
-        // let currentDate = new Date();
+        // let currentDate = moment(new Date()).toDate();
         // let headers = new Headers({ 'Content-Type': 'application/json' });
         // let options = new RequestOptions({ headers: headers });//, options
         // //console.log("New Affiliate Before Sending-----" + JSON.stringify(newAffiliate))

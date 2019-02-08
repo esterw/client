@@ -20,6 +20,17 @@ div {
   border: none;
 }
 
+.pointer {
+  cursor: pointer;
+}
+
+.close {
+  opacity: 1 !important;
+}
+.close:hover {
+  opacity: .8 !important;
+}
+
 div.modal-dialog {
   background-color: #ffffff;
   height: auto;

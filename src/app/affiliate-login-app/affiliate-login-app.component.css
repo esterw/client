@@ -102,14 +102,17 @@
   background-color: #ffffff;
   padding-top: 0px !important;
   margin-top: 0px !important;
-  height: 961px;
+    min-height:60vh;
+height: max-content;
+  min-height:60vh;
 }
 
 .app-row {
   display: table;
   width: 100%;
   table-layout: fixed;
-  height: 961px;
+    min-height:60vh;
+height: max-content;
 }
 
 .empty {
@@ -118,7 +121,8 @@
   visibility: visible;
   background-color: #aeaeae;
   display: table-cell;
-  height: 961px;
+    min-height:60vh;
+height: max-content;
   transition: all 1s ease;
 }
 

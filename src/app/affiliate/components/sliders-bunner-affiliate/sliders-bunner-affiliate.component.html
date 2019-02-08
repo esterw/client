@@ -1,41 +1,27 @@
-<div *ngIf="carouselBanner1">
+<div>
 <ngx-carousel 
 [inputs]="carouselBanner"
 [moveToSlide]="1"
 (onMove)="onmoveFn($event)">
  
-    <ngx-item NgxCarouselItem class="bannerStyle">
-            <img [src]="carouselBanner1.ImgSrc">
+    <ngx-item *ngFor="let banner of banners" NgxCarouselItem class="bannerStyle">
+            
+            <div class="img-banner" [style.background-image]="'url(' +banner.url+ ')'"></div>
             <div id="words" class="animated slideInUp">
                 <div id="title">
-               <p> {{carouselBanner1.Title}}</p>   
+               <p> Title</p>   
             </div>
-            <p id="afterTitle"  *ngIf="carouselBanner1.Subtitle1">{{carouselBanner1.Subtitle1}}</p>
-            <p class="inline-span"  *ngIf="carouselBanner1.Subtitle2">
-                {{carouselBanner1.Subtitle2}}
+            <p id="afterTitle" >Subtitle1</p>
+            <p class="inline-span" >
+                Subtitle2
             </p>
-            <span class="inline-span" *ngIf="carouselBanner1.Subtitle3">{{carouselBanner1.Subtitle3}}</span>
+            <span class="inline-span">Subtitle3</span>
           
-            <button (click)="openRegisterPopup()">{{carouselBanner1.TextOnButton}}</button>
+            <button (click)="openRegisterPopup()">REGISTER NOW</button>
             
             </div>  
     </ngx-item>
 
-   <ngx-item NgxCarouselItem class="bannerStyle">
-        <img [src]="carouselBanner2.ImgSrc">
-        <div id="words" class="animated slideInUp">
-            <div id="title">
-           <p> {{carouselBanner2.Title}}</p>   
-        </div>
-        <p id="afterTitle" *ngIf="carouselBanner2.Subtitle1">{{carouselBanner2.Subtitle1}}</p>
-        <p class="inline-span"  *ngIf="carouselBanner2.Subtitle2">
-            {{carouselBanner2.Subtitle2}}</p>
-        <span class="inline-span" *ngIf="carouselBanner2.Subtitle3">{{carouselBanner2.Subtitle3}}</span>
-       
-        <button (click)="openRegisterPopup()" >{{carouselBanner2.TextOnButton}}</button>
-        
-        </div>  
-    </ngx-item>
     <button NgxCarouselPrev class='leftRs'>&lt;</button>
     <button NgxCarouselNext class='rightRs'>&gt;</button>
 </ngx-carousel>

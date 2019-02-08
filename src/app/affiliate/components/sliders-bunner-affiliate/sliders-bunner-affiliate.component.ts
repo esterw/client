@@ -1,8 +1,6 @@
    import { Component, OnInit } from '@angular/core';
    import { Subscription } from 'rxjs';
-   import { forEach } from '@angular/router/src/utils/collection';
-import { Banner } from '../../shared/services/Banners/banners.model';
-import { NgxCarousel, NgxCarouselStore } from 'ngx-carousel'
+import { NgxCarouselStore } from 'ngx-carousel'
 import { BsModalRef, BsModalService } from 'ngx-bootstrap';
 import { RegisterModalAffiliateComponent } from '../navbar-upper-affiliate/register-modal-affiliate/register-modal-affiliate.component';
    @Component({
@@ -12,25 +10,15 @@ import { RegisterModalAffiliateComponent } from '../navbar-upper-affiliate/regis
   })
    export class SlidersBunnerAffiliateComponent implements OnInit {
     subscription: Subscription;
-    banners: Banner[];
-    carouselBanner1: Banner;
-    carouselBanner2: Banner;
-    card3: Banner;
-    card4: Banner;
    carouselBanner:any;
+   banners = [
+     {url: 'https://www.mizrahi-tefahot.co.il/Lists/BankMizrahiSiteAssets/Homepage/carambola19_254x170.jpg'},
+     {url: 'https://www.mizrahi-tefahot.co.il/Lists/BankMizrahiSiteAssets/Hacartis/home_page_homes_place_2.jpg'},
+     {url: 'https://www.mizrahi-tefahot.co.il/Lists/BankMizrahiSiteAssets/Homepage/anavim_2%20website.jpg'}
+    ]
     constructor(private modalService: BsModalService) {}
 
     ngOnInit() {
-      // this.subscription = this.bannersService.getMessageBunners().subscribe(
-      //   banners => { 
-      //     this.banners = banners.filter(banner => { return banner.Group == "affiliate" });
-      //     this.carouselBanner1 = this.banners.filter(banner => { return banner.Name == "carouselBanner1" })[0];
-      //     this.carouselBanner2 = this.banners.filter(banner => { return banner.Name == "carouselBanner2" })[0];
-      //   });
-      //   this.banners =  this.bannersService.banners.filter(banner => { return banner.Group == "affiliate" });
-      //   this.carouselBanner1 = this.banners.filter(banner => { return banner.Name == "carouselBanner1" })[0];
-      //   this.carouselBanner2 = this.banners.filter(banner => { return banner.Name == "carouselBanner2" })[0];
-   
       this.carouselBanner = {
         grid: {xs: 1, sm: 1, md: 1, lg: 1, all: 0},
         slide: 1,
@@ -80,7 +68,6 @@ import { RegisterModalAffiliateComponent } from '../navbar-upper-affiliate/regis
        
         /* It will be triggered on every slide*/
         onmoveFn(data: NgxCarouselStore) {
-        ////console.log(data);*/
         }
    }
    

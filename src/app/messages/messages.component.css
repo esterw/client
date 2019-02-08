@@ -25,6 +25,10 @@
   line-height: 24px;
 }
 
+.modal-body {
+  width: 27rem;
+}
+
 .unread-msg {
   color: red !important;
   font-weight: 900;

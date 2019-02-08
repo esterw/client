@@ -23,6 +23,7 @@ export class AffiliateLoginAppComponent implements OnInit {
     this.service.getAffiliateByID();
     this.subscription = this.service.affiliateChanged.subscribe(x => { this.loading = false; this.subscription.unsubscribe(); })
   }
+  
   reloadData() {
     this.service.getAffiliateByID();
   }

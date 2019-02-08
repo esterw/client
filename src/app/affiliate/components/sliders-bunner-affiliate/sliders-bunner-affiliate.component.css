@@ -16,6 +16,15 @@
     left: 0;
 }
 
+.img-banner {
+    background-position: center !important;
+    background-size: cover !important;
+    background-repeat: no-repeat !important;
+    width: 100%;
+    height: 15rem;
+    position: relative;
+}
+
 .inline-span {
     display: inline;
     font-family: Roboto;
@@ -47,7 +56,7 @@ img {
     font-family: Roboto;
     color: #ffffff;
     font-weight: 700;
-    top: 120px;
+    top: 1rem;
     position: absolute;
     text-shadow: 0px 8px 17.64px rgba(0, 0, 0, 0.35);
     left: 18.5vw;

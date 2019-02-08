@@ -27,6 +27,6 @@ export class MessagesPopupComponent implements OnInit {
 
   closeModal() {
     this.bsModalRef.hide();
-    // this.service.closeTicketModal.next(true);
+    this.service.closeTicketModal.next(true);
   }
 }
