@@ -14,33 +14,39 @@ import { BsModalRef } from 'ngx-bootstrap';
 export class EditProfilePopupComponent implements OnInit {
 
   affiliateAccount: AffiliateAccount;
+  loadingAccount: boolean;
 
   constructor(private service: AffiliateService, public bsModalRef: BsModalRef,
     private affService: AffiliateService) { }
-  
-  ngOnInit() {
 
-    if(this.affiliate && !this.affiliate.AffiliateBankAccount)
-    this.affiliate.AffiliateBankAccount = new AffiliateBankAccount()
+  ngOnInit() {
 
     this.service.affiliateChanged.subscribe(
 
+      affiliate => {
+        this.affiliate = affiliate;
 
-      affiliate => {this.affiliate = affiliate;
-        if(this.affiliate && !this.affiliate.AffiliateBankAccount)
-      this.affiliate.AffiliateBankAccount = new AffiliateBankAccount()})
-    
-    
-      this.affiliate = this.service.affiliate? this.service.affiliate: new Affiliate();
-      if(this.affiliate && !this.affiliate.AffiliateBankAccount)
-    this.affiliate.AffiliateBankAccount = new AffiliateBankAccount()
+        if (this.affiliate && !this.affiliate.AffiliateBankAccount) {
+          this.affiliate.AffiliateBankAccount = new AffiliateBankAccount()
+          this.affiliate.AffiliateBankAccount.PaymentType = "Bank wire"
+        }
+      }
+    )
+
+
+    this.affiliate = this.service.affiliate ? this.service.affiliate : new Affiliate();
+
+    if (this.affiliate && !this.affiliate.AffiliateBankAccount) {
+      this.affiliate.AffiliateBankAccount = new AffiliateBankAccount()
+      this.affiliate.AffiliateBankAccount.PaymentType = "Bank wire"
+    }
   }
-  $:any;
+  $: any;
   payType = [
     "Netlleter", "Skrill", "Bank wire"
   ]
   loading = false;
-  PaymentTypeSelected=2;
+  PaymentTypeSelected = 2;
   loadingProfile = false;
   @ViewChild("changePasswordForm") changePasswordForm: NgForm;
   affiliate: Affiliate;
@@ -59,7 +65,7 @@ export class EditProfilePopupComponent implements OnInit {
   showPaymentClick() {
     this.showProfile = false;
     this.showPayment = true;
-    this.showPayment3=true;
+    this.showPayment3 = true;
     this.showChangePassword = false;
   }
   showChangePasswordClick() {
@@ -67,7 +73,7 @@ export class EditProfilePopupComponent implements OnInit {
     this.showPayment = false;
     this.showChangePassword = true;
   }
-  
+
   onUpdateProfile() {
     this.loadingProfile = true;
     this.service.updateAffiliate(this.affiliate).subscribe((updatedAffiliate: any) => {
@@ -87,44 +93,45 @@ export class EditProfilePopupComponent implements OnInit {
 
 
   onUpdateAccount() {
-    this.affService.updateAccount(this.affiliateAccount).subscribe(res => {
-
+    this.loadingAccount = true;
+    this.affService.updateAccount(this.affiliate.AffiliateBankAccount).subscribe(res => {
+      this.loadingAccount = false;
     });
   }
 
-  PaymentTypeChange(){
-    if(this.PaymentTypeSelected==2)
-    {
-      this.showPayment3=true;
-      this.showPayment2=false;
-      this.showPayment1=false;
+  PaymentTypeChange() {
+    if (this.PaymentTypeSelected == 2) {
+      this.showPayment3 = true;
+      this.showPayment2 = false;
+      this.showPayment1 = false;
     }
     else
-    if(this.PaymentTypeSelected==0)
-    {
-      this.showPayment3=false;
-      this.showPayment2=false;
-      this.showPayment1=true;
-    }
-    else
-    if(this.PaymentTypeSelected==1)
-    {
-      this.showPayment3=false;
-      this.showPayment2=true;
-      this.showPayment1=false;
-    }
+      if (this.PaymentTypeSelected == 0) {
+        this.showPayment3 = false;
+        this.showPayment2 = false;
+        this.showPayment1 = true;
+      }
+      else
+        if (this.PaymentTypeSelected == 1) {
+          this.showPayment3 = false;
+          this.showPayment2 = true;
+          this.showPayment1 = false;
+        }
   }
+
   onChangePassword(changePasswordForm: NgForm) {
     if (changePasswordForm.value.passwordAffiliate != this.affiliate.Password)
+
       this.errPasswordMsg = "current password is incorrect"
+
     else {
-    this.loading = true;
+
+      this.loading = true;
       this.errPasswordMsg = "";
       this.affiliate.Password = changePasswordForm.value.NewPassword;
       this.affService.updateAffiliate(this.affiliate).subscribe((updatedAffiliate: any) => {
         this.loading = false;
         this.bsModalRef.hide();
-        // this.service.closeModal.next(true);
       }
         , error => {
           this.loading = false;

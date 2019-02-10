@@ -13,9 +13,10 @@ export class CommissionsComponent implements OnInit {
   subscription: Subscription;
   constructor(private  service:AffiliateService) { }
   Commissions:AffiliateCommission[];
+
   ngOnInit() {
     this.subscription = this.service.affiliateChanged.subscribe( affiliate => {
-      this.Commissions=affiliate.AffiliatesCommissions
+      this.Commissions = affiliate.AffiliatesCommissions;
     }) 
     this.Commissions=this.service.affiliate.AffiliatesCommissions;
   }

@@ -105,36 +105,19 @@
             <div>
             </div>
             <div>
-              <input class="form-control input-small" type="text" value="Company name LTD" readonly>
+              <input class="form-control input-small" type="text" [value]="affiliate.CompanyName" readonly>
             </div>
           </div>
           <div class="form-group col-6 d-flex justify-content-between">
             <label  class="col-form-label">Payment type</label>
             <div>
-              <select  name="PaymentType" [(ngModel)]="affiliate.AffiliateBabkAccount.PaymentType" (change)="PaymentTypeChange()" class="form-control input-small">
-                <option *ngFor="let pt of payType;let i=index" [value]="i" >{{pt}}</option>
-               
-              </select>
+            </div>
+            <div>
+              <input [(ngModel)]="affiliate.AffiliateBankAccount.PaymentType" 
+              class="form-control input-small" name="PaymentType" type="text" 
+              value="Bank Skrill" readonly>
             </div>
           </div>
-        </div>
-        <div  *ngIf="showPayment1">
-        <div class="form-group">
-          <label class="col-form-label">Netlleter email</label>
-          <div>
-            <input name="NetlleterEmail" [(ngModel)]="affiliate.AffiliateBabkAccount.NetlleterEmail" class="form-control big-input" type="text">
-          </div>
-        </div>
-       
-      </div>
-        <div *ngIf="showPayment2">
-            <div class="form-group">
-                <label class="col-form-label">Skrill email</label>
-                <div>
-                  <input  name="SkrillEmail" [(ngModel)]="affiliate.AffiliateBabkAccount.SkrillEmail" class="form-control big-input" type="text">
-                </div>
-              </div>
-         
         </div>
         <div *ngIf="showPayment3">
             <div class="d-flex justify-content-between">
@@ -143,13 +126,13 @@
                   <div>
                   </div>
                   <div>
-                    <input name="BankName" [(ngModel)]="affiliate.AffiliateBabkAccount.BankName" class="form-control input-small" type="text">
+                    <input name="BankName" [(ngModel)]="affiliate.AffiliateBankAccount.BankName" class="form-control input-small" type="text">
                   </div>
                 </div>
                 <div class="form-group col-6 d-flex justify-content-between">
                   <label class="col-form-label">Bank Account</label>
                   <div>
-                    <input name="BankAccount" [(ngModel)]="affiliate.AffiliateBabkAccount.BankAccount" class="form-control input-small" type="text">
+                    <input name="BankAccount" [(ngModel)]="affiliate.AffiliateBankAccount.BankAccount" class="form-control input-small" type="text">
                   </div>
                 </div>
               </div>
@@ -160,16 +143,14 @@
                   </div>
                   <div>
                     <input
-                    name="BankBranch" [(ngModel)]="affiliate.AffiliateBabkAccount.BankBranch" class="form-control input-small" type="text">
-                    
-                    class="form-control input-small" type="text">
+                    name="BankBranch" [(ngModel)]="affiliate.AffiliateBankAccount.BankBranch" class="form-control input-small" type="text">
                   </div>
                 </div>
                 <div class="form-group col-6 d-flex justify-content-between">
                   <label class="col-form-label">Bank E-mail</label>
                   <div>
                     <input 
-                    name="BankEmail" [(ngModel)]="affiliate.AffiliateBabkAccount.BankEmail" class="form-control input-small" type="text">
+                    name="BankEmail" [(ngModel)]="affiliate.AffiliateBankAccount.BankEmail" class="form-control input-small" type="text">
                     
                   </div>
                 </div>
@@ -179,7 +160,7 @@
                 <div>
                   <input
                   
-                  name="IBAN" [(ngModel)]="affiliate.AffiliateBabkAccount.IBAN" 
+                  name="IBAN" [(ngModel)]="affiliate.AffiliateBankAccount.IBAN" 
                   
                   class="form-control big-input" type="text" id="example-text-input11">
                 </div>
@@ -188,7 +169,7 @@
                 <label class="col-form-label">Swift</label>
                 <div>
                   <input
-                  name="Swift" [(ngModel)]="affiliate.AffiliateBabkAccount.Swift" 
+                  name="Swift" [(ngModel)]="affiliate.AffiliateBankAccount.Swift" 
                   
                   class="form-control big-input" type="text">
                 </div>
@@ -197,7 +178,7 @@
                 <label class="col-form-label">Account Name</label>
                 <div>
                   <input
-                  name="AccountName" [(ngModel)]="affiliate.AffiliateBabkAccount.AccountName" 
+                  name="AccountName" [(ngModel)]="affiliate.AffiliateBankAccount.AccountName" 
                   
                   class="form-control big-input" type="text">
                 </div>
@@ -206,7 +187,7 @@
                 <label class="col-form-label">Account Number</label>
                 <div>
                   <input
-                  name="AccountNumber" [(ngModel)]="affiliate.AffiliateBabkAccount.AccountNumber" 
+                  name="AccountNumber" [(ngModel)]="affiliate.AffiliateBankAccount.AccountNumber" 
                   
                   class="form-control big-input" type="text">
                 </div>

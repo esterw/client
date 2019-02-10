@@ -36,13 +36,34 @@
 
   <div class="grid-report">
 
+
+    <div class="report-div">
+      <div class="reportsIcons turnovers justify-content-center d-flex align-items-center">
+          <img src="../../assets/dashboard/icon-user.png">
+      </div>
+      <div class="reports">
+        {{visits}}
+        <br> Visits
+      </div>
+    </div>
+
+    <div class="report-div">
+      <div class="reportsIcons profit justify-content-center d-flex align-items-center">
+        <img src="../../assets/dashboard/money-up.png">
+      </div>
+      <div class="reports">
+        {{banners}}
+        <br> banners
+      </div>
+    </div>
+
     <div class="report-div">
       <div class="reportsIcons signups justify-content-center d-flex align-items-center">
         <img src="../../assets/dashboard/money-hand.png">
       </div>
       <div class="reports">
-        <p> {{signupsSum}}
-          <br> Signups
+        <p> {{profitSum | currency:'EUR':true}}
+          <br> profit
         </p>
       </div>
     </div>
@@ -52,29 +73,11 @@
           <img src="../../assets/dashboard/users-money.png">
       </div>
       <div class="reports">
-        {{depositsCount}}
+        {{depositsCount | currency:'EUR':true}}
         <br> Deposits
       </div>
     </div>
-
-    <div class="report-div">
-      <div class="reportsIcons turnovers justify-content-center d-flex align-items-center">
-          <img src="../../assets/dashboard/icon-user.png">
-      </div>
-      <div class="reports">
-        <i class="fas fa-euro-sign"></i> {{turnoversSum}}
-        <br> Turnovers
-      </div>
-    </div>
-    <div class="report-div">
-      <div class="reportsIcons profit justify-content-center d-flex align-items-center">
-        <img src="../../assets/dashboard/money-up.png">
-      </div>
-      <div class="reports">
-        <i class="fas fa-euro-sign"></i> {{profitSum}}
-        <br> Profit
-      </div>
-    </div>
+    
   </div>
   <br>
   <br>
@@ -85,43 +88,4 @@
       </canvas>
     </div>
   </div>
-
-
-  <!-- <div class="linkP">
-    <span class="sub-aff-title">SUB AFFILIATES</span>
-    <span class="link sub-aff-url">
-      <b>URL: </b>
-      <a class="link" [href]="SubAffiliatesURL">{{SubAffiliatesURL}}</a>
-    </span>
-  </div>
-  <br>
-
-  <div class="tabl">
-    <table class="table table-sub-aff ">
-      <thead>
-        <tr>
-          <td>Date</td>
-          <td>ID</td>
-          <td>Name</td>
-          <td>Clicks</td>
-          <td>FTD</td>
-          <td>FTD Amount</td>
-          <td>Type</td>
-          <td>Commission</td>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let SubAffiliate of SubAffiliates">
-          <td>{{SubAffiliate.RegistrationDate | date:'dd/MM/yy'}}</td>
-          <td>{{SubAffiliate.ID}}</td>
-          <td>{{SubAffiliate.UserName}}</td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-        </tr>
-      </tbody>
-    </table>
-  </div> -->
 </div>

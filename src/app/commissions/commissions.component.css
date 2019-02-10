@@ -28,6 +28,14 @@ table.data-table thead tr {
     border-bottom: 0.5px solid white !important;
 }
 
+.logo {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 3rem;
+    height: 2rem;
+}
+
 table.data-table tbody tr {
     font-family: Roboto;
     color: #363636;

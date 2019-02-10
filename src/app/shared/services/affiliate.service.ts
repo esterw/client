@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Affiliate, AffiliateAccount, AffiliateBanner, AffiliateMedia, AffiliatePixel, AffiliateWithdrawlHistory, AffiliateTicket, AffiliateSummaryPerSite, AffiliateCommission, AffiliateRevenueReport, SubAffiliates, AffilateRequestWithdraw, AffiliateTicketContent } from '../affiliate-server/affiliate.model';
+import { Affiliate, AffiliateAccount, AffiliateBanner, AffiliateMedia, AffiliatePixel, AffiliateWithdrawlHistory, AffiliateTicket, AffiliateSummaryPerSite, AffiliateCommission, AffiliateRevenueReport, SubAffiliates, AffilateRequestWithdraw, AffiliateTicketContent, AffiliateBankAccount } from '../affiliate-server/affiliate.model';
 import { Subject } from 'rxjs/Subject';
 import { environment } from '../../../environments/environment';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
@@ -36,8 +36,14 @@ export class AffiliateService {
             )
     }
     
-    updateAccount(affiliateAccount: AffiliateAccount): any {
-      throw new Error("Method not implemented.");
+    updateAccount(affiliateAccount: AffiliateBankAccount): any {
+        let httpHeaders = new HttpHeaders({
+            'Content-Type': 'application/json'
+        });
+        let options = {
+            headers: httpHeaders
+        };
+        return this.http.post(this.url + "/api/AffiliateBankAccounts" , affiliateAccount);
     }
 
     loginAffiliate(username: string, password: string): any {
@@ -71,6 +77,13 @@ export class AffiliateService {
         let options = {
             headers: httpHeaders
         };
+        
+        for (const key in affiliate) {
+            if (affiliate[key] instanceof Object && key!= 'AffiliateBankAccount') {
+                const element = affiliate[key];
+                delete affiliate[key];
+            }
+        }
         return this.http.put(this.url + "/api/Affiliates/" + affiliate.ID, affiliate);
     }
 
@@ -96,6 +109,8 @@ export class AffiliateService {
         newRequest.AffiliateID = this.affiliate.ID;
         newRequest.Amount = amountValue;
         newRequest.Status = "Pending";
+        newRequest.RejectedDetails = "Pending";
+        newRequest.BalanceAfterPayout = 120;
 
         let httpHeaders = new HttpHeaders({
             'Content-Type': 'application/json',

@@ -24,10 +24,10 @@ export class DashboardComponent implements OnInit {
   RevenueReport: AffiliateRevenueReport[];
   SubAffiliates: SubAffiliates[];
   constructor(private service: AffiliateService) { }
-  signupsSum = 0;
-  depositsCount = 0;
-  turnoversSum = 0;
   profitSum = 0;
+  depositsCount = 0;
+  visits = 0;
+  banners = 0;
   todayDate = new Date();
 
   deactiveAll() {
@@ -95,7 +95,6 @@ export class DashboardComponent implements OnInit {
 
   displayYear() {
     let year = new Date(this.todayDate.getFullYear() - 1, this.todayDate.getMonth(), this.todayDate.getDate());
-    //console.log("three month===========",year)
     let YearRev: AffiliateRevenueReport[] = this.RevenueReport.filter(x => new Date(x.AffiliateDate) >= year)
     this.revenueToShow(YearRev);
 
@@ -104,22 +103,18 @@ export class DashboardComponent implements OnInit {
 
 
   revenueToShow(arrStatistics: AffiliateRevenueReport[]) {
-    this.signupsSum = 0;
-    this.turnoversSum = 0;
     this.profitSum = 0;
+    this.visits = 0;
+    this.banners = 0;
     this.depositsCount = 0;
-  //console.log("****************arrStatistics***************"+arrStatistics)
+    
     arrStatistics.forEach(r => {
-      this.signupsSum += r.Registrations;
-      this.turnoversSum += r.TurnOver,
-        this.profitSum += r.Profit,
+      this.profitSum += r.Profit;
+      this.visits += r.Visits,
+        this.banners += this.affiliate.AffiliatesBanners.length,
         this.depositsCount += r.Deposits
     })
   }
-
-
-
-
 
   //new chart-----------------------------------------------
   public lineChartData: Array<any> = [

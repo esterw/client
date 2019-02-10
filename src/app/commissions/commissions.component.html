@@ -10,6 +10,7 @@
   <table class="table data-table">
     <thead>
       <tr>
+        <td>#</td>
         <td>Product Name</td>
         <td>Logo</td>
         <td>Cost Per Acquisition, EUR</td>
@@ -19,12 +20,13 @@
     </thead>
     <tbody>
       <tr *ngFor="let Commission of Commissions">
+        <td>{{Commission.ID}}</td>
         <td>{{Commission.ProductName}}</td>
-        <td>{{Commission.Logo}}</td>
-        <td>{{Commission.CostPerAcquisition }}</td>
+        <td><div class="logo" [style.background-image]="'url(https://ae01.alicdn.com/kf/HTB1Tad1pcjI8KJjSspp760byVXaF.png)'"></div></td>
+        <td>{{Commission.CostPerAcquisition | currency:'EUR':true}}</td>
         <td>{{Commission.RevenueSharePercentages}}
           <span *ngIf="Commission.RevenueSharePercentages">% from</span> {{Commission.RevenueShareFromAmount}}</td>
-        <td>{{Commission.CostPerLead }}</td>
+        <td>{{Commission.CostPerLead | currency:'EUR':true}}</td>
       </tr>
     </tbody>
   </table>
