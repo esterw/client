@@ -17,7 +17,7 @@ export class Affiliate {
     AffiliateUserID: number;
     Tile: string;
     Email: string;
-    RegistrationDate: Date;
+    RegistrationDate: any;
     Balance: number;
     AffiliateLink: string;
     AffiliateLastLogin: Date;
@@ -151,7 +151,7 @@ export class AffiliateSummaryPerSite {
 export class AffiliateTicket {
     ID: number;
     Status: string
-    CreatedDate: Date;
+    CreatedDate: any;
     CreatedBy: string;
     Subject: string;
     LastResponse: Date;
@@ -168,7 +168,7 @@ export class AffiliateTicketContent {
     Subject: String;
     Content: String;
     CreatedBy: String;
-    CreatedDate: Date;
+    CreatedDate: any;
     IsActivateOnCreation: Boolean;
     IsPopupUntilApproval: Boolean;
     IsSendByEmail: Boolean;
@@ -190,14 +190,14 @@ export class AffiliateWithdrawlHistory {
 //SubAffiliates
 export class SubAffiliates {
     ID: number;
-    RegistrationDate: Date;
+    RegistrationDate: any;
     UserName: string;
     URL: string;
 }
 
 export class AffilateRequestWithdrawl {
     ID: number;
-    RequestDate: Date;
+    RequestDate: any;
     AffiliateID: number;
     Amount: number;
     Status: string;

@@ -72,9 +72,10 @@
                       <span>Subject:</span>
                       <textarea class="textarea-subject" disabled="disabled" [innerHtml]="message.Subject"></textarea>
                       <br>
+                      <ng-container *ngIf="message.Content">
                       <span>Content: </span>
                       <textarea class="textarea-Content" disabled="disabled" [innerHtml]="message.Content"></textarea>
-                      <br>
+                      <br></ng-container>
                       <hr>
                     </div>
                     <div [hidden]="DisplayReply" class="new-message-div">

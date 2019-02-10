@@ -26,7 +26,6 @@ export class BannersComponent implements OnInit, AfterViewChecked {
 
   ngOnInit() {
     this.subscription = this.service.affiliateChanged.subscribe(affiliate => {
-      this.banners = affiliate.AffiliatesBanners;
       this.affiliateID = affiliate.ID;
     })
 

@@ -14,42 +14,52 @@ export class WithdrawalPopupComponent implements OnInit {
   constructor(private service: AffiliateService,
     public bsModalRef: BsModalRef,
     private withService: WithdrawalsService) { }
+
   serverMessage="";
   loading = false;
   amountValue = null;
-  //serverMessage:string = "";
 
   ngOnInit() {
-   // this.serverMessage = "";
   }
   
   resetModal() {
     this.amountValue = null;
-   // this.serverMessage = "";
   }
 
   request() {
+let amountRequested = 0;
     this.loading = true;
-    this.service.requestWithdrawl(this.amountValue)
+this.service.affiliate.AffiliateRequestWithdrawls.forEach(item => {
+amountRequested += item.Amount;
+})
+
+if((this.amountValue+amountRequested) <= this.service.affiliate.Balance) {
+
+    this.service.requestWithdrawl(this.amountValue, amountRequested)
       .subscribe((responseJson) => {
         if (responseJson) {
           this.loading = false;
-          this.serverMessage = responseJson.toString();
-        } else {
+          this.closeModal();
 
+        } else {
           this.loading = false;
           this.closeModal();
         }
       }
         , error => {
           this.loading = false;
-          //console.log("error"+error);
           this.serverMessage = "server isn't available ):";
         }
 
       );
+    } else {
+          this.loading = false;
+          this.serverMessage = "You can't request more money than you have in your balance";
+    }
   }
+
   closeModal(){
     this.bsModalRef.hide();
+    this.service.getAffiliateByID();
   }
 }

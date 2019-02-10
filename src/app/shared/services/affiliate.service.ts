@@ -91,7 +91,7 @@ export class AffiliateService {
 
         newMessage.CreatedBy = this.affiliate.Name + " " + this.affiliate.Family;
         newMessage.TicketID = ticketID;
-        newMessage.CreatedDate = moment(new Date()).toDate();
+        newMessage.CreatedDate = moment(new Date()).format();
 
         let httpHeaders = new HttpHeaders({
             'Content-Type': 'application/json',
@@ -103,14 +103,14 @@ export class AffiliateService {
         return this.http.post(environment.apiUrl + '/api/AffiliateTicketContents', newMessage, options)
     }
 
-    requestWithdrawl(amountValue) {
+    requestWithdrawl(amountValue, amountRequested) {
         let newRequest: AffilateRequestWithdrawl = new AffilateRequestWithdrawl();
-        newRequest.RequestDate = moment(new Date()).toDate();
+        newRequest.RequestDate = moment(new Date()).format();
         newRequest.AffiliateID = this.affiliate.ID;
         newRequest.Amount = amountValue;
         newRequest.Status = "Pending";
-        newRequest.RejectedDetails = "Pending";
-        // newRequest.BalanceAfterPayout = 120;
+        // newRequest.RejectedDetails = "Pending";
+        newRequest.BalanceAfterPayout = this.affiliate.Balance - amountValue - amountRequested;
 
         let httpHeaders = new HttpHeaders({
             'Content-Type': 'application/json',
@@ -120,7 +120,7 @@ export class AffiliateService {
             headers: httpHeaders
         };
 
-        return this.http.post(environment.apiUrl + '/api/AffilateRequestWithdrawls', newRequest, options)
+        return this.http.post(environment.apiUrl + '/api/AffiliateRequestWithdrawls', newRequest, options)
             .map(
                 (response: Response) => {
                     // if (response) {
@@ -152,11 +152,11 @@ export class AffiliateService {
            obj.Subject = Subject;
            obj.IsReadByAffiliate = true;
            obj.AffiliateID =  this.affiliate.ID;
-           obj.CreatedDate =  moment(new Date()).toDate();
+           obj.CreatedDate =  moment(new Date()).format()
            obj.Status = "open";
            obj.CreatedBy = this.affiliate.Name + ' ' + this.affiliate.Family;
 
-        return this.http.post(environment.apiUrl + '/api/AffiliateTickets', obj)
+        return this.http.post(environment.apiUrl + '/api/AffiliateTickets', obj);
     }
 
     updateTicketIsRead(ticket: AffiliateTicket, ticketID: number) {
@@ -211,7 +211,7 @@ export class AffiliateService {
         // this.myData = new MyData();
         // this.myData.base = this.base;
         // this.myData.User = this.user;
-        // let currentDate = moment(new Date()).toDate();
+        // let currentDate = moment(new Date()).format()
         // let headers = new Headers({ 'Content-Type': 'application/json' });
         // let options = new RequestOptions({ headers: headers });//, options
         // //console.log("New Affiliate Before Sending-----" + JSON.stringify(newAffiliate))

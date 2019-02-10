@@ -30,17 +30,7 @@ export class RegisterModalAffiliateComponent implements OnInit {
   ngOnInit() {
 
     this.Affiliate = new Affiliate();
-
-    // this.subscription = this.timezoneService.getObservable().subscribe(timezone => {
-    //   this.timezone = timezone;
-    //   this.Affiliate.Country = timezone.data.country;
-    // }); // new comment
-
-    // if (this.timezoneService.timezone.data != undefined) {
-    //   this.Affiliate.Country = this.timezoneService.timezone.data.country;
-    //   this.timezone = this.timezoneService.timezone;
-    // }
-    //this.Affiliate.
+    this.Affiliate.Country = "israel";
 
   }
 
@@ -48,7 +38,7 @@ export class RegisterModalAffiliateComponent implements OnInit {
     if (this.registerForm.valid && this.conditionsChecked == true) {
       this.loading = true;
       let form = this.registerForm.value;
-      let currentDate = moment(new Date()).toDate();
+      let currentDate = moment(new Date()).format()
       this.Affiliate.RegistrationDate = currentDate;
 
       this.affiliateService.newAffiliate(this.Affiliate)

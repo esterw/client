@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { AffiliateService } from '../../shared/services/affiliate.service';
 import { BsModalRef } from 'ngx-bootstrap';
+import { AffiliateTicket, AffiliateTicketContent } from 'src/app/shared/affiliate-server/affiliate.model';
+import { Content } from '@angular/compiler/src/render3/r3_ast';
 
 @Component({
   selector: 'app-messages-popup',
@@ -19,9 +21,19 @@ export class MessagesPopupComponent implements OnInit {
 
   newTicket() {
     this.loading = true;
-    this.service.newTicket(this.TicketSubject).subscribe(res => {
+    this.service.newTicket(this.TicketSubject).subscribe( (res: AffiliateTicket) => {
+      const mssg = new AffiliateTicketContent();
+      mssg.TicketID = res.ID;
+      mssg.Subject = res.Subject;
+      mssg.Content = this.TicketContent;
+      mssg.CreatedDate = res.CreatedDate ;
+      mssg.CreatedBy = res.CreatedBy;
+      
+  this.service.addMessage(mssg, res.ID).subscribe(resMsg => {
+    
             this.loading = false;
           this.closeModal();
+  })
     })
   }
 

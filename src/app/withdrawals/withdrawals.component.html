@@ -19,8 +19,8 @@
     </thead>
     <tbody>
       <tr *ngFor="let WithdrawlHistory of WithdrawlHistories">
-        <td>{{WithdrawlHistory.RequestDate | date:'dd/MM/yy'}}</td>
-        <td>{{WithdrawlHistory.Amount}}</td>
+        <td><span>{{WithdrawlHistory.RequestDate | date:'dd/MM/yy'}}   {{WithdrawlHistory.RequestDate | date:'HH:mm'}}</span></td>
+        <td>{{WithdrawlHistory.Amount | currency:'EUR':true}}</td>
         <!--  <td>{{WithdrawlHistory.AmountPayout }}</td>-->
         <td>{{WithdrawlHistory.BalanceAfterPayout}}</td>
         <td>{{WithdrawlHistory.Status}}</td>

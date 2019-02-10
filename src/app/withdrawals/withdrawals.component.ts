@@ -14,26 +14,24 @@ import { BsModalRef, BsModalService } from 'ngx-bootstrap';
 export class WithdrawalsComponent implements OnInit {
 
   subscription: Subscription;
-  constructor(private modalService: BsModalService,private  service:AffiliateService) { }
   WithdrawlHistories:AffilateRequestWithdrawl[];
+
+  constructor(private modalService: BsModalService,private  service:AffiliateService) { }
+  
   ngOnInit() {
     this.subscription = this.service.affiliateChanged.subscribe( affiliate => {
-      this.WithdrawlHistories= affiliate.AffiliateRequestWithdrawls
+      this.WithdrawlHistories= affiliate.AffiliateRequestWithdrawls.sort((a,b)=> {return new Date(a.RequestDate) > new Date(b.RequestDate) ? -1 : 1});
     }) 
-    this.WithdrawlHistories=this.service.affiliate.AffiliateRequestWithdrawls;
-    // this.service.closeWithdrModal.subscribe((val:boolean)=>this.closeModal());
+    this.WithdrawlHistories = this.service.affiliate.AffiliateRequestWithdrawls;
   }
 
   bsModalRef: BsModalRef;
-  // modalRef: any;
+  
   openModal() {
-    // this.modalRef = this.modalService.open(WithdrawalPopupComponent);
     this.bsModalRef = this.modalService.show(WithdrawalPopupComponent);
     
   }
-  // closeModal() {
-  //   this.modalRef.close();
-  // }
+  
   ngOnDestroy() {
     this.subscription.unsubscribe();
 }

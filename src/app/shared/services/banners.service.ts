@@ -15,7 +15,7 @@ export class BannersService {
 
   getAllBanners() {
 
-    return this.http.get(this.url + "/api/AffiliatesBanners").pipe(map(
+    return this.http.get(this.url + "/api/AffiliateBanners").pipe(map(
          (response: any) => {
            this.banners=response;
              return this.banners;

@@ -3,29 +3,28 @@
 </div>
 <br>
 
-<!--<img id="expImg" height="200px" width="235px" [src]="banners[0].BannerPath" class="banner-img" alt="">{{banners[0].BannerPath}}-->
 <div class="loop" *ngFor="let banner of banners; let i =index">
 
   <div class="details-div">
     <div class="banner-image">
-      <p class="banner-name">{{banner.AffiliateBanner.BannerName}} / ID: {{banner.ID}}</p>
+      <p class="banner-name">{{banner.BannerName}} / ID: {{banner.ID}}</p>
 
       <div class="banner-img-div">
         <a href="" data-toggle="modal" class="banner-size" [attr.data-target]="'#'+i">
-          <img (mouseout)="time=false" (mouseover)="time=true" id="exportImg" [src]="banner.AffiliateBanner.BannerPath" class="banner-size"
+          <img (mouseout)="time=false" (mouseover)="time=true" id="exportImg" [src]="banner.BannerPath" class="banner-size"
             alt="">
         </a>
       </div>
 
-      <button (click)="downloadBanner(banner.AffiliateBanner.BannerName,banner.AffiliateBanner.ID)" class="btn btn-download">DOWNLOAD</button>
+      <button (click)="downloadBanner(banner.BannerName,banner.ID)" class="btn btn-download">DOWNLOAD</button>
 
 
-      <!--<img id="exportImg" [height]="banner.AffiliateBannerSize.Height" #i [width]="banner.AffiliateBannerSize.Width" [src]="banner.BannerPath" *ngIf="time==true" alt="">-->
+      <!--<img id="exportImg" [height]="bannerSize.Height" #i [width]="bannerSize.Width" [src]="banner.BannerPath" *ngIf="time==true" alt="">-->
       <div class="modal fade" id="{{i}}" tabindex="-1" role="dialog" aria-labelledby="bannerFoolSize" aria-hidden="true">
         <div class="modal-dialog" role="document">
           <div class="modal-content">
             <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">{{banner.AffiliateBanner.BannerName}} / {{banner.AffiliateBanner.AffiliateBannerSize.Width}}*{{banner.AffiliateBanner.AffiliateBannerSize.Height}}</h5>
+              <h5 class="modal-title" id="exampleModalLabel">{{banner.BannerName}} / {{banner.AffiliateBannerSize.Width}}*{{banner.AffiliateBannerSize.Height}}</h5>
               <button type="button" class="popup-close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">
                   <img src="../../../../../assets/modals/close.png">
@@ -33,7 +32,7 @@
               </button>
             </div>
             <div class="modal-body">
-              <img id="exportImg" [height]="banner.AffiliateBanner?.AffiliateBannerSize.Height" [width]="banner.AffiliateBanner.AffiliateBannerSize.Width" [src]="banner.AffiliateBanner.BannerPath" alt="">
+              <img id="exportImg" [height]="banner?.AffiliateBannerSize.Height" [width]="banner.AffiliateBannerSize.Width" [src]="banner.BannerPath" alt="">
             </div>
           </div>
         </div>
@@ -42,7 +41,7 @@
 
     <div class="download-div">
       <div class="to-bottom-div">
-        <b>Banner size:</b> {{banner.AffiliateBanner?.AffiliateBannerSize?.Width}}*{{banner.AffiliateBanner.AffiliateBannerSize.Height}}
+        <b>Banner size:</b> {{banner?.AffiliateBannerSize?.Width}}*{{banner.AffiliateBannerSize.Height}}
         <br>
       </div>
     </div>
@@ -51,14 +50,14 @@
       <!-- Java script
       <br>
       <div class="">
-        <textarea readonly class="txtToCopy" [(ngModel)]="banner.AffiliateBanner.Javascript"></textarea>
-        <button class="btn btn-copy" ngxClipboard [cbContent]="banner.AffiliateBanner.Javascript" (cbOnSuccess)="isCopied=true" (click)="b.close(); c.close()"
+        <textarea readonly class="txtToCopy" [(ngModel)]="banner.Javascript"></textarea>
+        <button class="btn btn-copy" ngxClipboard [cbContent]="banner.Javascript" (cbOnSuccess)="isCopied=true" (click)="b.close(); c.close()"
           triggers="click:blur" #t="ngbTooltip" placement="top" ngbTooltip="Copied!">{{btnCopyJS}}</button>
       </div> -->
       Direct Link
       <br>
       <div class="">
-        <input #dl readonly class="txtToCopy linkToCopy" value="http://localhost:50741/click.ashx?Banner={{banner.AffiliateBanner.ID}}&Aff={{affiliateID}}">
+        <input #dl readonly class="txtToCopy linkToCopy" value="http://localhost:50741/click.ashx?Banner={{banner.ID}}&Aff={{affiliateID}}">
         <button class="btn btn-copy btnCopyLink" ngxClipboard [cbContent]=dl.value (cbOnSuccess)="isCopied=true" triggers="click:blur"
           #b="ngbTooltip" placement="top" ngbTooltip="Copied!" (click)=" c.close()">{{btnCopyLink}}</button>
       </div>
@@ -70,9 +69,9 @@
       <br>
       <div class="">
         <textarea readonly class="txtToCopy" #htmlT>
-          <a href="http://localhost:50741/click.ashx?Banner={{banner.AffiliateBanner.ID}}&Aff={{affiliateID}}">
-            <img src="http://localhost:50741/bannerh.ashx?Banner={{banner.AffiliateBanner.ID}}&Aff={{affiliateID}}" 
-            width="{{banner.AffiliateBanner.AffiliateBannerSize?.Width}}" height="{{banner.AffiliateBanner.AffiliateBannerSize?.Height}}" />
+          <a href="http://localhost:50741/click.ashx?Banner={{banner.ID}}&Aff={{affiliateID}}">
+            <img src="http://localhost:50741/bannerh.ashx?Banner={{banner.ID}}&Aff={{affiliateID}}" 
+            width="{{banner.AffiliateBannerSize?.Width}}" height="{{banner.AffiliateBannerSize?.Height}}" />
           </a>
         </textarea>
         <button class="btn btn-copy" ngxClipboard [cbContent]=htmlT.value (cbOnSuccess)="isCopied=true" (click)=" b.close()"

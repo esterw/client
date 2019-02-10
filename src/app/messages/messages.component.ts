@@ -44,6 +44,7 @@ export class MessagesComponent implements OnInit {
   }
   
   modalRef: BsModalRef;
+
   openModal(template: TemplateRef<any>) {
     this.modalRef = this.modalService.show(template);
   }
