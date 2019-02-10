@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { AffiliateService } from '../shared/services/affiliate.service';
-import {  AffilateRequestWithdraw } from '../shared/affiliate-server/affiliate.model';
+import {  AffilateRequestWithdrawl } from '../shared/affiliate-server/affiliate.model';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { WithdrawalPopupComponent } from './withdrawal-popup/withdrawal-popup.component';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap';
@@ -15,7 +15,7 @@ export class WithdrawalsComponent implements OnInit {
 
   subscription: Subscription;
   constructor(private modalService: BsModalService,private  service:AffiliateService) { }
-  WithdrawlHistories:AffilateRequestWithdraw[];
+  WithdrawlHistories:AffilateRequestWithdrawl[];
   ngOnInit() {
     this.subscription = this.service.affiliateChanged.subscribe( affiliate => {
       this.WithdrawlHistories= affiliate.AffiliateRequestWithdrawls

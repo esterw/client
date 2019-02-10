@@ -26,7 +26,7 @@ export class Affiliate {
     AffiliatesBanners: AffiliatesBanners[];
     AffiliateAccount: AffiliateAccount;
     AffiliateMedias: AffiliateMedia[];
-    AffiliateRequestWithdrawls: AffilateRequestWithdraw[];
+    AffiliateRequestWithdrawls: AffilateRequestWithdrawl[];
     AffiliateRevenueReports: AffiliateRevenueReport[];
     AffiliateSummaryPerSites: AffiliateSummaryPerSite;
     AffiliateTickets: AffiliateTicket[];
@@ -195,7 +195,7 @@ export class SubAffiliates {
     URL: string;
 }
 
-export class AffilateRequestWithdraw {
+export class AffilateRequestWithdrawl {
     ID: number;
     RequestDate: Date;
     AffiliateID: number;

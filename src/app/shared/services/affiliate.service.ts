@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Affiliate, AffiliateAccount, AffiliateBanner, AffiliateMedia, AffiliatePixel, AffiliateWithdrawlHistory, AffiliateTicket, AffiliateSummaryPerSite, AffiliateCommission, AffiliateRevenueReport, SubAffiliates, AffilateRequestWithdraw, AffiliateTicketContent, AffiliateBankAccount } from '../affiliate-server/affiliate.model';
+import { Affiliate, AffiliateAccount, AffiliateBanner, AffiliateMedia, AffiliatePixel, AffiliateWithdrawlHistory, AffiliateTicket, AffiliateSummaryPerSite, AffiliateCommission, AffiliateRevenueReport, SubAffiliates, AffilateRequestWithdrawl, AffiliateTicketContent, AffiliateBankAccount } from '../affiliate-server/affiliate.model';
 import { Subject } from 'rxjs/Subject';
 import { environment } from '../../../environments/environment';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
@@ -104,13 +104,13 @@ export class AffiliateService {
     }
 
     requestWithdrawl(amountValue) {
-        let newRequest: AffilateRequestWithdraw = new AffilateRequestWithdraw();
+        let newRequest: AffilateRequestWithdrawl = new AffilateRequestWithdrawl();
         newRequest.RequestDate = moment(new Date()).toDate();
         newRequest.AffiliateID = this.affiliate.ID;
         newRequest.Amount = amountValue;
         newRequest.Status = "Pending";
         newRequest.RejectedDetails = "Pending";
-        newRequest.BalanceAfterPayout = 120;
+        // newRequest.BalanceAfterPayout = 120;
 
         let httpHeaders = new HttpHeaders({
             'Content-Type': 'application/json',
@@ -120,7 +120,7 @@ export class AffiliateService {
             headers: httpHeaders
         };
 
-        return this.http.post(environment.apiUrl + '/api/AffilateRequestWithdraws', newRequest)
+        return this.http.post(environment.apiUrl + '/api/AffilateRequestWithdrawls', newRequest, options)
             .map(
                 (response: Response) => {
                     // if (response) {
