@@ -6,6 +6,7 @@ import * as FileSaver from 'file-saver';
 import { TooltipModule } from "ng2-tooltip";
 import { HttpClient } from '@angular/common/http';
 import { BannersService } from 'src/app/shared/services/banners.service';
+import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-banners',
@@ -56,16 +57,17 @@ export class BannersComponent implements OnInit, AfterViewChecked {
 
   getBanner(bannerID, bannerName) {
     this.getFormBanner(bannerID).subscribe(myBlob => {
+      // הורדת הבאנר שהתקבל למחשב המשתמש
       FileSaver.saveAs(myBlob, bannerName + myBlob.type);
     });
   }
 
   getFormBanner(bannerID): Observable<any> {
-    let headers = new Headers();
-    headers.append('Content-Type', 'application/json');
-    return this.http.get('http://localhost:50741/bannerh.ashx?Banner=' + bannerID).map(
-        (res: Response) => {
-            return res.blob();
-        });
-}
+    // קריאה לשרת לקבל הבאנר הנבחר ע"י ה
+    // ID
+    return this.http.get('http://localhost:50741/bannerh.ashx?Banner=' + bannerID).
+      pipe(map((res: Response) => {
+        return res.blob();
+      }));
+  }
 }
